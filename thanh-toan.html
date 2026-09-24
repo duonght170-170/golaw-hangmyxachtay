@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cổng Thanh Toán Tự Động VietQR Sepay | CostcoHealth USA</title>
+  <meta name="description" content="Thanh toán đơn hàng tự động qua mã VietQR Sepay. Ngân hàng MB Bank, xác nhận tức thì trong 3 giây.">
+  <link rel="icon" type="image/x-icon" href="images/product1.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-navy: #0f2b48;
+      --costco-blue: #1e3a8a;
+      --costco-red: #dc2626;
+      --costco-red-dark: #b91c1c;
+      --accent-gold: #f59e0b;
+      --bg-light: #f8fafc;
+      --border-color: #e2e8f0;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: linear-gradient(180deg, #f0f7ff 0%, #f8fafc 100%);
+      color: var(--text-dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    .checkout-header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+      padding: 14px 20px;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+    }
+
+    .header-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .brand-logo span.flag {
+      font-size: 1.6rem;
+    }
+
+    .brand-name {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 1.25rem;
+      color: var(--primary-navy);
+    }
+
+    .brand-name span {
+      color: var(--costco-red);
+    }
+
+    .secure-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #ecfdf5;
+      color: #059669;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      border: 1px solid #a7f3d0;
+    }
+
+    /* Main Container */
+    .checkout-container {
+      max-width: 1020px;
+      margin: 32px auto;
+      padding: 0 16px;
+      flex: 1;
+      width: 100%;
+    }
+
+    .page-title {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .page-title h1 {
+      font-family: var(--font-heading);
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 6px;
+    }
+
+    .page-title p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Checkout Grid */
+    .checkout-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .card-box {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      border: 1px solid var(--border-color);
+    }
+
+    .card-box h3 {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Form Styles */
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 6px;
+    }
+
+    .form-label span.req {
+      color: var(--costco-red);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      font-family: var(--font-body);
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .form-control:focus {
+      border-color: #0284c7;
+      box-shadow: 0 0 0 3.5px rgba(2, 132, 199, 0.15);
+    }
+
+    .btn-create-order {
+      width: 100%;
+      background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+      color: #ffffff;
+      border: none;
+      padding: 14px;
+      border-radius: 12px;
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 8px 20px rgba(220, 38, 38, 0.35);
+      transition: all 0.2s;
+      margin-top: 10px;
+    }
+
+    .btn-create-order:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px rgba(220, 38, 38, 0.5);
+    }
+
+    /* QR Display Box */
+    .qr-placeholder-state {
+      text-align: center;
+      padding: 50px 20px;
+      color: var(--text-muted);
+    }
+
+    .qr-placeholder-icon {
+      font-size: 3.5rem;
+      margin-bottom: 12px;
+      opacity: 0.8;
+    }
+
+    .qr-active-box {
+      display: none;
+    }
+
+    .qr-code-frame {
+      background: #f8fafc;
+      border: 2px dashed #cbd5e1;
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .qr-code-img {
+      max-width: 250px;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      background: #ffffff;
+      padding: 6px;
+    }
+
+    .countdown-bar {
+      margin-top: 10px;
+      font-size: 0.85rem;
+      color: #475569;
+      font-weight: 600;
+    }
+
+    .countdown-timer {
+      color: var(--costco-red);
+      font-weight: 800;
+    }
+
+    /* Bank Detail Table */
+    .bank-info-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 18px;
+    }
+
+    .bank-info-table tr {
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .bank-info-table td {
+      padding: 10px 4px;
+      font-size: 0.88rem;
+    }
+
+    .bank-info-table td.label-col {
+      color: var(--text-muted);
+      width: 40%;
+    }
+
+    .bank-info-table td.val-col {
+      font-weight: 700;
+      color: var(--primary-navy);
+      text-align: right;
+    }
+
+    .val-highlight {
+      color: var(--costco-red) !important;
+      font-size: 1.05rem;
+      font-weight: 900 !important;
+    }
+
+    .copy-btn {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1e3a8a;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-left: 6px;
+      transition: all 0.15s;
+    }
+
+    .copy-btn:hover {
+      background: #dbeafe;
+    }
+
+    /* Status & Manual Trigger */
+    .payment-status-radar {
+      background: #fffbeb;
+      border: 1.5px solid #fef3c7;
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.86rem;
+      color: #92400e;
+      margin-bottom: 14px;
+    }
+
+    .pulse-dot {
+      width: 10px;
+      height: 10px;
+      background: #f59e0b;
+      border-radius: 50%;
+      animation: pulseAnim 1.5s infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulseAnim {
+      0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+      70% { transform: scale(1.1); box-shadow: 0 0 0 8px rgba(245, 158, 11, 0); }
+      100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+    }
+
+    .btn-manual-confirm {
+      width: 100%;
+      background: #059669;
+      color: #ffffff;
+      border: none;
+      padding: 12px;
+      border-radius: 10px;
+      font-family: var(--font-heading);
+      font-size: 0.92rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn-manual-confirm:hover {
+      background: #047857;
+    }
+
+    /* Success Screen */
+    .success-screen {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+      background: #ffffff;
+      border-radius: 20px;
+      border: 2px solid #34d399;
+      box-shadow: 0 20px 50px rgba(16, 185, 129, 0.15);
+      animation: fadeIn 0.4s ease;
+    }
+
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      background: #ecfdf5;
+      color: #10b981;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      margin: 0 auto 16px auto;
+    }
+
+    .success-screen h2 {
+      font-family: var(--font-heading);
+      font-size: 1.65rem;
+      font-weight: 900;
+      color: #065f46;
+      margin-bottom: 8px;
+    }
+
+    .success-screen p {
+      color: #475569;
+      font-size: 0.95rem;
+      max-width: 480px;
+      margin: 0 auto 20px auto;
+      line-height: 1.6;
+    }
+
+    .success-order-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 16px;
+      max-width: 420px;
+      margin: 0 auto 24px auto;
+      text-align: left;
+    }
+
+    .btn-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--costco-blue);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 768px) {
+      .checkout-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="checkout-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand-logo">
+        <div style="width: 38px; height: 38px; border-radius: 10px; background: linear-gradient(135deg, #0f2b48 0%, #1e3a8a 100%); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(15, 43, 72, 0.15);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            <path d="m9 12 2 2 4-4" stroke="#38bdf8" stroke-width="2.5" />
+          </svg>
+        </div>
+        <div class="brand-name">CostcoHealth<span>USA</span></div>
+      </a>
+      <div class="secure-badge">
+        <span>🔒</span>
+        <span>Cổng Thanh Toán Sepay MBBank</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Checkout Content -->
+  <main class="checkout-container">
+    <div class="page-title">
+      <h1>Thanh Toán Tự Động Qua VietQR</h1>
+      <p>Quét mã QR bằng bất kỳ ứng dụng ngân hàng nào • Hệ thống tự động xác nhận trong 3 giây</p>
+    </div>
+
+    <!-- Success Screen (Initially Hidden) -->
+    <div class="success-screen" id="successScreen">
+      <div class="success-icon">✓</div>
+      <h2>Thanh Toán Thành Công!</h2>
+      <p>Cảm ơn bạn đã tin tưởng <strong>CostcoHealth USA</strong>. Hệ thống đã nhận được tiền và tự động duyệt đơn hàng của bạn!</p>
+      
+      <div class="success-order-box" id="successOrderDetails">
+        <!-- Details populated by JS -->
+      </div>
+
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a href="cam-nang-costco.html" target="_blank" class="btn-home" style="background: #059669;">📖 Đọc Ebook Cẩm Nang & Nhận Voucher 100k</a>
+        <a href="index.html" class="btn-home">Trang Chủ CostcoHealth</a>
+        <a href="admin.html" class="btn-home" style="background: #0f2b48;">Xem Đơn Hàng Tại /admin</a>
+      </div>
+    </div>
+
+    <!-- Active Checkout Grid -->
+    <div class="checkout-grid" id="checkoutGrid">
+      
+      <!-- Cột 1: Thông tin khách hàng & Chọn sản phẩm -->
+      <div class="card-box">
+        <h3><span>📝</span> Thông Tin Đặt Hàng</h3>
+        
+        <form id="paymentOrderForm" onsubmit="handleCreatePaymentOrder(event)">
+          <div class="form-group">
+            <label class="form-label" for="custName">Họ và tên người nhận <span class="req">*</span></label>
+            <input type="text" id="custName" class="form-control" required placeholder="Ví dụ: Hoàng Thùy Dương">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="custPhone">Số điện thoại / Zalo <span class="req">*</span></label>
+            <input type="tel" id="custPhone" class="form-control" required placeholder="Ví dụ: 0946680292" pattern="[0-9]{10,11}">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="custEmail">Email nhận xác nhận đơn hàng <span class="req">*</span></label>
+            <input type="email" id="custEmail" class="form-control" required placeholder="Ví dụ: masiehoang17@gmail.com">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="selectedProduct">Sản phẩm thanh toán <span class="req">*</span></label>
+            <select id="selectedProduct" class="form-control" onchange="handleProductChange(this)">
+              <option value="p1" data-price="495000" selected>Kirkland Glucosamine 1500mg (375v) - 495.000đ (Đã áp voucher)</option>
+              <option value="p2" data-price="520000">Kirkland Wild Alaskan Fish Oil (230v) - 520.000đ (Đã áp voucher)</option>
+              <option value="p3" data-price="520000">Youtheory Collagen Advanced (390v) - 520.000đ (Đã áp voucher)</option>
+              <option value="p4" data-price="620000">Schiff Move Free Ultra (75v) - 620.000đ (Đã áp voucher)</option>
+              <option value="p5" data-price="280000">Natrol Biotin 10,000 mcg (60v) - 280.000đ (Đã áp voucher)</option>
+              <option value="p6" data-price="440000">Trunature Ginkgo Biloba 120mg (300v) - 440.000đ (Đã áp voucher)</option>
+              <option value="ebook" data-price="0">📖 [SẢN PHẨM SỐ] Ebook Cẩm Nang Phân Biệt TPCN Thật - Giả & Đọc Bill Costco - 0đ</option>
+              <option value="test_2k" data-price="2000">🧪 [TEST HỆ THỐNG] Chuyển thử 2.000đ nhận tiền thật (SOP Bước 6)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="orderAmount">Số tiền thanh toán (VNĐ)</label>
+            <input type="text" id="orderAmount" class="form-control" readonly value="495.000đ" style="background: #f8fafc; font-weight: 800; color: var(--costco-red); font-size: 1.1rem;">
+          </div>
+
+          <button type="submit" class="btn-create-order" id="btnSubmitOrder">
+            <span>⚡ TẠO MÃ THANH TOÁN QR SEPAY</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Cột 2: Hiển thị VietQR Sepay & Trạng thái -->
+      <div class="card-box">
+        <h3><span>💳</span> Mã Thanh Toán VietQR Sepay</h3>
+
+        <!-- Placeholder khi chưa bấm tạo mã -->
+        <div class="qr-placeholder-state" id="qrPlaceholder">
+          <div class="qr-placeholder-icon">📱</div>
+          <p>Điền thông tin bên trái và bấm <strong>"TẠO MÃ THANH TOÁN"</strong> để hệ thống tạo mã VietQR tự động nhé!</p>
+        </div>
+
+        <!-- Box hiển thị mã QR thật -->
+        <div class="qr-active-box" id="qrActiveBox">
+          <div class="payment-status-radar">
+            <span class="pulse-dot"></span>
+            <span id="radarStatusText">Đang lắng nghe thanh toán từ MB Bank...</span>
+          </div>
+
+          <div class="qr-code-frame">
+            <img id="sepayQrImage" class="qr-code-img" src="" alt="Mã VietQR Sepay MBBank">
+            <div class="countdown-bar">Mã thanh toán tự động hết hạn sau: <span class="countdown-timer" id="countdownTimer">10:00</span></div>
+          </div>
+
+          <table class="bank-info-table">
+            <tr>
+              <td class="label-col">Ngân hàng:</td>
+              <td class="val-col">MB Bank (Quân Đội)</td>
+            </tr>
+            <tr>
+              <td class="label-col">Số tài khoản:</td>
+              <td class="val-col">
+                <span id="bankAccText">0946680292</span>
+                <button type="button" class="copy-btn" onclick="copyText('0946680292')">Copy</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="label-col">Chủ tài khoản:</td>
+              <td class="val-col">HOANG THUY DUONG</td>
+            </tr>
+            <tr>
+              <td class="label-col">Số tiền:</td>
+              <td class="val-col val-highlight">
+                <span id="dispAmountText">2,000</span> VNĐ
+                <button type="button" class="copy-btn" onclick="copyText(currentOrderAmount)">Copy</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="label-col">Nội dung chuyển khoản:</td>
+              <td class="val-col val-highlight">
+                <span id="dispOrderCode">DH1234</span>
+                <button type="button" class="copy-btn" onclick="copyText(currentOrderCode)">Copy</button>
+              </td>
+            </tr>
+          </table>
+
+          <div style="margin-top: 16px;">
+            <div style="background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 14px; padding: 14px; text-align: center; margin-bottom: 12px;">
+              <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 6px;">
+                <span style="display: inline-block; font-size: 1.1rem;">🛡️</span>
+                <strong style="color: #166534; font-size: 0.92rem;">Bảo Mật & Xác Nhận Tiền Thật Qua MB Bank</strong>
+              </div>
+              <p style="font-size: 0.82rem; color: #15803d; margin: 0; line-height: 1.5;">
+                Sau khi chuyển khoản thành công trên App ngân hàng, hệ thống sẽ đối soát biến động số dư từ MB Bank và tự động chuyển màn hình hóa đơn thành công trong vòng 5–15 giây.
+              </p>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <button type="button" id="btnManualCheck" onclick="manualCheckPayment()" style="background: #0f2b48; color: #ffffff; border: none; font-size: 0.88rem; font-weight: 700; padding: 11px 16px; border-radius: 10px; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s;">
+                <span id="manualCheckIcon">🔄</span>
+                <span id="manualCheckText">Kiểm tra kết quả chuyển khoản ngay</span>
+              </button>
+
+              <a href="https://zalo.me/0336822318" target="_blank" style="background: #f8fafc; color: #0284c7; border: 1.5px solid #bae6fd; font-size: 0.82rem; font-weight: 600; padding: 9px 14px; border-radius: 10px; text-decoration: none; text-align: center; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                <span>💬</span> Đã chuyển khoản cần hỗ trợ gấp? Bấm chat Zalo (0336.822.318)
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    const SEPAY_CONFIG = {
+      bankCode: 'MBBank',
+      accountNumber: '0946680292',
+      accountHolder: 'HOANG THUY DUONG'
+    };
+
+    let currentOrderCode = '';
+    let currentOrderAmount = 495000;
+    let pollTimer = null;
+    let countdownInterval = null;
+
+    function formatVND(amount) {
+      return new Intl.NumberFormat('vi-VN').format(amount) + 'đ';
+    }
+
+    function handleProductChange(selectEl) {
+      const selectedOption = selectEl.options[selectEl.selectedIndex];
+      const price = parseInt(selectedOption.getAttribute('data-price')) || 495000;
+      currentOrderAmount = price;
+      document.getElementById('orderAmount').value = formatVND(price);
+    }
+
+    function generateOrderCode() {
+      // Mã đơn hàng ngắn gọn dễ nhập memo trong app ngân hàng (ví dụ: DH + 4 số ngẫu nhiên)
+      return 'DH' + Math.floor(1000 + Math.random() * 9000);
+    }
+
+    function deductProductStock(productVal, productName) {
+      try {
+        let defaultProds = [
+          { id: 1, name: "Kirkland Glucosamine 1500mg with MSM (375v)", type: "physical", price: 495000, stock: 50 },
+          { id: 2, name: "Kirkland Wild Alaskan Fish Oil (230v)", type: "physical", price: 520000, stock: 45 },
+          { id: 3, name: "Youtheory Collagen Advanced Formula (390v)", type: "physical", price: 520000, stock: 35 },
+          { id: 4, name: "Schiff Move Free Ultra Triple Action (75v)", type: "physical", price: 620000, stock: 30 },
+          { id: 5, name: "Natrol Biotin 10,000 mcg Maximum Strength (60v)", type: "physical", price: 280000, stock: 40 },
+          { id: 6, name: "Trunature Ginkgo Biloba 120mg (300v)", type: "physical", price: 440000, stock: 40 },
+          { id: 7, name: "Ebook Cẩm Nang Phân Biệt TPCN Mỹ Thật - Giả & Đọc Bill Costco", type: "digital", price: 0, stock: null },
+          { id: 8, name: "Dịch Vụ Mua Hộ Hàng Siêu Thị Costco Mỹ Theo Yêu Cầu", type: "service", price: 50000, stock: null }
+        ];
+
+        let prods = [];
+        const saved = localStorage.getItem('costco_products');
+        if (saved) {
+          prods = JSON.parse(saved);
+        } else {
+          prods = defaultProds;
+        }
+
+        let pIndex = -1;
+        if (productVal && productVal.startsWith('p')) {
+          const pId = parseInt(productVal.replace('p', ''));
+          pIndex = prods.findIndex(p => p.id === pId);
+        }
+        if (pIndex === -1) {
+          // Tìm theo tên sản phẩm
+          pIndex = prods.findIndex(p => productName.toLowerCase().includes(p.name.toLowerCase().substring(0, 15)));
+        }
+
+        if (pIndex !== -1 && prods[pIndex].type === 'physical') {
+          const currentStock = parseInt(prods[pIndex].stock);
+          prods[pIndex].stock = Math.max(0, (isNaN(currentStock) ? 50 : currentStock) - 1);
+          localStorage.setItem('costco_products', JSON.stringify(prods));
+          return true; // đã trừ kho thành công
+        }
+      } catch (err) {
+        console.error('Lỗi trừ kho:', err);
+      }
+      return false;
+    }
+
+    function handleCreatePaymentOrder(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('custName').value.trim();
+      const phone = document.getElementById('custPhone').value.trim();
+      const email = document.getElementById('custEmail').value.trim();
+      const productSelect = document.getElementById('selectedProduct');
+      const productVal = productSelect.value;
+      const productName = productSelect.options[productSelect.selectedIndex].text;
+
+      if (!name || !phone || !email) {
+        alert('Vui lòng điền đủ Họ tên, Số điện thoại và Email để hệ thống gửi xác nhận đơn hàng tự động!');
+        return;
+      }
+
+      // Validate Email
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailRegex.test(email)) {
+        alert('Địa chỉ email không hợp lệ! Vui lòng kiểm tra lại định dạng email (ví dụ: tenban@gmail.com).');
+        document.getElementById('custEmail').focus();
+        return;
+      }
+
+      // Validate Số điện thoại
+      const cleanPhone = phone.replace(/[\s.-]/g, '');
+      const phoneRegex = /^(0|\+84)(3|5|7|8|9)[0-9]{8}$/;
+      if (!phoneRegex.test(cleanPhone)) {
+        alert('Số điện thoại không hợp lệ! Vui lòng nhập đúng số điện thoại di động Việt Nam (10 chữ số, ví dụ: 0912345678).');
+        document.getElementById('custPhone').focus();
+        return;
+      }
+
+      // Xác định loại sản phẩm
+      let productType = 'physical';
+      if (productVal === 'ebook') productType = 'digital';
+      else if (productVal === 'test_2k') productType = 'service';
+
+      // Nếu là sản phẩm vật lý (physical) -> tự động trừ tồn kho!
+      let stockDeducted = false;
+      if (productType === 'physical') {
+        stockDeducted = deductProductStock(productVal, productName);
+      }
+
+      currentOrderCode = generateOrderCode();
+
+      // 1. Lưu đơn hàng vào CRM (localStorage & danh sách orders để /admin hiển thị)
+      saveOrderToCRM({
+        id: currentOrderCode,
+        order_id: currentOrderCode,
+        customer_name: name,
+        customer_phone: phone,
+        customer_email: email,
+        product_name: productName,
+        product_type: productType,
+        amount: currentOrderAmount,
+        status: 'pending',
+        stock_deducted: stockDeducted,
+        created_at: new Date().toLocaleString('vi-VN')
+      });
+
+      // 2. Tạo link mã QR VietQR Sepay
+      // Cú pháp chuẩn Sepay: https://qr.sepay.vn/img?acc={STK}&bank={BANK}&amount={AMOUNT}&des={ORDER_CODE}&template=compact
+      const qrUrl = `https://qr.sepay.vn/img?acc=${SEPAY_CONFIG.accountNumber}&bank=${SEPAY_CONFIG.bankCode}&amount=${currentOrderAmount}&des=${currentOrderCode}&template=compact`;
+
+      // 3. Hiển thị thông tin lên giao diện
+      document.getElementById('sepayQrImage').src = qrUrl;
+      document.getElementById('dispAmountText').textContent = new Intl.NumberFormat('vi-VN').format(currentOrderAmount);
+      document.getElementById('dispOrderCode').textContent = currentOrderCode;
+
+      document.getElementById('qrPlaceholder').style.display = 'none';
+      document.getElementById('qrActiveBox').style.display = 'block';
+
+      // 4. Bắt đầu đếm ngược 10 phút
+      startCountdown(600);
+
+      // 5. Bắt đầu lắng nghe trạng thái thanh toán (Auto-polling)
+      startListeningPayment();
+
+      // 6. Gửi email xác nhận tiếp nhận đơn hàng tự động qua Resend
+      if (email) {
+        sendCheckoutEmailNotification(currentOrderCode, name, email, phone, productName, productType, currentOrderAmount);
+      }
+    }
+
+    function sendCheckoutEmailNotification(orderId, name, email, phone, prodName, prodType, amount) {
+      const emailHtml = `
+        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #1e293b; line-height: 1.6; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; background: #ffffff;">
+          <div style="background: #0f2b48; padding: 24px 30px; text-align: center;">
+            <h1 style="color: #ffffff; margin: 0; font-size: 22px; font-weight: 800; letter-spacing: 0.5px;">CostcoHealth<span style="color: #dc2626;">USA</span></h1>
+            <p style="color: #94a3b8; margin: 4px 0 0 0; font-size: 13px;">Xác Nhận Đơn Hàng Chuẩn Costco Mỹ 100% Bay Air</p>
+          </div>
+          <div style="padding: 30px;">
+            <div style="text-align: center; margin-bottom: 22px;">
+              <span style="display: inline-block; background: #dcfce7; color: #15803d; font-weight: 700; font-size: 13px; padding: 6px 16px; border-radius: 9999px; text-transform: uppercase;">
+                ✓ Đã tiếp nhận đơn hàng #${orderId}
+              </span>
+            </div>
+            <p style="font-size: 16px; margin-top: 0;">Chào <strong>${name}</strong>,</p>
+            <p>Dương và đội ngũ CostcoHealth USA chân thành cảm ơn bạn đã gửi gắm niềm tin khi lựa chọn thực phẩm chức năng bảo vệ sức khỏe cho gia đình tại cửa hàng!</p>
+            
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 18px 20px; margin: 20px 0;">
+              <h3 style="margin-top: 0; font-size: 15px; color: #0f2b48; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px;">📋 CHI TIẾT ĐƠN HÀNG #${orderId}</h3>
+              <table style="width: 100%; font-size: 14px; border-collapse: collapse;">
+                <tr>
+                  <td style="padding: 6px 0; color: #64748b;">Mã đơn:</td>
+                  <td style="padding: 6px 0; font-weight: 700; text-align: right; color: #dc2626;">#${orderId}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 6px 0; color: #64748b;">Sản phẩm:</td>
+                  <td style="padding: 6px 0; font-weight: 700; text-align: right; color: #0f172a;">${prodName}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 6px 0; color: #64748b;">Tổng tiền:</td>
+                  <td style="padding: 6px 0; font-weight: 800; font-size: 16px; text-align: right; color: #059669;">${new Intl.NumberFormat('vi-VN').format(amount)}đ</td>
+                </tr>
+                <tr>
+                  <td style="padding: 6px 0; color: #64748b;">Phương thức:</td>
+                  <td style="padding: 6px 0; font-weight: 700; text-align: right; color: #2563eb;">VietQR Sepay (MB Bank)</td>
+                </tr>
+              </table>
+            </div>
+
+            <div style="background: #eff6ff; border-left: 4px solid #3b82f6; border-radius: 8px; padding: 16px 20px; margin: 24px 0;">
+              <div style="font-weight: 700; color: #1e40af; margin-bottom: 6px;">📦 HƯỚNG DẪN NHẬN HÀNG & ĐỒNG KIỂM AN TÂM:</div>
+              <ul style="margin: 0; padding-left: 18px; font-size: 13.5px; color: #1e3a8a; line-height: 1.6;">
+                <li>Kiện hàng được đóng gói bọc xốp chống sốc, giữ nguyên seal nắp hộp và date mới tinh.</li>
+                <li><strong>Kèm hóa đơn giấy in nhiệt Costco Mỹ gốc:</strong> Để trong hộp hàng. Bạn chỉ cần miết mạnh móng tay vào mặt sau tờ bill sẽ thấy vệt nhiệt đặc trưng.</li>
+                <li><strong>Chính sách đồng kiểm:</strong> Bạn được mở kiện hàng kiểm tra bill gốc và date trước khi thanh toán. Phát hiện sai lệch đền 200% tiền mặt ngay tại chỗ.</li>
+              </ul>
+            </div>
+
+            <p>Đơn hàng đang được hệ thống xử lý tự động. Khi hoàn tất giao dịch, nhân viên sẽ đóng gói và bàn giao cho bưu tá giao hỏa tốc đến tận tay bạn trong 1–2 ngày tới.</p>
+            <p>Nếu bạn cần hỗ trợ thêm thông tin hoặc đổi địa chỉ nhận hàng, đừng ngần ngại gọi hoặc nhắn tin Zalo cho Dương theo số <strong>0336.822.318</strong> nhée!</p>
+            
+            <p style="margin-top: 28px; margin-bottom: 0;">Thân mến,<br><strong>Dương — CostcoHealth USA</strong><br><span style="color: #64748b; font-size: 13px;">Hotline / Zalo hỗ trợ: 0336.822.318</span></p>
+          </div>
+          <div style="background: #f8fafc; padding: 16px 30px; border-top: 1px solid #e2e8f0; text-align: center; font-size: 12px; color: #94a3b8;">
+            CostcoHealth USA • 100% Bay Air Giữ Lạnh • Website: <a href="https://hangmyxachtay.info.vn" style="color: #0284c7; text-decoration: none;">hangmyxachtay.info.vn</a>
+          </div>
+        </div>
+      `;
+
+      fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          to: email,
+          subject: `🎉 Xác nhận đơn hàng #${orderId} từ CostcoHealth USA 🇺🇸`,
+          html: emailHtml
+        })
+      }).catch(err => console.error('Lỗi gửi email thanh toán:', err));
+    }
+
+    function saveOrderToCRM(order) {
+      let orders = [];
+      try {
+        const saved = localStorage.getItem('costco_orders');
+        if (saved) orders = JSON.parse(saved);
+      } catch (err) {
+        orders = [];
+      }
+
+      // Thêm đơn hàng mới vào đầu danh sách local
+      orders.unshift(order);
+      localStorage.setItem('costco_orders', JSON.stringify(orders));
+
+      // BẮN ĐƠN HÀNG LÊN CLOUD DATABASE (GOOGLE SHEETS / APPS SCRIPT WEB APP)
+      try {
+        const DEFAULT_CLOUD_URL = 'https://script.google.com/macros/s/AKfycbxhYoywMBUvKXV7kM4l0h9pf_7TC-lIul1_6bt1aiC5mp7y6cdnEu3KcDLJpLDk5KvSCQ/exec';
+        const cloudUrl = localStorage.getItem('costco_cloud_url') || DEFAULT_CLOUD_URL;
+        if (cloudUrl) {
+          fetch(cloudUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(order)
+          }).catch(e => console.log('Lỗi gửi Cloud:', e));
+        }
+      } catch (err) {
+        console.error('Cloud post error:', err);
+      }
+    }
+
+    function updateOrderStatusInCRM(orderCode, newStatus) {
+      try {
+        let orders = JSON.parse(localStorage.getItem('costco_orders') || '[]');
+        orders.forEach(o => {
+          if (o.order_id === orderCode) {
+            o.status = newStatus;
+            o.paid_at = new Date().toLocaleString('vi-VN');
+          }
+        });
+        localStorage.setItem('costco_orders', JSON.stringify(orders));
+      } catch (err) {}
+    }
+
+    function startCountdown(seconds) {
+      if (countdownInterval) clearInterval(countdownInterval);
+      let remaining = seconds;
+      const timerEl = document.getElementById('countdownTimer');
+
+      countdownInterval = setInterval(() => {
+        remaining--;
+        if (remaining <= 0) {
+          clearInterval(countdownInterval);
+          timerEl.textContent = '00:00 (Hết hạn)';
+          return;
+        }
+        const m = Math.floor(remaining / 60).toString().padStart(2, '0');
+        const s = (remaining % 60).toString().padStart(2, '0');
+        timerEl.textContent = `${m}:${s}`;
+      }, 1000);
+    }
+
+    function playPaymentSuccessSound() {
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContext) return;
+        const ctx = new AudioContext();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(587.33, ctx.currentTime); // D5
+        osc.frequency.setValueAtTime(880, ctx.currentTime + 0.12); // A5
+        gain.gain.setValueAtTime(0.2, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.6);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.6);
+      } catch (e) {}
+    }
+
+    function startListeningPayment() {
+      if (pollTimer) clearInterval(pollTimer);
+
+      const radarText = document.getElementById('radarStatusText');
+      if (radarText) {
+        radarText.innerHTML = 'Đang chờ biến động số dư từ MB Bank... (Chỉ xác nhận khi tài khoản nhận được tiền)';
+      }
+
+      // Kiểm tra trạng thái thanh toán THỰC TẾ mỗi 3 giây
+      pollTimer = setInterval(async () => {
+        if (!currentOrderCode) return;
+
+        // 1. Kiểm tra qua Serverless API (SePay webhook đã ghi nhận hoặc Cloud DB)
+        try {
+          const res = await fetch(`/api/check-payment?orderCode=${encodeURIComponent(currentOrderCode)}`);
+          if (res.ok) {
+            const data = await res.json();
+            if (data && data.paid === true) {
+              handlePaymentReceived(data.amount);
+              return;
+            }
+          }
+        } catch (e) {}
+
+        // 2. Dự phòng: Kiểm tra trực tiếp Google Sheets Cloud Database
+        try {
+          const DEFAULT_CLOUD_URL = 'https://script.google.com/macros/s/AKfycbxhYoywMBUvKXV7kM4l0h9pf_7TC-lIul1_6bt1aiC5mp7y6cdnEu3KcDLJpLDk5KvSCQ/exec';
+          const cloudUrl = localStorage.getItem('costco_cloud_url') || DEFAULT_CLOUD_URL;
+          const cloudRes = await fetch(`${cloudUrl}?orderCode=${encodeURIComponent(currentOrderCode)}`);
+          if (cloudRes.ok) {
+            const cloudData = await cloudRes.json();
+            if (cloudData && (cloudData.paid === true || (cloudData.orders && cloudData.orders.some(o => (o.id === currentOrderCode || o.order_id === currentOrderCode) && o.status === 'success')))) {
+              handlePaymentReceived(cloudData.amount || currentOrderAmount);
+              return;
+            }
+          }
+        } catch (e) {}
+
+        // 3. Kiểm tra trong CRM LocalStorage (khi chủ shop kích hoạt thủ công trên trang /admin cùng máy)
+        try {
+          const orders = JSON.parse(localStorage.getItem('costco_orders') || '[]');
+          const current = orders.find(o => (o.id === currentOrderCode || o.order_id === currentOrderCode));
+          if (current && current.status === 'success') {
+            showSuccessPayment(current);
+            return;
+          }
+        } catch (err) {}
+      }, 3000);
+    }
+
+    function handlePaymentReceived(paidAmount) {
+      if (pollTimer) clearInterval(pollTimer);
+      const radarText = document.getElementById('radarStatusText');
+      if (radarText) {
+        radarText.innerHTML = '<span style="color: #16a34a; font-weight: 800;">⚡ ĐÃ NHẬN TIỀN TỪ MB BANK! Đang chuyển hướng...</span>';
+      }
+      setTimeout(() => {
+        updateOrderStatusInCRM(currentOrderCode, 'success');
+        const orders = JSON.parse(localStorage.getItem('costco_orders') || '[]');
+        const current = orders.find(o => (o.id === currentOrderCode || o.order_id === currentOrderCode)) || {
+          order_id: currentOrderCode,
+          customer_name: document.getElementById('custName').value || 'Khách hàng',
+          amount: paidAmount || currentOrderAmount,
+          product_name: document.getElementById('selectedProduct').selectedOptions[0].text
+        };
+        showSuccessPayment(current);
+      }, 800);
+    }
+
+    // Nút kiểm tra trạng thái thực tế dành cho khách hàng (không bao giờ tự ý chuyển success nếu chưa có tiền)
+    async function manualCheckPayment() {
+      if (!currentOrderCode) {
+        alert('Vui lòng điền thông tin và bấm "TẠO MÃ THANH TOÁN" trước nhé!');
+        return;
+      }
+
+      const btn = document.getElementById('btnManualCheck');
+      const icon = document.getElementById('manualCheckIcon');
+      const text = document.getElementById('manualCheckText');
+
+      if (btn) btn.disabled = true;
+      if (icon) icon.textContent = '⏳';
+      if (text) text.textContent = 'Đang đối soát biến động số dư MB Bank...';
+
+      let isPaid = false;
+      let matchedAmount = currentOrderAmount;
+
+      try {
+        // Kiểm tra API
+        const res = await fetch(`/api/check-payment?orderCode=${encodeURIComponent(currentOrderCode)}`);
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.paid === true) {
+            isPaid = true;
+            matchedAmount = data.amount || matchedAmount;
+          }
+        }
+      } catch (e) {}
+
+      if (!isPaid) {
+        // Kiểm tra Google Sheets
+        try {
+          const DEFAULT_CLOUD_URL = 'https://script.google.com/macros/s/AKfycbxhYoywMBUvKXV7kM4l0h9pf_7TC-lIul1_6bt1aiC5mp7y6cdnEu3KcDLJpLDk5KvSCQ/exec';
+          const cloudUrl = localStorage.getItem('costco_cloud_url') || DEFAULT_CLOUD_URL;
+          const cloudRes = await fetch(`${cloudUrl}?orderCode=${encodeURIComponent(currentOrderCode)}`);
+          if (cloudRes.ok) {
+            const cloudData = await cloudRes.json();
+            if (cloudData && (cloudData.paid === true || (cloudData.orders && cloudData.orders.some(o => (o.id === currentOrderCode || o.order_id === currentOrderCode) && o.status === 'success')))) {
+              isPaid = true;
+            }
+          }
+        } catch (e) {}
+      }
+
+      if (!isPaid) {
+        // Kiểm tra localStorage /admin
+        try {
+          const orders = JSON.parse(localStorage.getItem('costco_orders') || '[]');
+          const current = orders.find(o => (o.id === currentOrderCode || o.order_id === currentOrderCode));
+          if (current && current.status === 'success') {
+            isPaid = true;
+          }
+        } catch (e) {}
+      }
+
+      if (btn) btn.disabled = false;
+      if (icon) icon.textContent = '🔄';
+      if (text) text.textContent = 'Kiểm tra kết quả chuyển khoản ngay';
+
+      if (isPaid) {
+        handlePaymentReceived(matchedAmount);
+      } else {
+        alert(`Hệ thống chưa ghi nhận biến động số dư cho mã đơn [${currentOrderCode}].\n\n📌 Lưu ý:\n- Nếu bạn vừa bấm chuyển khoản trên App ngân hàng, vui lòng đợi 10–30 giây để hệ thống tự động nhận diện.\n- Nếu đã bị trừ tiền mà chưa thấy cập nhật, bạn hãy bấm vào nút "Chat Zalo (0336.822.318)" bên dưới để Dương hỗ trợ kiểm tra sao kê ngay nhé!`);
+      }
+    }
+
+    function showSuccessPayment(order) {
+      if (pollTimer) clearInterval(pollTimer);
+      if (countdownInterval) clearInterval(countdownInterval);
+
+      playPaymentSuccessSound();
+
+      document.getElementById('checkoutGrid').style.display = 'none';
+      const successScreen = document.getElementById('successScreen');
+      const detailsBox = document.getElementById('successOrderDetails');
+
+      detailsBox.innerHTML = `
+        <div style="font-size: 0.9rem; line-height: 1.8;">
+          <div>📦 <strong>Mã đơn hàng:</strong> <span style="color: #dc2626; font-weight: 800;">${order.order_id}</span></div>
+          <div>👤 <strong>Khách hàng:</strong> ${order.customer_name}</div>
+          <div>💊 <strong>Sản phẩm:</strong> ${order.product_name}</div>
+          <div>💰 <strong>Số tiền đã nhận:</strong> <span style="color: #059669; font-weight: 900;">${new Intl.NumberFormat('vi-VN').format(order.amount)}đ</span></div>
+          <div>🏦 <strong>Ngân hàng thụ hưởng:</strong> MB Bank (0946680292 - HOANG THUY DUONG)</div>
+          <div>⚡ <strong>Trạng thái:</strong> <span style="background: #ecfdf5; color: #059669; font-weight: 800; padding: 2px 8px; border-radius: 9999px;">SUCCESS (ĐÃ THANH TOÁN TỰ ĐỘNG)</span></div>
+        </div>
+      `;
+
+      successScreen.style.display = 'block';
+    }
+
+    function copyText(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Đã copy: ' + text);
+      }).catch(() => {
+        alert('Nội dung: ' + text);
+      });
+    }
+
+    // Khởi tạo trang thanh toán và nạp dữ liệu từ giỏ hàng hoặc CRM
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Kiểm tra dữ liệu truyền sang từ Giỏ Hàng (URL Parameters hoặc localStorage)
+      const urlParams = new URLSearchParams(window.location.search);
+      let checkoutData = null;
+      try {
+        const saved = localStorage.getItem('costco_checkout_data');
+        if (saved) checkoutData = JSON.parse(saved);
+      } catch (e) {}
+
+      const paramAmount = urlParams.get('amount');
+      const paramName = urlParams.get('name');
+      const paramPhone = urlParams.get('phone');
+      const paramProduct = urlParams.get('product');
+
+      const amount = paramAmount ? parseInt(paramAmount) : (checkoutData ? checkoutData.amount : null);
+      const name = paramName || (checkoutData ? checkoutData.name : '');
+      const phone = paramPhone || (checkoutData ? checkoutData.phone : '');
+      const product = paramProduct || (checkoutData ? checkoutData.product : '');
+
+      if (name) document.getElementById('custName').value = decodeURIComponent(name);
+      if (phone) document.getElementById('custPhone').value = decodeURIComponent(phone);
+
+      const selectEl = document.getElementById('selectedProduct');
+
+      if (amount && amount > 0) {
+        // ĐI TỪ GIỎ HÀNG SANG (ví dụ: 1.140.000đ sau khi áp mã giảm giá)
+        const prodTitle = product ? decodeURIComponent(product) : 'Đơn hàng từ giỏ hàng (Đã áp voucher)';
+        
+        // Tạo option giỏ hàng ở vị trí đầu tiên
+        const cartOption = document.createElement('option');
+        cartOption.value = 'cart_checkout';
+        cartOption.setAttribute('data-price', amount);
+        cartOption.textContent = `🛒 ${prodTitle} — ${formatVND(amount)} (Đã áp voucher)`;
+        cartOption.selected = true;
+
+        selectEl.insertBefore(cartOption, selectEl.firstChild);
+        currentOrderAmount = amount;
+        document.getElementById('orderAmount').value = formatVND(amount);
+      } else {
+        // TRUY CẬP TRỰC TIẾP: Mặc định chọn Kirkland Glucosamine (495k) thay vì 2k để hiển thị chuyên nghiệp
+        const defaultOption = selectEl.querySelector('option[value="p1"]');
+        if (defaultOption) {
+          defaultOption.selected = true;
+          currentOrderAmount = 495000;
+          document.getElementById('orderAmount').value = formatVND(495000);
+        }
+      }
+
+      // Tự động điền email từ CRM hoặc form liên hệ nếu có
+      try {
+        const custs = JSON.parse(localStorage.getItem('costco_customers') || '[]');
+        if (custs && custs.length > 0) {
+          const latest = custs[0];
+          const emailInput = document.getElementById('custEmail');
+          if (emailInput && !emailInput.value && latest.email) emailInput.value = latest.email;
+          if (!document.getElementById('custName').value && latest.name) document.getElementById('custName').value = latest.name;
+          if (!document.getElementById('custPhone').value && latest.phone) document.getElementById('custPhone').value = latest.phone;
+        }
+      } catch (err) {}
+    });
+  </script>
+</body>
+
+</html>

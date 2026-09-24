@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bảng Quản Trị CRM & Đơn Hàng | CostcoHealth USA</title>
+  <meta name="description" content="Trang quản trị bán hàng, CRM khách hàng và theo dõi đơn hàng tự động VietQR Sepay cho CostcoHealth USA.">
+  <link rel="icon" type="image/x-icon" href="images/product1.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-navy: #0f2b48;
+      --costco-blue: #1e3a8a;
+      --costco-blue-light: #3b82f6;
+      --costco-red: #dc2626;
+      --costco-red-dark: #b91c1c;
+      --accent-gold: #f59e0b;
+      --bg-light: #f8fafc;
+      --border-color: #e2e8f0;
+      --card-bg: #ffffff;
+      --text-dark: #0f172a;
+      --text-muted: #64748b;
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: #f1f5f9;
+      color: var(--text-dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Navbar */
+    .admin-navbar {
+      background: #0f2b48;
+      color: #ffffff;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(15, 43, 72, 0.15);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .admin-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #ffffff;
+    }
+
+    .admin-brand .flag {
+      font-size: 1.6rem;
+    }
+
+    .admin-brand h1 {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .admin-brand h1 span {
+      color: #ef4444;
+    }
+
+    .admin-brand .badge-admin {
+      background: rgba(255, 255, 255, 0.15);
+      color: #38bdf8;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      margin-left: 6px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #e2e8f0;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+    }
+
+    /* Main Container */
+    .admin-container {
+      max-width: 1200px;
+      width: 100%;
+      margin: 24px auto;
+      padding: 0 16px;
+      flex: 1;
+    }
+
+    /* Stats Overview Cards */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .stat-card {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 14px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .stat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+
+    .stat-icon.revenue { background: #ecfdf5; color: #059669; }
+    .stat-icon.orders { background: #eff6ff; color: #2563eb; }
+    .stat-icon.customers { background: #fdf4ff; color: #9333ea; }
+    .stat-icon.inventory { background: #fffbeb; color: #d97706; }
+
+    .stat-info h3 {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .stat-info .stat-value {
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-top: 2px;
+    }
+
+    /* Tabs Navigation */
+    .tabs-wrapper {
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+      overflow: hidden;
+    }
+
+    .tabs-nav {
+      display: flex;
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border-color);
+      padding: 6px 12px 0;
+      gap: 8px;
+    }
+
+    .tab-btn {
+      padding: 12px 20px;
+      font-family: var(--font-heading);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      background: transparent;
+      border: none;
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      color: var(--costco-blue);
+    }
+
+    .tab-btn.active {
+      color: var(--costco-blue);
+      border-bottom-color: var(--costco-blue);
+      background: #ffffff;
+      border-radius: 8px 8px 0 0;
+    }
+
+    .tab-badge {
+      font-size: 0.75rem;
+      padding: 2px 7px;
+      border-radius: 9999px;
+      background: #e2e8f0;
+      color: #334155;
+    }
+
+    .tab-btn.active .tab-badge {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    /* Tab Content Section */
+    .tab-pane {
+      display: none;
+      padding: 24px;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-action-main {
+      background: #2563eb;
+      color: #ffffff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-family: var(--font-heading);
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s ease;
+    }
+
+    .btn-action-main:hover {
+      background: #1d4ed8;
+    }
+
+    /* Tables */
+    .table-responsive {
+      overflow-x: auto;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.88rem;
+    }
+
+    table.data-table th {
+      background: #f8fafc;
+      color: #475569;
+      font-weight: 700;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-color);
+      white-space: nowrap;
+    }
+
+    table.data-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-dark);
+      vertical-align: middle;
+    }
+
+    table.data-table tbody tr:hover {
+      background: #f8fafc;
+    }
+
+    table.data-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .badge-physical { background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+    .badge-digital { background: #fdf4ff; color: #a21caf; border: 1px solid #f5d0fe; }
+    .badge-service { background: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
+
+    .badge-pending { background: #fff7ed; color: #c2410c; border: 1px solid #ffedd5; }
+    .badge-success { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
+
+    /* Action Buttons */
+    .btn-tbl {
+      border: none;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .btn-activate {
+      background: #10b981;
+      color: #ffffff;
+    }
+
+    .btn-activate:hover {
+      background: #059669;
+    }
+
+    .btn-edit {
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+    }
+
+    .btn-edit:hover {
+      background: #e2e8f0;
+    }
+
+    .btn-delete {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .btn-delete:hover {
+      background: #fecaca;
+    }
+
+    /* Modals */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-card {
+      background: #ffffff;
+      border-radius: 16px;
+      max-width: 520px;
+      width: 100%;
+      padding: 24px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--border-color);
+      animation: modalIn 0.2s ease;
+    }
+
+    @keyframes modalIn {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .modal-header h3 {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 6px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .btn-secondary {
+      background: #f1f5f9;
+      color: #475569;
+      border: 1px solid #cbd5e1;
+      padding: 9px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      color: #ffffff;
+      border: none;
+      padding: 9px 18px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* Reset / Restore bar */
+    .reset-bar {
+      margin-top: 20px;
+      padding: 12px 16px;
+      background: #ffffff;
+      border-radius: 10px;
+      border: 1px dashed var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .btn-reset {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: #475569;
+    }
+
+    .btn-reset:hover {
+      background: #fee2e2;
+      color: #b91c1c;
+      border-color: #fca5a5;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top Navbar -->
+  <nav class="admin-navbar">
+    <a href="index.html" class="admin-brand">
+      <span class="flag">🇺🇸</span>
+      <h1>CostcoHealth <span>CRM</span> <span class="badge-admin">Admin 2.0</span></h1>
+    </a>
+
+    <div class="nav-links">
+      <a href="index.html" target="_blank">🌐 Xem Website</a>
+      <a href="thanh-toan.html" target="_blank">💳 Cổng VietQR</a>
+    </div>
+  </nav>
+
+  <!-- Admin Main Content -->
+  <main class="admin-container">
+
+    <!-- Cloud Sync Config Bar (Giải pháp kết nối Google Sheets & Supabase) -->
+    <div style="background: #ffffff; border: 1px solid #bfdbfe; border-radius: 12px; padding: 14px 18px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(37, 99, 235, 0.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <span style="font-size: 1.6rem;">☁️</span>
+        <div>
+          <div style="font-weight: 800; font-size: 0.92rem; color: #1e3a8a; display: flex; align-items: center; gap: 8px;">
+            <span>Cloud Database Sync (Google Sheets / Supabase)</span>
+            <span id="cloudStatusBadge" style="font-size: 0.72rem; padding: 2px 8px; border-radius: 9999px; background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0;">Đồng bộ đa thiết bị & Ẩn danh</span>
+          </div>
+          <div style="font-size: 0.78rem; color: #64748b; margin-top: 2px;">
+            Giúp đơn hàng tự động hiển thị tức thì giữa Trình duyệt thường, Trình duyệt ẩn danh và Thiết bị Reviewer.
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; gap: 8px; align-items: center; flex: 1; max-width: 580px; justify-content: flex-end;">
+        <input type="url" id="cloudSyncUrlInput" placeholder="Dán link Google Apps Script Web App (google_apps_script.js)..." style="flex: 1; min-width: 250px; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.82rem;">
+        <button type="button" class="btn-action-main" onclick="saveCloudSyncUrl()" style="padding: 8px 14px; font-size: 0.8rem; background: #2563eb; white-space: nowrap;">
+          💾 Lưu Link
+        </button>
+        <button type="button" class="btn-tbl btn-edit" onclick="fetchOrdersFromCloud(true)" style="padding: 8px 12px; font-size: 0.8rem; background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; white-space: nowrap;">
+          🔄 Đồng Bộ
+        </button>
+      </div>
+    </div>
+
+    <!-- Overview Stats -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon revenue">💰</div>
+        <div class="stat-info">
+          <h3>Tổng Doanh Thu (Đã Thu)</h3>
+          <div class="stat-value" id="statRevenue">0đ</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon orders">📦</div>
+        <div class="stat-info">
+          <h3>Tổng Số Đơn Hàng</h3>
+          <div class="stat-value" id="statOrdersCount">0</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon customers">👥</div>
+        <div class="stat-info">
+          <h3>Khách Hàng (CRM)</h3>
+          <div class="stat-value" id="statCustomersCount">0</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon inventory">💊</div>
+        <div class="stat-info">
+          <h3>Tồn Kho Vật Lý (Air)</h3>
+          <div class="stat-value" id="statStockCount">0</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabs Wrapper -->
+    <div class="tabs-wrapper">
+      
+      <!-- Tab Navigation -->
+      <div class="tabs-nav">
+        <button class="tab-btn active" onclick="switchTab('tabProducts', this)">
+          <span>💊</span> Sản Phẩm
+          <span class="tab-badge" id="badgeCountProducts">0</span>
+        </button>
+
+        <button class="tab-btn" onclick="switchTab('tabCustomers', this)">
+          <span>👥</span> Khách Hàng (Waitlist)
+          <span class="tab-badge" id="badgeCountCustomers">0</span>
+        </button>
+
+        <button class="tab-btn" onclick="switchTab('tabOrders', this)">
+          <span>📦</span> Đơn Hàng & VietQR
+          <span class="tab-badge" id="badgeCountOrders">0</span>
+        </button>
+      </div>
+
+      <!-- TAB 1: SẢN PHẨM -->
+      <div class="tab-pane active" id="tabProducts">
+        <div class="section-header">
+          <div class="section-title">
+            <span>💊</span> Quản Lý Kho Sản Phẩm (Physical / Digital / Service)
+          </div>
+          <button class="btn-action-main" onclick="openAddProductModal()">
+            <span>+</span> Thêm Sản Phẩm Mới
+          </button>
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th style="width: 50px;">ID</th>
+                <th>Tên sản phẩm</th>
+                <th>Phân loại</th>
+                <th>Giá niêm yết</th>
+                <th>Tồn kho (Stock)</th>
+                <th>Mô tả</th>
+                <th style="width: 130px;">Thao tác</th>
+              </tr>
+            </thead>
+            <tbody id="productsTableBody">
+              <!-- Rendered by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TAB 2: KHÁCH HÀNG -->
+      <div class="tab-pane" id="tabCustomers">
+        <div class="section-header">
+          <div class="section-title">
+            <span>👥</span> Danh Sách Khách Hàng CRM (Import từ Waitlist)
+          </div>
+          <button class="btn-action-main" onclick="openAddCustomerModal()">
+            <span>+</span> Thêm Khách Hàng Mới
+          </button>
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th style="width: 50px;">ID</th>
+                <th>Họ và tên</th>
+                <th>Email</th>
+                <th>Số điện thoại</th>
+                <th>Zalo</th>
+                <th>Sản phẩm quan tâm</th>
+                <th>Thời gian đăng ký</th>
+                <th style="width: 100px;">Thao tác</th>
+              </tr>
+            </thead>
+            <tbody id="customersTableBody">
+              <!-- Rendered by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TAB 3: ĐƠN HÀNG -->
+      <div class="tab-pane" id="tabOrders">
+        <div class="section-header">
+          <div class="section-title">
+            <span>📦</span> Theo Dõi Đơn Hàng & Thanh Toán VietQR Sepay
+          </div>
+          <button class="btn-action-main" onclick="openAddOrderModal()">
+            <span>+</span> Thêm Đơn Hàng Mới
+          </button>
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Mã Đơn</th>
+                <th>Khách Hàng</th>
+                <th>Điện Thoại</th>
+                <th>Sản Phẩm</th>
+                <th>Loại</th>
+                <th>Số Tiền</th>
+                <th>Thời Gian</th>
+                <th>Trạng Thái</th>
+                <th style="width: 190px;">Thao Tác</th>
+              </tr>
+            </thead>
+            <tbody id="ordersTableBody">
+              <!-- Rendered by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Reset Data Utility -->
+    <div class="reset-bar">
+      <span>💾 Dữ liệu CRM được tự động lưu trữ và đồng bộ liên tục vào Bộ Não Thứ 2 (Local CRM & `brain.db`).</span>
+      <button class="btn-reset" onclick="resetToInitialData()">🔄 Khôi phục dữ liệu gốc từ brain.db</button>
+    </div>
+
+  </main>
+
+  <!-- MODAL: THÊM / SỬA SẢN PHẨM -->
+  <div class="modal-overlay" id="productModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="productModalTitle">Thêm Sản Phẩm Mới</h3>
+        <button class="modal-close" onclick="closeModal('productModal')">&times;</button>
+      </div>
+      <form id="productForm" onsubmit="saveProductForm(event)">
+        <input type="hidden" id="prodEditId" value="">
+        <div class="form-group">
+          <label>Tên sản phẩm *</label>
+          <input type="text" id="prodName" class="form-control" required placeholder="Ví dụ: Kirkland Glucosamine 1500mg">
+        </div>
+        <div class="form-group">
+          <label>Phân loại *</label>
+          <select id="prodType" class="form-control" onchange="toggleStockInput(this.value)">
+            <option value="physical">physical (Hàng vật lý - có trừ kho)</option>
+            <option value="digital">digital (File số/Ebook - không giới hạn)</option>
+            <option value="service">service (Dịch vụ mua hộ - không giới hạn)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Giá bán (VNĐ) *</label>
+          <input type="number" id="prodPrice" class="form-control" required min="0" step="1000" placeholder="520000">
+        </div>
+        <div class="form-group" id="stockFormGroup">
+          <label>Số lượng tồn kho (Hộp) *</label>
+          <input type="number" id="prodStock" class="form-control" min="0" value="50" placeholder="50">
+        </div>
+        <div class="form-group">
+          <label>Mô tả ngắn</label>
+          <textarea id="prodDesc" class="form-control" rows="2" placeholder="Hàng chuẩn Costco Mỹ, bay Air..."></textarea>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" onclick="closeModal('productModal')">Hủy</button>
+          <button type="submit" class="btn-primary">Lưu Sản Phẩm</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: THÊM KHÁCH HÀNG -->
+  <div class="modal-overlay" id="customerModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Thêm Khách Hàng Mới</h3>
+        <button class="modal-close" onclick="closeModal('customerModal')">&times;</button>
+      </div>
+      <form id="customerForm" onsubmit="saveCustomerForm(event)">
+        <div class="form-group">
+          <label>Họ và tên *</label>
+          <input type="text" id="custName" class="form-control" required placeholder="Ví dụ: Lê Thị Hoa">
+        </div>
+        <div class="form-group">
+          <label>Email khách hàng *</label>
+          <input type="email" id="custEmail" class="form-control" required placeholder="khachhang@gmail.com">
+        </div>
+        <div class="form-group">
+          <label>Số điện thoại *</label>
+          <input type="tel" id="custPhone" class="form-control" required placeholder="0912345678">
+        </div>
+        <div class="form-group">
+          <label>Zalo (Nếu khác SĐT)</label>
+          <input type="text" id="custZalo" class="form-control" placeholder="0912345678">
+        </div>
+        <div class="form-group">
+          <label>Sản phẩm quan tâm</label>
+          <input type="text" id="custProduct" class="form-control" placeholder="Kirkland Glucosamine...">
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" onclick="closeModal('customerModal')">Hủy</button>
+          <button type="submit" class="btn-primary">Lưu Khách Hàng</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: THÊM ĐƠN HÀNG MỚI (CÓ LOGIC TRỪ KHO PHYSICAL) -->
+  <div class="modal-overlay" id="orderModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Tạo Đơn Hàng Mới</h3>
+        <button class="modal-close" onclick="closeModal('orderModal')">&times;</button>
+      </div>
+      <form id="orderForm" onsubmit="saveOrderForm(event)">
+        <div class="form-group">
+          <label>Khách hàng *</label>
+          <div style="display: flex; gap: 8px;">
+            <select id="orderCustomerSelect" class="form-control" onchange="fillCustomerInfo(this.value)">
+              <option value="">-- Chọn khách từ danh sách CRM --</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Họ tên người nhận *</label>
+          <input type="text" id="orderCustName" class="form-control" required placeholder="Họ và tên">
+        </div>
+        <div class="form-group">
+          <label>Email khách hàng (gửi xác nhận đơn tự động) *</label>
+          <input type="email" id="orderCustEmail" class="form-control" required placeholder="khachhang@gmail.com">
+        </div>
+        <div class="form-group">
+          <label>Số điện thoại *</label>
+          <input type="tel" id="orderCustPhone" class="form-control" required placeholder="0912345678">
+        </div>
+        <div class="form-group">
+          <label>Sản phẩm đặt mua *</label>
+          <select id="orderProductSelect" class="form-control" required onchange="handleOrderProductChange(this.value)">
+            <!-- Populated by JS -->
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Số tiền thanh toán (VNĐ) *</label>
+          <input type="number" id="orderAmount" class="form-control" required min="0">
+        </div>
+        <div class="form-group">
+          <label>Trạng thái ban đầu *</label>
+          <select id="orderStatus" class="form-control">
+            <option value="pending">pending (Chờ thanh toán QR)</option>
+            <option value="success">success (Đã thanh toán thành công)</option>
+          </select>
+        </div>
+
+        <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 10px; font-size: 0.8rem; color: #1e40af; margin-bottom: 14px;">
+          💡 <strong>Quy tắc kho tự động:</strong><br>
+          • Nếu là sản phẩm <strong>physical</strong>: Hệ thống sẽ tự động trừ 1 vào tồn kho khi bấm Lưu.<br>
+          • Nếu là <strong>digital</strong> hoặc <strong>service</strong>: Tồn kho giữ nguyên.
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" onclick="closeModal('orderModal')">Hủy</button>
+          <button type="submit" class="btn-primary">Tạo Đơn & Cập Nhật Kho</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Dữ liệu ban đầu (đồng bộ chính xác từ brain.db và crm_data.json)
+    const INITIAL_CRM_DATA = {
+      products: [
+        { id: 1, name: "Kirkland Glucosamine 1500mg with MSM (375v)", type: "physical", price: 495000, description: "Hỗ trợ tái tạo sụn khớp, giảm đau nhức thoái hóa khớp cho người lớn tuổi. Chuẩn Costco Mỹ.", stock: 16 },
+        { id: 2, name: "Kirkland Wild Alaskan Fish Oil (230v)", type: "physical", price: 520000, description: "Dầu cá hồi hoang dã Alaska giàu Omega-3, EPA & DHA tốt cho tim mạch và sáng mắt.", stock: 12 },
+        { id: 3, name: "Youtheory Collagen Advanced Formula (390v)", type: "physical", price: 520000, description: "Collagen type 1, 2, 3 kết hợp Vitamin C & 18 axit amin chống lão hóa da và tóc móng.", stock: 12 },
+        { id: 4, name: "Schiff Move Free Ultra Triple Action (75v)", type: "physical", price: 620000, description: "Viên uống bổ khớp cao cấp chứa Type II Collagen, Hyaluronic Acid và Boron.", stock: 18 },
+        { id: 5, name: "Natrol Biotin 10,000 mcg Maximum Strength (60v)", type: "physical", price: 280000, description: "Viên ngậm tan nhanh vị dâu hỗ trợ mọc tóc, giảm rụng tóc và nuôi dưỡng móng chắc khỏe.", stock: 20 },
+        { id: 6, name: "Trunature Ginkgo Biloba 120mg (300v)", type: "physical", price: 440000, description: "Tăng cường tuần hoàn máu não, giảm đau đầu, hoa mắt, chóng mặt và chứng hay quên.", stock: 22 },
+        { id: 7, name: "Ebook Cẩm Nang Phân Biệt TPCN Mỹ Thật - Giả & Đọc Bill Costco", type: "digital", price: 0, description: "Cẩm nang số độc quyền hướng dẫn check barcode, nhận diện tem date và tra cứu hóa đơn Costco.", stock: null },
+        { id: 8, name: "Dịch Vụ Mua Hộ Hàng Siêu Thị Costco Mỹ Theo Yêu Cầu", type: "service", price: 50000, description: "Hỗ trợ đi siêu thị Costco Cali nhặt hàng trực tiếp, livestream quầy và gửi bill gốc theo tên khách.", stock: null }
+      ],
+      customers: [
+        { id: 1, name: "Hoàng Nga", email: "hoangnga.hn@gmail.com", phone: "0912345678", zalo: "0912345678", product: "Kirkland Glucosamine 1500mg with MSM (375v)", registered_at: "2026-09-15 08:30:00" },
+        { id: 2, name: "Trần Hùng", email: "tranhung.sg@gmail.com", phone: "0987654321", zalo: "0987654321", product: "Kirkland Wild Alaskan Fish Oil (230v)", registered_at: "2026-09-15 11:45:00" },
+        { id: 3, name: "Mai Lan", email: "mailan.dn@gmail.com", phone: "0905123456", zalo: "0905123456", product: "Youtheory Collagen Advanced (390v)", registered_at: "2026-09-16 14:20:00" },
+        { id: 4, name: "Quốc Tuấn", email: "quoctuan.hp@gmail.com", phone: "0934567890", zalo: "0934567890", product: "Schiff Move Free Ultra (75v)", registered_at: "2026-09-16 19:10:00" },
+        { id: 5, name: "Nguyễn Văn An", email: "nguyenvanan.ct@gmail.com", phone: "0945678901", zalo: "0945678901", product: "Trunature Ginkgo Biloba 120mg (300v)", registered_at: "2026-09-17 09:15:00" },
+        { id: 6, name: "TEST KP3", email: "reviewer.testkp3@gmail.com", phone: "0946680292", zalo: "0946680292", product: "Kirkland Glucosamine (Đơn Reviewer)", registered_at: "2026-09-18 17:30:00" }
+      ],
+      orders: [
+        { id: "DH8685", order_id: "DH8685", customer_name: "TEST KP3", customer_phone: "0946680292", product_name: "Kirkland Glucosamine 1500mg with MSM (375v)", product_type: "physical", amount: 2000, status: "pending", stock_deducted: false, created_at: "2026-09-18 17:30:00" },
+        { id: "DH1001", order_id: "DH1001", customer_name: "Hoàng Nga", customer_phone: "0912345678", product_name: "Kirkland Glucosamine 1500mg with MSM (375v)", product_type: "physical", amount: 495000, status: "pending", stock_deducted: true, created_at: "2026-09-18 09:00:00" },
+        { id: "DH1002", order_id: "DH1002", customer_name: "Trần Hùng", customer_phone: "0987654321", product_name: "Kirkland Wild Alaskan Fish Oil (230v)", product_type: "physical", amount: 520000, status: "success", stock_deducted: true, created_at: "2026-09-18 10:15:00" },
+        { id: "DH1003", order_id: "DH1003", customer_name: "Nguyễn Văn An", customer_phone: "0945678901", product_name: "Ebook Cẩm Nang Phân Biệt TPCN Mỹ Thật - Giả & Đọc Bill Costco", product_type: "digital", amount: 0, status: "success", stock_deducted: true, created_at: "2026-09-18 11:30:00" }
+      ]
+    };
+
+    // Khởi tạo state từ LocalStorage
+    let products = [];
+    let customers = [];
+    let orders = [];
+
+    function findProductByOrder(prodName) {
+      const name = (prodName || '').toLowerCase();
+      if (name.includes('biotin')) return products.find(p => p.id === 5);
+      if (name.includes('glucosamine')) return products.find(p => p.id === 1);
+      if (name.includes('fish oil') || name.includes('dầu cá') || name.includes('alaskan')) return products.find(p => p.id === 2);
+      if (name.includes('collagen')) return products.find(p => p.id === 3);
+      if (name.includes('move free')) return products.find(p => p.id === 4);
+      if (name.includes('ginkgo')) return products.find(p => p.id === 6);
+      return products.find(p => p.type === 'physical' && (name.includes(p.name.toLowerCase().substring(0, 8)) || p.name.toLowerCase().includes(name.substring(0, 8))));
+    }
+
+    function reconcileStockWithOrders() {
+      // Tự động rà soát tất cả đơn hàng: Nếu là đơn hàng vật lý mà chưa trừ kho -> tự động trừ vào kho sản phẩm tương ứng!
+      let hasChanges = false;
+      orders.forEach(o => {
+        const prodNameLower = (o.product_name || '').toLowerCase();
+        const targetProd = findProductByOrder(prodNameLower);
+
+        if (targetProd && targetProd.type === 'physical') {
+          o.product_type = 'physical';
+          if (o.stock_deducted !== true) {
+            // Xác định số lượng đặt mua:
+            let qty = 1;
+            const qtyMatch = prodNameLower.match(/x\s*(\d+)|(\d+)\s*(hộp|chai|lọ|sp)/);
+            if (qtyMatch) {
+              qty = parseInt(qtyMatch[1] || qtyMatch[2]) || 1;
+            } else if (targetProd.price > 0 && o.amount >= targetProd.price * 1.8) {
+              // Nếu số tiền bằng 2 lần đơn giá
+              qty = Math.round(o.amount / targetProd.price);
+            }
+
+            if (targetProd.stock !== null) {
+              targetProd.stock = Math.max(0, parseInt(targetProd.stock) - qty);
+            }
+            o.stock_deducted = true;
+            hasChanges = true;
+          }
+        }
+      });
+      if (hasChanges) {
+        saveAll();
+      }
+    }
+
+    const DEFAULT_CLOUD_URL = 'https://script.google.com/macros/s/AKfycbxhYoywMBUvKXV7kM4l0h9pf_7TC-lIul1_6bt1aiC5mp7y6cdnEu3KcDLJpLDk5KvSCQ/exec';
+
+    function getCloudUrl() {
+      return localStorage.getItem('costco_cloud_url') || DEFAULT_CLOUD_URL;
+    }
+
+    function saveCloudSyncUrl() {
+      const input = document.getElementById('cloudSyncUrlInput');
+      const url = input ? input.value.trim() : '';
+      if (!url) {
+        alert('Vui lòng nhập URL Google Apps Script Web App hoặc Supabase!');
+        return;
+      }
+      localStorage.setItem('costco_cloud_url', url);
+      alert('Đã lưu URL Cloud Database! Đang đồng bộ đơn hàng từ Cloud...');
+      fetchOrdersFromCloud(true);
+    }
+
+    async function fetchOrdersFromCloud(showAlert = false) {
+      const cloudUrl = getCloudUrl();
+      const badge = document.getElementById('cloudStatusBadge');
+      if (!cloudUrl) {
+        if (showAlert) alert('Chưa cấu hình Cloud URL! Vui lòng làm theo hướng dẫn trong file google_apps_script.js để lấy link.');
+        return;
+      }
+
+      if (badge) badge.textContent = '⏳ Đang đồng bộ từ Cloud...';
+
+      try {
+        const res = await fetch(cloudUrl);
+        const data = await res.json();
+        const cloudOrders = data.orders || (Array.isArray(data) ? data : []);
+
+        if (Array.isArray(cloudOrders) && cloudOrders.length > 0) {
+          let addedCount = 0;
+          cloudOrders.forEach(co => {
+            const coId = (co.id || co.order_id || '').toString();
+            if (!coId) return;
+
+            const existingIndex = orders.findIndex(o => (o.id === coId || o.order_id === coId));
+            if (existingIndex === -1) {
+              orders.unshift({
+                id: coId,
+                order_id: coId,
+                customer_name: co.customer_name || 'Khách Hàng',
+                customer_phone: co.customer_phone || '',
+                product_name: co.product_name || 'Sản phẩm Costco',
+                product_type: co.product_type || 'physical',
+                amount: parseInt(co.amount) || 0,
+                status: co.status || 'pending',
+                stock_deducted: false,
+                created_at: co.created_at || new Date().toLocaleString('vi-VN')
+              });
+              addedCount++;
+            } else {
+              // Cập nhật trạng thái nếu cloud có thay đổi
+              if (co.status && orders[existingIndex].status !== co.status) {
+                orders[existingIndex].status = co.status;
+              }
+            }
+          });
+
+          reconcileStockWithOrders();
+          saveAll();
+          renderAll();
+
+          if (badge) badge.textContent = `🟢 Đã kết nối Cloud (${cloudOrders.length} đơn)`;
+          if (showAlert) alert(`Đồng bộ Cloud thành công!\nTổng cộng ${cloudOrders.length} đơn trên Cloud (${addedCount} đơn mới vừa được tải về).`);
+        } else {
+          if (badge) badge.textContent = '🟢 Cloud đã kết nối';
+          if (showAlert) alert('Cloud đã kết nối thành công (Chưa có đơn mới).');
+        }
+      } catch (err) {
+        console.error('Lỗi fetch Cloud:', err);
+        if (badge) badge.textContent = '⚠️ Lỗi kết nối Cloud';
+        if (showAlert) alert('Không thể kết nối với link Cloud. Bạn hãy kiểm tra lại xem khi Triển khai Apps Script đã chọn "Bất kỳ ai (Anyone)" chưa nhée!');
+      }
+    }
+
+    function initCRM() {
+      try {
+        const storedProds = localStorage.getItem('costco_products');
+        const storedCusts = localStorage.getItem('costco_customers');
+        const storedOrders = localStorage.getItem('costco_orders');
+
+        products = storedProds ? JSON.parse(storedProds) : INITIAL_CRM_DATA.products;
+        if (storedCusts) {
+          const parsed = JSON.parse(storedCusts);
+          customers = parsed.map(c => {
+            if (!c.email) {
+              const defaultMatch = INITIAL_CRM_DATA.customers.find(dc => dc.id === c.id || dc.phone === c.phone);
+              if (defaultMatch && defaultMatch.email) c.email = defaultMatch.email;
+            }
+            return c;
+          });
+        } else {
+          customers = [...INITIAL_CRM_DATA.customers];
+        }
+        orders = storedOrders ? JSON.parse(storedOrders) : INITIAL_CRM_DATA.orders;
+
+        reconcileStockWithOrders();
+        saveAll();
+      } catch (err) {
+        products = [...INITIAL_CRM_DATA.products];
+        customers = [...INITIAL_CRM_DATA.customers];
+        orders = [...INITIAL_CRM_DATA.orders];
+      }
+
+      // Điền sẵn link Cloud nếu đã lưu
+      const cloudInput = document.getElementById('cloudSyncUrlInput');
+      if (cloudInput && getCloudUrl()) {
+        cloudInput.value = getCloudUrl();
+      }
+
+      renderAll();
+
+      // Tự động kiểm tra và đồng bộ từ Cloud nếu có link
+      if (getCloudUrl()) {
+        fetchOrdersFromCloud(false);
+      }
+    }
+
+    function saveAll() {
+      localStorage.setItem('costco_products', JSON.stringify(products));
+      localStorage.setItem('costco_customers', JSON.stringify(customers));
+      localStorage.setItem('costco_orders', JSON.stringify(orders));
+    }
+
+    function resetToInitialData() {
+      if (confirm('Bạn có chắc muốn khôi phục lại dữ liệu gốc từ brain.db?')) {
+        products = JSON.parse(JSON.stringify(INITIAL_CRM_DATA.products));
+        customers = JSON.parse(JSON.stringify(INITIAL_CRM_DATA.customers));
+        orders = JSON.parse(JSON.stringify(INITIAL_CRM_DATA.orders));
+        saveAll();
+        renderAll();
+        alert('Đã khôi phục dữ liệu ban đầu thành công!');
+      }
+    }
+
+    function formatVND(amt) {
+      return new Intl.NumberFormat('vi-VN').format(amt) + 'đ';
+    }
+
+    function renderAll() {
+      renderStats();
+      renderProductsTable();
+      renderCustomersTable();
+      renderOrdersTable();
+    }
+
+    /* 1. Render Thống Kê Tổng Quan */
+    function renderStats() {
+      const successRevenue = orders
+        .filter(o => o.status === 'success')
+        .reduce((sum, o) => sum + (parseInt(o.amount) || 0), 0);
+      document.getElementById('statRevenue').textContent = formatVND(successRevenue);
+
+      document.getElementById('statOrdersCount').textContent = orders.length;
+      document.getElementById('statCustomersCount').textContent = customers.length;
+
+      const totalPhysicalStock = products
+        .filter(p => p.type === 'physical')
+        .reduce((sum, p) => sum + (parseInt(p.stock) || 0), 0);
+      document.getElementById('statStockCount').textContent = totalPhysicalStock + ' hộp';
+
+      document.getElementById('badgeCountProducts').textContent = products.length;
+      document.getElementById('badgeCountCustomers').textContent = customers.length;
+      document.getElementById('badgeCountOrders').textContent = orders.length;
+    }
+
+    /* 2. Render Tab Sản Phẩm */
+    function renderProductsTable() {
+      const tbody = document.getElementById('productsTableBody');
+      tbody.innerHTML = '';
+
+      products.forEach(p => {
+        const tr = document.createElement('tr');
+        
+        let stockHtml = '';
+        if (p.type === 'physical') {
+          const isLow = p.stock <= 10;
+          stockHtml = `<strong style="color: ${isLow ? '#dc2626' : '#059669'}">${p.stock} hộp</strong>`;
+        } else {
+          stockHtml = `<span style="color: #64748b; font-style: italic;">Không giới hạn</span>`;
+        }
+
+        tr.innerHTML = `
+          <td><strong>#${p.id}</strong></td>
+          <td><strong>${p.name}</strong></td>
+          <td><span class="badge badge-${p.type}">${p.type}</span></td>
+          <td><strong style="color: #0f172a;">${formatVND(p.price)}</strong></td>
+          <td>${stockHtml}</td>
+          <td style="max-width: 250px; font-size: 0.8rem; color: #64748b;">${p.description || '-'}</td>
+          <td>
+            <div style="display: flex; gap: 6px;">
+              <button class="btn-tbl btn-edit" onclick="editProduct(${p.id})">Sửa</button>
+              <button class="btn-tbl btn-delete" onclick="deleteProduct(${p.id})">Xóa</button>
+            </div>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    /* 3. Render Tab Khách Hàng */
+    function renderCustomersTable() {
+      const tbody = document.getElementById('customersTableBody');
+      tbody.innerHTML = '';
+
+      customers.forEach(c => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><strong>#${c.id}</strong></td>
+          <td><strong>${c.name}</strong></td>
+          <td>${c.email ? `<a href="mailto:${c.email}" style="color: #0284c7; text-decoration: none; font-weight: 500;">${c.email}</a>` : '<span style="color:#94a3b8; font-style:italic;">Chưa có</span>'}</td>
+          <td><a href="tel:${c.phone}" style="color: #2563eb; text-decoration: none; font-weight: 600;">${c.phone}</a></td>
+          <td>${c.zalo ? `<a href="https://zalo.me/${c.zalo}" target="_blank" style="color: #0284c7; text-decoration: none;">${c.zalo}</a>` : '-'}</td>
+          <td style="font-size: 0.82rem;">${c.product || 'Tư vấn chung'}</td>
+          <td style="font-size: 0.78rem; color: #64748b;">${c.registered_at || '-'}</td>
+          <td>
+            <button class="btn-tbl btn-delete" onclick="deleteCustomer(${c.id})">Xóa</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    /* 4. Render Tab Đơn Hàng */
+    function renderOrdersTable() {
+      const tbody = document.getElementById('ordersTableBody');
+      tbody.innerHTML = '';
+
+      orders.forEach(o => {
+        const tr = document.createElement('tr');
+        const isSuccess = o.status === 'success';
+
+        tr.innerHTML = `
+          <td><strong style="color: #dc2626;">${o.id || o.order_id}</strong></td>
+          <td>
+            <strong>${o.customer_name}</strong>
+            ${o.customer_email ? `<br><a href="mailto:${o.customer_email}" style="font-size: 0.76rem; color: #0284c7; text-decoration: none;">${o.customer_email}</a>` : ''}
+          </td>
+          <td>${o.customer_phone || '-'}</td>
+          <td>${o.product_name}</td>
+          <td><span class="badge badge-${o.product_type || 'physical'}">${o.product_type || 'physical'}</span></td>
+          <td><strong style="color: #059669;">${formatVND(o.amount)}</strong></td>
+          <td style="font-size: 0.78rem; color: #64748b;">${o.created_at || '-'}</td>
+          <td>
+            ${isSuccess ? `
+              <span class="badge" style="background: #ecfdf5; color: #047857; border: 1px solid #10b981; font-weight: 800; font-size: 0.78rem; padding: 4px 8px; border-radius: 6px; display: inline-block;">
+                ✓ ĐÃ NHẬN TIỀN
+              </span>
+              <div style="font-size: 0.7rem; color: #059669; margin-top: 2px; font-weight: 600;">Sẵn sàng gửi hàng</div>
+            ` : `
+              <span class="badge" style="background: #fffbeb; color: #b45309; border: 1px solid #f59e0b; font-weight: 800; font-size: 0.78rem; padding: 4px 8px; border-radius: 6px; display: inline-block;">
+                ⏳ CHỜ NHẬN TIỀN
+              </span>
+              <div style="font-size: 0.7rem; color: #dc2626; margin-top: 2px; font-weight: 700;">CHƯA GỬI HÀNG</div>
+            `}
+          </td>
+          <td>
+            <div style="display: flex; gap: 6px; align-items: center; flex-wrap: wrap;">
+              ${o.customer_email ? `
+                <button class="btn-tbl" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd;" onclick="triggerSendOrderEmail('${o.id || o.order_id}')" title="Gửi email xác nhận đơn cho khách qua Resend">
+                  ✉️ Gửi mail
+                </button>
+              ` : ''}
+              ${!isSuccess ? `
+                <button class="btn-tbl btn-activate" onclick="activateOrderSuccess('${o.id || o.order_id}')" title="Chỉ bấm khi bạn đã kiểm tra App MB Bank và thấy tiền thật đã vào tài khoản">
+                  ⚡ Duyệt nhận tiền
+                </button>
+              ` : `
+                <span style="font-size: 0.75rem; color: #059669; font-weight: 700;">✓ Đã thu tiền</span>
+              `}
+              <button class="btn-tbl btn-delete" onclick="deleteOrder('${o.id || o.order_id}')">Xóa</button>
+            </div>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    /* Tab Switching */
+    function switchTab(tabId, btnElement) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+
+      if (btnElement) {
+        btnElement.classList.add('active');
+      } else if (window.event && window.event.currentTarget) {
+        window.event.currentTarget.classList.add('active');
+      }
+      const targetPane = document.getElementById(tabId);
+      if (targetPane) targetPane.classList.add('active');
+    }
+
+    /* Modal Helpers */
+    function openModal(modalId) {
+      document.getElementById(modalId).classList.add('active');
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.remove('active');
+    }
+
+    /* SẢN PHẨM ACTIONS */
+    function toggleStockInput(type) {
+      const stockGroup = document.getElementById('stockFormGroup');
+      if (type === 'physical') {
+        stockGroup.style.display = 'block';
+      } else {
+        stockGroup.style.display = 'none';
+      }
+    }
+
+    function openAddProductModal() {
+      document.getElementById('productForm').reset();
+      document.getElementById('prodEditId').value = '';
+      document.getElementById('productModalTitle').textContent = 'Thêm Sản Phẩm Mới';
+      toggleStockInput('physical');
+      openModal('productModal');
+    }
+
+    function editProduct(id) {
+      const p = products.find(item => item.id === id);
+      if (!p) return;
+
+      document.getElementById('prodEditId').value = p.id;
+      document.getElementById('prodName').value = p.name;
+      document.getElementById('prodType').value = p.type;
+      document.getElementById('prodPrice').value = p.price;
+      document.getElementById('prodDesc').value = p.description || '';
+      document.getElementById('prodStock').value = p.stock !== null ? p.stock : 0;
+      
+      toggleStockInput(p.type);
+      document.getElementById('productModalTitle').textContent = 'Chỉnh Sửa Sản Phẩm #' + p.id;
+      openModal('productModal');
+    }
+
+    function saveProductForm(e) {
+      e.preventDefault();
+      const editId = document.getElementById('prodEditId').value;
+      const name = document.getElementById('prodName').value.trim();
+      const type = document.getElementById('prodType').value;
+      const price = parseInt(document.getElementById('prodPrice').value) || 0;
+      const desc = document.getElementById('prodDesc').value.trim();
+      const stock = type === 'physical' ? (parseInt(document.getElementById('prodStock').value) || 0) : null;
+
+      if (editId) {
+        // Cập nhật
+        const p = products.find(item => item.id === parseInt(editId));
+        if (p) {
+          p.name = name;
+          p.type = type;
+          p.price = price;
+          p.description = desc;
+          p.stock = stock;
+        }
+      } else {
+        // Thêm mới
+        const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
+        products.push({ id: newId, name, type, price, description: desc, stock });
+      }
+
+      saveAll();
+      renderAll();
+      closeModal('productModal');
+    }
+
+    function deleteProduct(id) {
+      if (confirm('Bạn có chắc muốn xóa sản phẩm này?')) {
+        products = products.filter(p => p.id !== id);
+        saveAll();
+        renderAll();
+      }
+    }
+
+    /* KHÁCH HÀNG ACTIONS */
+    function openAddCustomerModal() {
+      document.getElementById('customerForm').reset();
+      openModal('customerModal');
+    }
+
+    function saveCustomerForm(e) {
+      e.preventDefault();
+      const name = document.getElementById('custName').value.trim();
+      const email = document.getElementById('custEmail') ? document.getElementById('custEmail').value.trim() : '';
+      const phone = document.getElementById('custPhone').value.trim();
+      const zalo = document.getElementById('custZalo').value.trim() || phone;
+      const product = document.getElementById('custProduct').value.trim() || 'Tư vấn chung';
+
+      const newId = customers.length > 0 ? Math.max(...customers.map(c => c.id)) + 1 : 1;
+      const registered_at = new Date().toLocaleString('vi-VN');
+
+      customers.unshift({ id: newId, name, email, phone, zalo, product, registered_at });
+      saveAll();
+      renderAll();
+      closeModal('customerModal');
+    }
+
+    function deleteCustomer(id) {
+      if (confirm('Bạn có chắc muốn xóa khách hàng này?')) {
+        customers = customers.filter(c => c.id !== id);
+        saveAll();
+        renderAll();
+      }
+    }
+
+    /* ĐƠN HÀNG ACTIONS (CÓ LOGIC TRỪ TỒN KHO) */
+    function openAddOrderModal() {
+      document.getElementById('orderForm').reset();
+
+      // Nạp dropdown khách hàng
+      const custSelect = document.getElementById('orderCustomerSelect');
+      custSelect.innerHTML = '<option value="">-- Chọn khách từ danh sách CRM --</option>';
+      customers.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c.id;
+        opt.textContent = `${c.name} (${c.phone})`;
+        custSelect.appendChild(opt);
+      });
+
+      // Nạp dropdown sản phẩm
+      const prodSelect = document.getElementById('orderProductSelect');
+      prodSelect.innerHTML = '<option value="">-- Chọn sản phẩm --</option>';
+      products.forEach(p => {
+        const opt = document.createElement('option');
+        opt.value = p.id;
+        opt.textContent = `[${p.type.toUpperCase()}] ${p.name} - ${formatVND(p.price)} (Kho: ${p.stock !== null ? p.stock : '∞'})`;
+        opt.setAttribute('data-price', p.price);
+        opt.setAttribute('data-type', p.type);
+        prodSelect.appendChild(opt);
+      });
+
+      openModal('orderModal');
+    }
+
+    function fillCustomerInfo(custId) {
+      if (!custId) return;
+      const c = customers.find(item => item.id === parseInt(custId));
+      if (c) {
+        document.getElementById('orderCustName').value = c.name || '';
+        document.getElementById('orderCustPhone').value = c.phone || '';
+        if (document.getElementById('orderCustEmail')) {
+          document.getElementById('orderCustEmail').value = c.email || '';
+        }
+      }
+    }
+
+    function handleOrderProductChange(prodId) {
+      if (!prodId) return;
+      const p = products.find(item => item.id === parseInt(prodId));
+      if (p) {
+        document.getElementById('orderAmount').value = p.price;
+      }
+    }
+
+    function saveOrderForm(e) {
+      e.preventDefault();
+
+      const prodSelect = document.getElementById('orderProductSelect');
+      const prodId = parseInt(prodSelect.value);
+      const product = products.find(p => p.id === prodId);
+
+      if (!product) {
+        alert('Vui lòng chọn sản phẩm hợp lệ!');
+        return;
+      }
+
+      // KIỂM TRA & TRỪ TỒN KHO NẾU LÀ PHYSICAL
+      if (product.type === 'physical') {
+        if (product.stock <= 0) {
+          alert(`Sản phẩm "${product.name}" đã HẾT HÀNG trong kho! Không thể tạo thêm đơn.`);
+          return;
+        }
+        // Tự động trừ 1 tồn kho
+        product.stock -= 1;
+      }
+      // Nếu là digital hoặc service -> giữ nguyên tồn kho!
+
+      const orderId = 'DH' + Math.floor(1000 + Math.random() * 9000);
+      const customer_name = document.getElementById('orderCustName').value.trim();
+      const customer_email = document.getElementById('orderCustEmail') ? document.getElementById('orderCustEmail').value.trim() : '';
+      const customer_phone = document.getElementById('orderCustPhone').value.trim();
+      const amount = parseInt(document.getElementById('orderAmount').value) || product.price;
+      const status = document.getElementById('orderStatus').value;
+      const created_at = new Date().toLocaleString('vi-VN');
+
+      orders.unshift({
+        id: orderId,
+        order_id: orderId,
+        customer_name,
+        customer_email,
+        customer_phone,
+        product_name: product.name,
+        product_type: product.type,
+        amount,
+        status,
+        stock_deducted: true,
+        created_at
+      });
+
+      saveAll();
+      renderAll();
+      closeModal('orderModal');
+
+      // Tự động kích hoạt gửi email xác nhận đơn hàng qua Resend API (/api/send-email)
+      if (customer_email) {
+        sendOrderConfirmationEmail(orderId, customer_name, customer_email, customer_phone, product.name, product.type, amount, status);
+      }
+
+      alert(`Đã tạo thành công đơn hàng ${orderId}!\n${product.type === 'physical' ? `Đã tự động trừ 1 hộp vào kho. Còn lại: ${product.stock} hộp.` : `Sản phẩm ${product.type} - không cần trừ kho.`}${customer_email ? `\n\n✉️ Đang gửi email xác nhận đơn hàng tự động đến: ${customer_email}` : ''}`);
+    }
+
+    function sendOrderConfirmationEmail(orderId, name, email, phone, prodName, prodType, amount, status) {
+      const emailHtml = `
+        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #1e293b; line-height: 1.6; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; background: #ffffff;">
+          <div style="background: #0f2b48; padding: 24px 30px; text-align: center;">
+            <h1 style="color: #ffffff; margin: 0; font-size: 22px; font-weight: 800; letter-spacing: 0.5px;">CostcoHealth<span style="color: #dc2626;">USA</span></h1>
+            <p style="color: #94a3b8; margin: 4px 0 0 0; font-size: 13px;">Thực phẩm chức năng chuẩn Costco Mỹ 100% Bay Air</p>
+          </div>
+          <div style="padding: 30px;">
+            <div style="text-align: center; margin-bottom: 22px;">
+              <span style="display: inline-block; background: #dcfce7; color: #15803d; font-weight: 700; font-size: 13px; padding: 6px 16px; border-radius: 9999px; text-transform: uppercase;">
+                ✓ Tiếp nhận đơn hàng #${orderId}
+              </span>
+            </div>
+            <p style="font-size: 16px; margin-top: 0;">Chào <strong>${name}</strong>,</p>
+            <p>Dương và đội ngũ CostcoHealth USA chân thành cảm ơn bạn đã gửi gắm niềm tin khi lựa chọn thực phẩm chức năng bảo vệ sức khỏe cho gia đình tại cửa hàng!</p>
+            
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 18px 20px; margin: 20px 0;">
+              <h3 style="margin-top: 0; font-size: 15px; color: #0f2b48; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px;">📋 CHI TIẾT ĐƠN HÀNG #${orderId}</h3>
+              <table style="width: 100%; font-size: 14px; border-collapse: collapse;">
+                <tr>
+                  <td style="padding: 6px 0; color: #64748b;">Mã đơn:</td>
+                  <td style="padding: 6px 0; font-weight: 700; text-align: right; color: #dc2626;">#${orderId}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 6px 0; color: #64748b;">Sản phẩm:</td>
+                  <td style="padding: 6px 0; font-weight: 700; text-align: right; color: #0f172a;">${prodName}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 6px 0; color: #64748b;">Số lượng:</td>
+                  <td style="padding: 6px 0; font-weight: 700; text-align: right;">01 hộp</td>
+                </tr>
+                <tr>
+                  <td style="padding: 6px 0; color: #64748b;">Tổng tiền:</td>
+                  <td style="padding: 6px 0; font-weight: 800; font-size: 16px; text-align: right; color: #059669;">${formatVND(amount)}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 6px 0; color: #64748b;">Trạng thái:</td>
+                  <td style="padding: 6px 0; font-weight: 700; text-align: right; color: ${status === 'success' ? '#16a34a' : '#d97706'};">
+                    ${status === 'success' ? '✓ Đã thanh toán (Sẵn sàng gửi)' : '⏳ Chờ thanh toán (COD / Chuyển khoản QR)'}
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+            <div style="background: #eff6ff; border-left: 4px solid #3b82f6; border-radius: 8px; padding: 16px 20px; margin: 24px 0;">
+              <div style="font-weight: 700; color: #1e40af; margin-bottom: 6px;">📦 HƯỚNG DẪN NHẬN HÀNG & ĐỒNG KIỂM AN TÂM:</div>
+              <ul style="margin: 0; padding-left: 18px; font-size: 13.5px; color: #1e3a8a; line-height: 1.6;">
+                <li>Kiện hàng được đóng gói bọc xốp chống sốc, giữ nguyên seal nắp hộp và date mới tinh.</li>
+                <li><strong>Kèm hóa đơn giấy in nhiệt Costco Mỹ gốc:</strong> Để trong hộp hàng. Bạn chỉ cần miết mạnh móng tay vào mặt sau tờ bill sẽ thấy vệt nhiệt đặc trưng.</li>
+                <li><strong>Chính sách đồng kiểm:</strong> Bạn được mở kiện hàng kiểm tra bill gốc và date trước khi thanh toán. Phát hiện sai lệch đền 200% tiền mặt ngay tại chỗ.</li>
+              </ul>
+            </div>
+
+            <p>Đơn hàng đang được chuẩn bị để bàn giao cho đơn vị vận chuyển hỏa tốc trong 1–2 ngày tới. Khi shipper bắt đầu giao hàng, bạn sẽ nhận được cuộc gọi thông báo.</p>
+            <p>Nếu bạn cần hỗ trợ thêm thông tin hoặc đổi địa chỉ nhận hàng, đừng ngần ngại gọi hoặc nhắn tin Zalo cho Dương theo số <strong>0336.822.318</strong> nhée!</p>
+            
+            <p style="margin-top: 28px; margin-bottom: 0;">Thân mến,<br><strong>Dương — CostcoHealth USA</strong><br><span style="color: #64748b; font-size: 13px;">Hotline / Zalo hỗ trợ: 0336.822.318</span></p>
+          </div>
+          <div style="background: #f8fafc; padding: 16px 30px; border-top: 1px solid #e2e8f0; text-align: center; font-size: 12px; color: #94a3b8;">
+            CostcoHealth USA • 100% Bay Air Giữ Lạnh • Website: <a href="https://hangmyxachtay.info.vn" style="color: #0284c7; text-decoration: none;">hangmyxachtay.info.vn</a>
+          </div>
+        </div>
+      `;
+
+      return fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          to: email,
+          subject: `🎉 Xác nhận đơn hàng #${orderId} từ CostcoHealth USA 🇺🇸`,
+          html: emailHtml
+        })
+      })
+      .then(r => r.json())
+      .then(res => {
+        console.log('[Resend] Order confirmation email status:', res);
+        return res;
+      })
+      .catch(err => {
+        console.error('[Resend] Lỗi gửi email xác nhận đơn:', err);
+      });
+    }
+
+    function triggerSendOrderEmail(orderId) {
+      const o = orders.find(item => (item.id === orderId || item.order_id === orderId));
+      if (!o) return;
+      if (!o.customer_email) {
+        const inputEmail = prompt('Đơn hàng này chưa có email. Vui lòng nhập email khách hàng:', '');
+        if (!inputEmail) return;
+        o.customer_email = inputEmail.trim();
+        saveAll();
+        renderAll();
+      }
+
+      if (confirm(`Gửi email xác nhận đơn hàng #${orderId} tới "${o.customer_email}" ngay bây giờ?`)) {
+        sendOrderConfirmationEmail(
+          o.id || o.order_id,
+          o.customer_name,
+          o.customer_email,
+          o.customer_phone,
+          o.product_name,
+          o.product_type,
+          o.amount,
+          o.status
+        ).then(() => {
+          alert(`Đã gửi thành công email xác nhận đơn hàng #${orderId} tới ${o.customer_email}!`);
+        }).catch(err => {
+          alert(`Gửi thất bại: ${err.message}`);
+        });
+      }
+    }
+
+    /* KÍCH HOẠT THỦ CÔNG ĐƠN HÀNG (CHỈ KHI TIỀN ĐÃ VÀO MB BANK) */
+    function activateOrderSuccess(orderId) {
+      const order = orders.find(o => (o.id === orderId || o.order_id === orderId));
+      if (!order) return;
+
+      if (confirm(`Xác nhận đã nhận đủ tiền cho đơn hàng "${orderId}"?\n\n⚠️ LƯU Ý QUAN TRỌNG:\nChỉ bấm OK khi bạn đã kiểm tra App MB Bank và thấy tiền thật ${formatVND(order.amount)} đã vào tài khoản!\n(Tránh tình trạng khách chưa chuyển khoản mà đã đóng hàng gửi đi).`)) {
+        order.status = 'success';
+        order.paid_at = new Date().toLocaleString('vi-VN');
+        saveAll();
+        renderAll();
+
+        // Đồng bộ lên Google Sheets Cloud Database
+        try {
+          const DEFAULT_CLOUD_URL = 'https://script.google.com/macros/s/AKfycbxhYoywMBUvKXV7kM4l0h9pf_7TC-lIul1_6bt1aiC5mp7y6cdnEu3KcDLJpLDk5KvSCQ/exec';
+          const cloudUrl = getCloudUrl() || DEFAULT_CLOUD_URL;
+          if (cloudUrl) {
+            fetch(cloudUrl, {
+              method: 'POST',
+              mode: 'no-cors',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                action: 'update_status',
+                id: orderId,
+                order_id: orderId,
+                status: 'success',
+                paid_at: order.paid_at
+              })
+            }).catch(e => console.log('Sync cloud status error:', e));
+          }
+        } catch (e) {}
+
+        alert(`Đơn hàng ${orderId} đã được chuyển sang trạng thái "ĐÃ NHẬN TIỀN"!\nBây giờ bạn có thể an tâm đóng gói hàng và gửi cho khách.`);
+      }
+    }
+
+    function deleteOrder(orderId) {
+      if (confirm(`Bạn có chắc muốn xóa đơn hàng ${orderId}?`)) {
+        const orderIndex = orders.findIndex(o => (o.id === orderId || o.order_id === orderId));
+        if (orderIndex !== -1) {
+          const o = orders[orderIndex];
+          // Nếu đơn hàng vật lý đã trừ kho thì hoàn trả lại 1 hộp
+          if (o.product_type === 'physical' && o.stock_deducted === true) {
+            const prodNameLower = (o.product_name || '').toLowerCase();
+            const targetProd = products.find(p => p.type === 'physical' && prodNameLower.includes(p.name.toLowerCase().substring(0, 15)));
+            if (targetProd && targetProd.stock !== null) {
+              targetProd.stock = parseInt(targetProd.stock) + 1;
+            }
+          }
+          orders.splice(orderIndex, 1);
+        }
+        saveAll();
+        renderAll();
+      }
+    }
+
+    // Khởi chạy khi tải trang
+    document.addEventListener('DOMContentLoaded', () => {
+      initCRM();
+    });
+
+    // Tự động đồng bộ thời gian thực khi có tab khác đặt hàng qua Giỏ hàng hoặc VietQR
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'costco_orders' || e.key === 'costco_products') {
+        initCRM();
+      }
+    });
+  </script>
+</body>
+
+</html>

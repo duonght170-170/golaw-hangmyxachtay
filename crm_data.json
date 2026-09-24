@@ -1,0 +1,157 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Kirkland Glucosamine 1500mg with MSM (375v)",
+      "type": "physical",
+      "price": 595000,
+      "description": "Hỗ trợ tái tạo sụn khớp, giảm đau nhức thoái hóa khớp cho người lớn tuổi. Chuẩn Costco Mỹ.",
+      "stock": 50
+    },
+    {
+      "id": 2,
+      "name": "Kirkland Wild Alaskan Fish Oil (230v)",
+      "type": "physical",
+      "price": 520000,
+      "description": "Dầu cá hồi hoang dã Alaska giàu Omega-3, EPA & DHA tốt cho tim mạch và sáng mắt.",
+      "stock": 45
+    },
+    {
+      "id": 3,
+      "name": "Youtheory Collagen Advanced Formula (390v)",
+      "type": "physical",
+      "price": 520000,
+      "description": "Collagen type 1, 2, 3 kết hợp Vitamin C & 18 axit amin chống lão hóa da và tóc móng.",
+      "stock": 35
+    },
+    {
+      "id": 4,
+      "name": "Schiff Move Free Ultra Triple Action (75v)",
+      "type": "physical",
+      "price": 620000,
+      "description": "Viên uống bổ khớp cao cấp chứa Type II Collagen, Hyaluronic Acid và Boron.",
+      "stock": 30
+    },
+    {
+      "id": 5,
+      "name": "Natrol Biotin 10,000 mcg Maximum Strength (60v)",
+      "type": "physical",
+      "price": 280000,
+      "description": "Viên ngậm tan nhanh vị dâu hỗ trợ mọc tóc, giảm rụng tóc và nuôi dưỡng móng chắc khỏe.",
+      "stock": 40
+    },
+    {
+      "id": 6,
+      "name": "Trunature Ginkgo Biloba 120mg (300v)",
+      "type": "physical",
+      "price": 440000,
+      "description": "Tăng cường tuần hoàn máu não, giảm đau đầu, hoa mắt, chóng mặt và chứng hay quên.",
+      "stock": 40
+    },
+    {
+      "id": 7,
+      "name": "Ebook Cẩm Nang Phân Biệt TPCN Mỹ Thật - Giả & Đọc Bill Costco",
+      "type": "digital",
+      "price": 0,
+      "description": "Cẩm nang số độc quyền hướng dẫn check barcode, nhận diện tem date và tra cứu hóa đơn Costco.",
+      "stock": null
+    },
+    {
+      "id": 8,
+      "name": "Dịch Vụ Mua Hộ Hàng Siêu Thị Costco Mỹ Theo Yêu Cầu",
+      "type": "service",
+      "price": 50000,
+      "description": "Hỗ trợ đi siêu thị Costco Cali nhặt hàng trực tiếp, livestream quầy và gửi bill gốc theo tên khách.",
+      "stock": null
+    }
+  ],
+  "customers": [
+    {
+      "id": 1,
+      "name": "Hoàng Nga",
+      "phone": "0912345678",
+      "email": "hoangnga.hn@gmail.com",
+      "zalo": "0912345678",
+      "product": "Kirkland Glucosamine 1500mg with MSM (375v)",
+      "registered_at": "2026-09-15 08:30:00"
+    },
+    {
+      "id": 2,
+      "name": "Trần Hùng",
+      "phone": "0987654321",
+      "email": "tranhung.sg@gmail.com",
+      "zalo": "0987654321",
+      "product": "Kirkland Wild Alaskan Fish Oil (230v)",
+      "registered_at": "2026-09-15 11:45:00"
+    },
+    {
+      "id": 3,
+      "name": "Mai Lan",
+      "phone": "0905123456",
+      "email": "mailan.dn@gmail.com",
+      "zalo": "0905123456",
+      "product": "Youtheory Collagen Advanced (390v)",
+      "registered_at": "2026-09-16 14:20:00"
+    },
+    {
+      "id": 4,
+      "name": "Quốc Tuấn",
+      "phone": "0934567890",
+      "email": "quoctuan.hp@gmail.com",
+      "zalo": "0934567890",
+      "product": "Schiff Move Free Ultra (75v)",
+      "registered_at": "2026-09-16 19:10:00"
+    },
+    {
+      "id": 5,
+      "name": "Nguyễn Văn An",
+      "phone": "0945678901",
+      "email": "nguyenvanan.ct@gmail.com",
+      "zalo": "0945678901",
+      "product": "Trunature Ginkgo Biloba 120mg (300v)",
+      "registered_at": "2026-09-17 09:15:00"
+    }
+  ],
+  "orders": [
+    {
+      "id": "DH1001",
+      "customer_name": "Hoàng Nga",
+      "customer_phone": "0912345678",
+      "product_name": "Kirkland Glucosamine 1500mg with MSM (375v)",
+      "product_type": "physical",
+      "amount": 495000,
+      "status": "pending",
+      "created_at": "2026-09-18 09:00:00"
+    },
+    {
+      "id": "DH1002",
+      "customer_name": "Trần Hùng",
+      "customer_phone": "0987654321",
+      "product_name": "Kirkland Wild Alaskan Fish Oil (230v)",
+      "product_type": "physical",
+      "amount": 520000,
+      "status": "success",
+      "created_at": "2026-09-18 10:15:00"
+    },
+    {
+      "id": "DH1003",
+      "customer_name": "Nguyễn Văn An",
+      "customer_phone": "0945678901",
+      "product_name": "Ebook Cẩm Nang Phân Biệt TPCN Mỹ Thật - Giả & Đọc Bill Costco",
+      "product_type": "digital",
+      "amount": 0,
+      "status": "success",
+      "created_at": "2026-09-18 11:30:00"
+    },
+    {
+      "id": "DH8685",
+      "customer_name": "TEST KP3",
+      "customer_phone": "0946680292",
+      "product_name": "Kirkland Glucosamine 1500mg with MSM (375v)",
+      "product_type": "physical",
+      "amount": 2000,
+      "status": "pending",
+      "created_at": "2026-09-18 17:30:00"
+    }
+  ]
+}

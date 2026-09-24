@@ -1,0 +1,33 @@
+================================================================================
+BÀI ĐĂNG NGÀY 14 - KHI AI KHÔNG CHỈ "CHÉM GIÓ" MÀ ĐÃ CHÍNH THỨC CÓ "TAY CHÂN" (MCP SERVER)
+Brand Voice: Gần gũi, thẳng thắn, câu ngắn, không tô hồng, "thật ra", "đơn giản thôi", "nhée".
+Link website: https://hangmyxachtay.info.vn
+Tag mentor: Dương Trọng Nghĩa (https://facebook.com/duongtrongnghia.theKP3/)
+Lưu vào file: day14_post.txt
+================================================================================
+
+Chào mn,
+
+Hôm nay là Ngày 14 của thử thách 21 ngày, và thật sự đây là ngày mình thấy "nổi da gà" nhất từ lúc bắt đầu đến giờ.
+
+Trước đây, AI với mình giống như một bạn nhân viên rất thông minh nhưng đang ngồi ở phòng bên cạnh, chỉ nhìn qua cửa kính. Bạn ấy thấy khách vào web, biết khách hỏi gì, nhưng bảo: "Em đổi giúp chị cái giá sản phẩm hay sửa tiêu đề trang chủ với" thì bạn ấy chịu chết, chỉ biết trả lời: "Dạ chị vào code sửa dòng này dòng kia nha...".
+
+Nhưng đến Ngày 14 hôm nay, mình vừa chính thức mở một "ô cửa sổ thần kỳ" để AI thò tay sang vận hành cửa hàng thật. Trong giới công nghệ người ta gọi cái này là MCP (Model Context Protocol) — hiểu nôm na là cấp "tay chân" cho AI làm việc.
+
+Hôm nay mình đã làm được 2 việc lớn:
+1. Chuyển toàn bộ website từ server trung gian (Vercel) về chạy trên một máy chủ VPS riêng biệt (Ubuntu 24.04). Tự tay cài đặt Nginx, SSL Let's Encrypt và bảo mật môi trường sạch sẽ.
+2. Dựng một con MCP Server chạy song song trên VPS và kết nối thẳng vào bot Telegram của mình (@lumii237_bot qua nền tảng GoClaw).
+
+Bây giờ trải nghiệm nó kỳ diệu thế này:
+- Mình đang đi ngoài đường, mở Telegram nhắn: "Đổi tiêu đề landing thành 'Flash Sale Cuối Tuần: Giảm 30% Toàn Bộ TPCN Bay Air'". Vừa ấn gửi xong, quay ra F5 lại web https://hangmyxachtay.info.vn thì tiêu đề trang chủ đã tự động đổi ngay lập tức!
+- Nhắn tiếp: "Hôm nay có bao nhiêu đơn rồi?", bot quét database và hệ thống SePay báo cáo về luôn: Tổng 29 đơn, 5 đơn đã thanh toán thành công.
+- Nhắn: "Chỉnh giá sản phẩm Glucosamine thành 580000", giỏ hàng và catalog trên website tự động nhảy giá mới không cần mở máy tính ra code một dòng nào.
+
+Cảm giác lần đầu tiên nhắn tin qua Telegram mà website ngoài đời thực thay đổi theo thời gian thực nó sướng không tả được mn ạ. AI bây giờ không chỉ để hỏi đáp hay viết content nữa, mà nó đã trở thành một trợ lý vận hành kinh doanh thực thụ.
+
+Cảm ơn anh Dương Trọng Nghĩa (facebook.com/duongtrongnghia.theKP3/) và giáo trình thực chiến đã giúp một đứa không chuyên như mình từng bước chạm tay vào những công nghệ tưởng chừng chỉ có dân chuyên sâu mới làm được.
+
+Mn vào ngắm thử banner mới mình vừa ra lệnh cho AI đổi xem đẹp không nhée:
+👉 https://hangmyxachtay.info.vn
+
+Mai lại tiếp tục hành trình thôi!

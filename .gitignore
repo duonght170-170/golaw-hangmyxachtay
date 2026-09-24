@@ -1,0 +1,22 @@
+# Git Ignore - CostcoHealth USA
+
+# Secrets & Environment Variables
+.env
+.env.local
+.env.*.local
+resend_config.txt
+
+# Deploy & Build Cache
+.vercel
+node_modules/
+dist/
+build/
+*.log
+
+# Database & Local Data
+brain.db
+brain.db.bak
+backup/
+*.bak
+*.sqlite-journal
+*.tar.gz

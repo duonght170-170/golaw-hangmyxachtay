@@ -1,0 +1,27 @@
+================================================================================
+BÀI ĐĂNG NGÀY 11 - HỆ THỐNG EMAIL TỰ ĐỘNG (BẢN SIÊU GỌN)
+Brand Voice: Gần gũi, câu ngắn, thẳng thắn, "thật ra", "đơn giản thôi", "nhée".
+Link website: https://hangmyxachtay.info.vn
+================================================================================
+
+Chào mn,
+
+Thật ra, trước đây mình rất sợ "email marketing" vì hòm thư toàn rác quảng cáo. 
+
+Nhưng khi tự tay dựng xong hệ thống cho CostcoHealth USA, mình thấy: Email chỉ phiền khi cố bán hàng, còn chia sẻ kiến thức thật lòng thì lại rất ấm áp.
+
+Hôm nay hệ thống email của mình đã chính thức hoàn thiện:
+
+1. Email tên miền riêng: hi@hangmyxachtay.info.vn — gửi từ website, xác thực chuẩn chỉ không lo vào spam.
+2. Chuỗi 3 email tự động trao giá trị:
+- Thư 1: Tặng Voucher 100k & cẩm nang phân biệt thật - giả.
+- Thư 2: Mẹo tránh hàng nóng hầm tàu & cách check bill Costco bằng móng tay.
+- Thư 3: Báo chuyến bay Air hạ cánh để kịp giữ lọ thuốc date mới.
+3. Tự động gửi email xác nhận đơn hàng kèm hướng dẫn đồng kiểm bill gốc.
+
+Đơn giản thôi, hệ thống tự chạy thì khách nào cũng được chăm sóc chu đáo mà mình không phải thức đêm gõ từng tin nhắn.
+
+Mn ghé website điền thử email nhận cẩm nang xem có mượt không nhée:
+👉 https://hangmyxachtay.info.vn
+
+Cảm ơn mn rất nhiều!

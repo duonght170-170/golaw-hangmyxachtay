@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cẩm Nang Phân Biệt TPCN Mỹ Thật - Giả & Đọc Bill Costco | CostcoHealth USA</title>
+  <meta name="description" content="Ebook cẩm nang độc quyền hướng dẫn chi tiết cách kiểm tra thực phẩm chức năng Mỹ chính hãng, đọc hóa đơn Costco và checklist nhận hàng.">
+  <link rel="icon" type="image/x-icon" href="images/product1.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800;900&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-navy: #0f2b48;
+      --costco-blue: #1e3a8a;
+      --costco-red: #dc2626;
+      --accent-gold: #f59e0b;
+      --bg-page: #f8fafc;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+      --font-serif: 'Merriweather', Georgia, serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-serif);
+      background: #f1f5f9;
+      color: var(--text-dark);
+      line-height: 1.85;
+      font-size: 1.05rem;
+    }
+
+    /* Top Action Bar */
+    .reader-top-bar {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+      padding: 12px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-body);
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--primary-navy);
+      font-weight: 800;
+    }
+
+    .top-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn-action {
+      background: #0f2b48;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: opacity 0.2s;
+    }
+
+    .btn-action:hover {
+      opacity: 0.9;
+    }
+
+    .btn-print {
+      background: #eff6ff;
+      color: #1e40af;
+      border: 1px solid #bfdbfe;
+    }
+
+    /* Document Container */
+    .ebook-wrapper {
+      max-width: 820px;
+      margin: 40px auto;
+      background: #ffffff;
+      padding: 60px 70px;
+      border-radius: 16px;
+      box-shadow: 0 4px 25px rgba(15, 23, 42, 0.08);
+      border: 1px solid var(--border-color);
+    }
+
+    @media (max-width: 768px) {
+      .ebook-wrapper {
+        margin: 16px;
+        padding: 30px 20px;
+      }
+    }
+
+    /* Cover / Header */
+    .ebook-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border: 1px solid #bfdbfe;
+      margin-bottom: 20px;
+    }
+
+    h1.ebook-title {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--primary-navy);
+      line-height: 1.3;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .ebook-subtitle {
+      font-size: 1.15rem;
+      color: #475569;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .ebook-meta {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      padding-bottom: 30px;
+      border-bottom: 2px solid #f1f5f9;
+      margin-bottom: 40px;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Content Typography */
+    h2 {
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-top: 40px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h3 {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      margin-bottom: 18px;
+      color: #334155;
+    }
+
+    ul, ol {
+      margin-bottom: 20px;
+      padding-left: 26px;
+    }
+
+    li {
+      margin-bottom: 10px;
+      color: #334155;
+    }
+
+    /* Highlight Callouts */
+    .callout-box {
+      background: #f8fafc;
+      border-left: 4px solid #2563eb;
+      padding: 20px 24px;
+      border-radius: 0 12px 12px 0;
+      margin: 24px 0;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+    }
+
+    .callout-box.warning {
+      background: #fffbeb;
+      border-left-color: #d97706;
+      color: #92400e;
+    }
+
+    .callout-box.success {
+      background: #ecfdf5;
+      border-left-color: #059669;
+      color: #065f46;
+    }
+
+    /* Bill Illustration Table */
+    .bill-mockup {
+      background: #fffdfa;
+      border: 1px dashed #d97706;
+      border-radius: 12px;
+      padding: 20px;
+      font-family: monospace;
+      font-size: 0.9rem;
+      margin: 24px 0;
+      line-height: 1.6;
+      color: #78350f;
+    }
+
+    .voucher-card {
+      background: linear-gradient(135deg, #0f2b48 0%, #1e3a8a 100%);
+      color: #ffffff;
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+      margin-top: 40px;
+      font-family: var(--font-body);
+    }
+
+    .voucher-code {
+      display: inline-block;
+      background: #ffffff;
+      color: #dc2626;
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      padding: 8px 24px;
+      border-radius: 8px;
+      margin: 16px 0;
+      border: 2px dashed #dc2626;
+    }
+
+    @media print {
+      .reader-top-bar { display: none; }
+      .ebook-wrapper { border: none; box-shadow: none; margin: 0; padding: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top Bar -->
+  <header class="reader-top-bar">
+    <a href="index.html" class="brand-group">
+      <span>🇺🇸</span>
+      <span>CostcoHealth USA Reader</span>
+    </a>
+    <div class="top-actions">
+      <button class="btn-action btn-print" onclick="window.print()">
+        <span>🖨️</span> In / Lưu PDF
+      </button>
+      <a href="thanh-toan.html" class="btn-action">
+        <span>💳</span> Mua Hàng Khác
+      </a>
+      <a href="index.html" class="btn-action" style="background: #e2e8f0; color: #334155;">
+        <span>🏠</span> Trang Chủ
+      </a>
+    </div>
+  </header>
+
+  <!-- Document -->
+  <main class="ebook-wrapper">
+
+    <div class="ebook-badge">
+      <span>📖</span> SẢN PHẨM SỐ CHÍNH THỨC • PHIÊN BẢN 2026
+    </div>
+
+    <h1 class="ebook-title">Bí Quyết Phân Biệt TPCN Mỹ Thật - Giả & Cách Đọc Hóa Đơn Siêu Thị Costco</h1>
+    <div class="ebook-subtitle">Cẩm nang hướng dẫn nhận diện hàng chuẩn Air, bảo vệ sức khỏe gia đình và phát hiện hàng giả tinh vi trên thị trường xách tay.</div>
+
+    <div class="ebook-meta">
+      <span>✍️ <strong>Biên soạn:</strong> Đội ngũ Dược sĩ CostcoHealth USA</span>
+      <span>🕒 <strong>Thời gian đọc:</strong> 7 phút</span>
+      <span>🏷️ <strong>Tặng kèm:</strong> Voucher 100.000đ</span>
+    </div>
+
+    <!-- PHẦN 1 -->
+    <h2><span>1.</span> Vì Sao Hàng Xách Tay Mỹ Lại Có Giá Rẻ Bất Thường?</h2>
+    <p>
+      Thật ra, nhiều bạn khi tìm mua viên uống Glucosamine hay Dầu cá Alaska thường băn khoăn: <em>"Tại sao trên các sàn thương mại điện tử giá chỉ có 250k - 300k, trong khi mua trực tiếp tại siêu thị Costco Mỹ đã là 18 - 25 USD (chưa tính thuế bang và cước bay Air 10-12$/kg)?"</em>
+    </p>
+    <p>
+      Sự thật là TPCN Mỹ có 2 nguồn hàng rủi ro rất lớn:
+    </p>
+    <ul>
+      <li><strong>Hàng container đường biển (Sea Cargo):</strong> Đi lênh đênh 45-60 ngày trong hầm tàu nhiệt độ 45-50°C. Gelatin của viên nang dầu cá dễ bị dính bết, biến tính, dầu bị oxy hóa có mùi tanh nồng và mất hoàn toàn tác dụng.</li>
+      <li><strong>Hàng cận date dập lại:</strong> Các kho thanh lý tại nước ngoài bán theo cân những lô hàng sát date (chỉ còn 1-2 tháng). Gian thương dùng dung môi lau date cũ và dập lại date mới tới 2028.</li>
+    </ul>
+
+    <div class="callout-box warning">
+      ⚠️ <strong>Lưu ý từ dược sĩ:</strong> Uống thực phẩm chức năng bị biến tính không những không giúp bổ khớp hay sáng mắt, mà còn gây gánh nặng cho gan và thận khi phải đào thải các chất độc oxy hóa.
+    </div>
+
+    <!-- PHẦN 2 -->
+    <h2><span>2.</span> 5 Dấu Hiệu Nhận Diện Hàng Bay Air Chuẩn Costco</h2>
+    <p>Khi cầm một lọ TPCN Mỹ trên tay, bạn hãy quan sát 5 điểm cốt lõi sau:</p>
+
+    <h3>1. Dấu mộc date nhiệt (Heat Stamp)</h3>
+    <p>Hàng chính hãng sản xuất tại Mỹ dùng công nghệ in phun nhiệt cao tần. Các chấm mực laser li ti ăn sâu vào nhựa đáy chai, dù bạn lấy cồn y tế 90 độ miết mạnh cũng không bị phai mờ.</p>
+
+    <h3>2. Màng seal miệng lọ (Induction Seal)</h3>
+    <p>Seal của Kirkland và Schiff được ép nhiệt chân không cực kỳ phẳng và chắc chắn. Mép seal không có keo dán thừa, khi bóc ra sẽ có tiếng tách nhẹ và để lại viền trắng đồng đều.</p>
+
+    <h3>3. Mùi tự nhiên của dược liệu</h3>
+    <p>Lọ Glucosamine chuẩn khi mở nắp sẽ có hương thảo dược dịu nhẹ từ sụn vi cá. Viên dầu cá Wild Alaskan có màu vàng óng ánh hổ phách, không bị đục hay dính cục vào nhau.</p>
+
+    <h3>4. Gói hút ẩm chuyên dụng chuẩn US</h3>
+    <p>Costco luôn sử dụng gói hút ẩm bằng giấy sợi Tyvek không rách hoặc trụ nhựa y tế, in rõ dòng chữ <em>"DO NOT EAT"</em> sắc nét.</p>
+
+    <!-- PHẦN 3 -->
+    <h2><span>3.</span> 5 Bước Đọc Hóa Đơn Siêu Thị Costco (Costco Bill)</h2>
+    <p>Mỗi đơn hàng gửi về từ CostcoHealth USA đều kèm một bản sao hóa đơn siêu thị Costco để khách hàng đồng kiểm:</p>
+
+    <div class="bill-mockup">
+      ================ COSTCO WHOLESALE ================<br>
+      SEATTLE #471 - 4401 4TH AVE S, SEATTLE, WA 98134<br>
+      MEMBER: 111928374620 (HOANG THUY DUONG)<br>
+      --------------------------------------------------<br>
+      ITEM        DESCRIPTION                   PRICE<br>
+      <strong>902148</strong>      KIRKLAND GLUCOSAMINE 375V     $17.99<br>
+      <strong>514820</strong>      ALASKAN SALMON OIL 230V       $19.49<br>
+      <strong>749102</strong>      YOUTHEORY COLLAGEN 390V       $18.99<br>
+      --------------------------------------------------<br>
+      SUBTOTAL:                                 $56.47<br>
+      TAX (WA STATE 10.25%):                    $ 5.79<br>
+      TOTAL:                                    $62.26<br>
+      --------------------------------------------------<br>
+      TIMESTAMP: 09/16/2026 14:28:10 PST<br>
+      PAYMENT: VISA ENDING IN *8892 (APPROVED)<br>
+      ==================================================
+    </div>
+
+    <ul>
+      <li><strong>Mã Item (6 chữ số):</strong> Hãy nhìn số <strong>902148</strong> trên bill — con số này phải trùng khớp 100% với dãy số in phía trên mã vạch sau lưng lọ Glucosamine bạn nhận được.</li>
+      <li><strong>Chi nhánh Costco:</strong> Thể hiện rõ địa chỉ siêu thị tại Mỹ (ví dụ: Seattle #471 hoặc San Jose #148).</li>
+      <li><strong>Thời gian mua hàng:</strong> Giờ mua hàng tại Mỹ giúp bạn biết hàng vừa mua xong là được đóng thùng gửi bay Air về Việt Nam ngay trong tuần.</li>
+    </ul>
+
+    <!-- PHẦN 4 -->
+    <h2><span>4.</span> Checklist Đồng Kiểm 30 Giây Khi Nhận Hàng</h2>
+    <ol>
+      <li><strong>Mở hộp trước shipper:</strong> Kiểm tra thùng carton chuyên dụng có băng keo niêm phong logo CostcoHealth USA.</li>
+      <li><strong>Soi bill siêu thị:</strong> Kiểm tra tờ hóa đơn Costco đính kèm trong túi bảo quản trong suốt.</li>
+      <li><strong>Đối chiếu mã Item:</strong> So sánh mã số trên bill và mã trên thân chai.</li>
+      <li><strong>Kiểm tra nắp lọ:</strong> Màng bọc co nhiệt cổ chai còn nguyên vẹn, không có dấu hiệu bị cạy mở.</li>
+    </ol>
+
+    <!-- PHẦN 5: VOUCHER -->
+    <div class="voucher-card">
+      <h3>🎁 QUÀ TẶNG DÀNH RIÊNG CHO BẠN</h3>
+      <p>Cảm ơn bạn đã quan tâm và tìm hiểu kiến thức sức khỏe chuẩn Mỹ cùng CostcoHealth USA. Hãy sử dụng mã giảm giá này khi đặt đơn hàng thực phẩm chức năng tiếp theo:</p>
+      
+      <div class="voucher-code">COSTCO100K</div>
+
+      <p style="font-size: 0.9rem; opacity: 0.9;">Giảm ngay 100.000đ trực tiếp vào đơn hàng • Miễn phí vận chuyển toàn quốc ✈️</p>
+      <div style="margin-top: 18px;">
+        <a href="index.html#san-pham" class="btn-action" style="background: #f59e0b; color: #0f2b48; font-weight: 800; padding: 10px 20px;">
+          🛒 Chọn Mua Thực Phẩm Chức Năng Ngay
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer style="text-align: center; padding: 30px; font-family: var(--font-body); font-size: 0.85rem; color: #64748b;">
+    © 2026 CostcoHealth USA • Hàng Mỹ Xách Tay Chuẩn Air Kèm Bill Gốc Siêu Thị
+  </footer>
+
+</body>
+
+</html>

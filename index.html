@@ -1,0 +1,3161 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CostcoHealth USA - Thực Phẩm Chức Năng Chính Hãng Costco Mỹ 100% Bay Air</title>
+  <meta name="description"
+    content="Chuyên thực phẩm chức năng xách tay trực tiếp từ siêu thị Costco Mỹ. 100% bay Air giữ nhiệt, kèm hóa đơn mua hàng (receipt), date mới nhất. Đền 200% nếu phát hiện hàng giả.">
+  <meta name="keywords"
+    content="thực phẩm chức năng costco mỹ, glucosamine kirkland, dầu cá kirkland, collagen youtheory, move free ultra, biotin natrol, ginkgo biloba trunature">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <style>
+    /* ==========================================================================
+   CostcoHealth USA - Modern Landing Page Stylesheet
+   Crafted based on the design feel, layout, and aesthetics of reference design:
+   Airy Hero, Floating Badges, Metric Cards, Pill Buttons, Trust Ribbon
+   & American Flag / Costco Palette (Deep Navy, Crimson Red, Crisp White & Gold)
+   ========================================================================== */
+
+    /* -------------------- 1. CSS RESET & DESIGN VARIABLES -------------------- */
+    :root {
+      /* Brand Color Palette */
+      --primary-navy: #0f2b48;
+      --primary-navy-dark: #091a2c;
+      --costco-blue: #1e3a8a;
+      --costco-red: #dc2626;
+      --costco-red-hover: #b91c1c;
+      --accent-cyan: #0284c7;
+      --accent-cyan-light: #e0f2fe;
+      --accent-gold: #f59e0b;
+      --accent-gold-hover: #d97706;
+
+      /* Neutrals & Surfaces */
+      --bg-main: #f8fafc;
+      --bg-white: #ffffff;
+      --bg-soft-blue: #f0f7ff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --text-light: #94a3b8;
+      --border-light: #e2e8f0;
+      --border-subtle: rgba(226, 232, 240, 0.8);
+
+      /* Elevation Shadows */
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+      --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.07);
+      --shadow-lg: 0 16px 40px rgba(15, 23, 42, 0.1);
+      --shadow-xl: 0 24px 60px rgba(15, 23, 42, 0.12);
+      --shadow-glow-red: 0 8px 25px rgba(220, 38, 38, 0.35);
+      --shadow-glow-navy: 0 8px 25px rgba(30, 58, 138, 0.3);
+
+      /* Typography */
+      --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      /* Transitions */
+      --transition-fast: 0.2s ease;
+      --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition-fast);
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    /* -------------------- 2. REUSABLE UI BUTTONS & BADGES -------------------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 12px 28px;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition-normal);
+      text-align: center;
+    }
+
+    .btn-pill {
+      border-radius: 9999px;
+    }
+
+    .btn-primary-gradient {
+      background: linear-gradient(135deg, #1e3a8a 0%, #0f2b48 100%);
+      color: #ffffff;
+      box-shadow: var(--shadow-glow-navy);
+    }
+
+    .btn-primary-gradient:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(15, 43, 72, 0.4);
+      color: #ffffff;
+    }
+
+    .btn-cta-primary {
+      background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+      color: #ffffff;
+      padding: 15px 34px;
+      font-size: 1.05rem;
+      letter-spacing: 0.5px;
+      box-shadow: var(--shadow-glow-red);
+    }
+
+    .btn-cta-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(220, 38, 38, 0.5);
+      color: #ffffff;
+    }
+
+    .btn-buy-now {
+      background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+      color: #ffffff;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 14px rgba(220, 38, 38, 0.25);
+      width: 100%;
+    }
+
+    .btn-buy-now:hover {
+      background: #b91c1c;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(220, 38, 38, 0.4);
+    }
+
+    .btn-white-pill {
+      background: #ffffff;
+      color: var(--primary-navy);
+      padding: 12px 26px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-white-pill:hover {
+      background: #f1f5f9;
+      transform: translateY(-2px);
+    }
+
+    .btn-submit-gold {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: #0f172a;
+      font-size: 1.05rem;
+      font-weight: 800;
+      padding: 16px 36px;
+      width: 100%;
+      box-shadow: 0 10px 25px rgba(245, 158, 11, 0.35);
+    }
+
+    .btn-submit-gold:hover {
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(245, 158, 11, 0.5);
+    }
+
+    /* Section Header Styles */
+    .section {
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .section-header {
+      max-width: 760px;
+      margin: 0 auto 50px auto;
+    }
+
+    .section-tag-pill {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--costco-blue);
+      background: var(--accent-cyan-light);
+      padding: 6px 16px;
+      border-radius: 9999px;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2.3rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 1.08rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .highlight-red {
+      color: var(--costco-red);
+    }
+
+    .highlight-navy {
+      color: var(--costco-blue);
+    }
+
+    .highlight-gold {
+      color: #fbbf24;
+    }
+
+    /* -------------------- 3. HEADER / NAVBAR -------------------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+      z-index: 1000;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-normal);
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #0f2b48 0%, #1e3a8a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(15, 43, 72, 0.2);
+    }
+
+    .brand-icon-box .shield-icon {
+      stroke: #ffffff;
+    }
+
+    .brand-icon-box .flag-icon {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      font-size: 14px;
+    }
+
+    .brand-text-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: var(--primary-navy);
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+
+    .brand-country {
+      color: var(--costco-red);
+    }
+
+    .brand-tagline {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+    }
+
+    /* Navigation Menu */
+    .nav-list {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-link {
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+      padding: 8px 0;
+      position: relative;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--costco-blue);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--costco-red);
+      border-radius: 2px;
+      transition: var(--transition-fast);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .mobile-menu-btn span {
+      width: 24px;
+      height: 2px;
+      background-color: var(--primary-navy);
+      border-radius: 2px;
+      transition: var(--transition-fast);
+    }
+
+    /* -------------------- 4. HERO SECTION (AIRY, TWO-COLUMN, REFERENCE STYLE) -------------------- */
+    .hero-section {
+      position: relative;
+      background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
+      padding: 60px 0 70px 0;
+      overflow: hidden;
+    }
+
+    .hero-bg-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(30, 58, 138, 0.03) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(220, 38, 38, 0.03) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    .hero-container {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 48px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Left Hero Content */
+    .hero-cert-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .cert-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      border: 1px solid var(--border-light);
+      font-family: var(--font-heading);
+      font-size: 0.82rem;
+      font-weight: 700;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .cert-badge-usa {
+      color: var(--costco-red);
+    }
+
+    .cert-badge-costco {
+      color: var(--costco-blue);
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .dot-red {
+      background-color: var(--costco-red);
+      box-shadow: 0 0 6px rgba(220, 38, 38, 0.6);
+    }
+
+    .dot-navy {
+      background-color: var(--costco-blue);
+      box-shadow: 0 0 6px rgba(30, 58, 138, 0.6);
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.9rem, 2.7vw, 2.7rem);
+      font-weight: 900;
+      color: var(--primary-navy);
+      line-height: 1.25;
+      letter-spacing: -0.6px;
+      margin-bottom: 16px;
+    }
+
+    .hero-title-highlight {
+      background: linear-gradient(135deg, #1e3a8a 0%, #dc2626 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .hero-subtitle {
+      font-size: 1.12rem;
+      font-weight: 500;
+      color: #334155;
+      margin-bottom: 20px;
+      max-width: 580px;
+    }
+
+    .hero-commitment-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #e0f2fe;
+      color: #0369a1;
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      margin-bottom: 24px;
+    }
+
+    /* 3 Hero Metric Cards */
+    .hero-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 24px;
+      max-width: 560px;
+    }
+
+    .metric-card {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #ffffff;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-fast);
+    }
+
+    .metric-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: #cbd5e1;
+    }
+
+    .metric-icon-box {
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    .metric-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .metric-number {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      line-height: 1.1;
+    }
+
+    .metric-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .hero-description {
+      font-size: 0.95rem;
+      color: #475569;
+      line-height: 1.6;
+      margin-bottom: 28px;
+      max-width: 580px;
+    }
+
+    /* Action Group */
+    .hero-action-group {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .hero-link-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--costco-blue);
+      transition: var(--transition-fast);
+    }
+
+    .hero-link-secondary .arrow-icon {
+      transition: transform 0.2s ease;
+    }
+
+    .hero-link-secondary:hover {
+      color: var(--costco-red);
+    }
+
+    .hero-link-secondary:hover .arrow-icon {
+      transform: translateX(4px);
+    }
+
+    /* Right Hero Visual Card with Floating Badges */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-card-frame {
+      position: relative;
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 12px;
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      box-shadow: var(--shadow-xl);
+      max-width: 520px;
+      width: 100%;
+    }
+
+    .hero-image-wrapper {
+      border-radius: 20px;
+      overflow: hidden;
+      background: #f8fafc;
+    }
+
+    .hero-showcase-img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .hero-card-frame:hover .hero-showcase-img {
+      transform: scale(1.02);
+    }
+
+    /* Floating Badges (Top-Right & Bottom-Left) */
+    .floating-badge {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 10px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+      z-index: 10;
+      animation: floatSubtle 4s ease-in-out infinite alternate;
+    }
+
+    .badge-top-right {
+      top: 20px;
+      right: -24px;
+    }
+
+    .badge-bottom-left {
+      bottom: 24px;
+      left: -24px;
+      animation-delay: 2s;
+    }
+
+    @keyframes floatSubtle {
+      0% {
+        transform: translateY(0);
+      }
+
+      100% {
+        transform: translateY(-8px);
+      }
+    }
+
+    .badge-flag-box {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: #eff6ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .badge-gold-bg {
+      background: #fef3c7;
+    }
+
+    .badge-text-box {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .badge-title {
+      font-family: var(--font-heading);
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      line-height: 1.2;
+    }
+
+    .badge-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* -------------------- 5. TRUST RIBBON / COMMITMENT BAR -------------------- */
+    .trust-ribbon-bar {
+      background: linear-gradient(135deg, #0f2b48 0%, #1e3a8a 100%);
+      color: #ffffff;
+      padding: 18px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .ribbon-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .ribbon-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .ribbon-icon {
+      font-size: 1.2rem;
+    }
+
+    /* -------------------- 6. PAIN POINTS & SOLUTION COMPARISON -------------------- */
+    .section-pain-points {
+      background-color: #ffffff;
+    }
+
+    .pain-points-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .pain-card {
+      background: #fff8f8;
+      border: 1px solid #fee2e2;
+      border-radius: 18px;
+      padding: 28px 22px;
+      transition: var(--transition-normal);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pain-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: #fca5a5;
+      background: #ffffff;
+    }
+
+    .pain-card-icon {
+      font-size: 2rem;
+      margin-bottom: 14px;
+    }
+
+    .pain-card-title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #991b1b;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .pain-card-desc {
+      font-size: 0.92rem;
+      color: #475569;
+      line-height: 1.55;
+    }
+
+    /* Solution Comparison Banner */
+    .solution-comparison-wrapper {
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    .comparison-banner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .comp-col {
+      padding: 44px 38px;
+    }
+
+    .comp-col-bad {
+      background: #f8fafc;
+      border-right: 1px solid var(--border-light);
+    }
+
+    .comp-col-bad .comp-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .comp-col-bad h4 {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #64748b;
+    }
+
+    .comp-col-bad .comp-list li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 14px;
+      font-size: 0.95rem;
+      color: #64748b;
+    }
+
+    .comp-col-bad .comp-list li::before {
+      content: '✕';
+      position: absolute;
+      left: 0;
+      color: #ef4444;
+      font-weight: 800;
+    }
+
+    .comp-col-good {
+      background: linear-gradient(135deg, #0f2b48 0%, #1e3a8a 100%);
+      color: #ffffff;
+      position: relative;
+    }
+
+    .comp-badge-top {
+      display: inline-block;
+      background: var(--costco-red);
+      color: #ffffff;
+      font-family: var(--font-heading);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.8px;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      margin-bottom: 14px;
+    }
+
+    .comp-col-good .comp-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .comp-col-good h4 {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .comp-col-good .comp-list li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 14px;
+      font-size: 0.96rem;
+      color: #e2e8f0;
+    }
+
+    .comp-col-good .comp-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #38bdf8;
+      font-weight: 900;
+      font-size: 1.1rem;
+    }
+
+    /* -------------------- 7. PRODUCTS GRID (REAL STUDIO PHOTOS) -------------------- */
+    .section-products {
+      background: #f8fafc;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 50px;
+    }
+
+    .product-card {
+      background: #ffffff;
+      border-radius: 20px;
+      border: 1px solid var(--border-light);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: var(--transition-normal);
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: #cbd5e1;
+    }
+
+    .product-badge-flag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(15, 43, 72, 0.9);
+      color: #ffffff;
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      z-index: 5;
+    }
+
+    .product-image-box {
+      width: 100%;
+      height: 250px;
+      background: #ffffff;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--border-light);
+      overflow: hidden;
+    }
+
+    .product-thumb-img {
+      max-width: 100%;
+      max-height: 220px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover .product-thumb-img {
+      transform: scale(1.05);
+    }
+
+    .product-details {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .product-category-tag {
+      font-family: var(--font-heading);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      color: var(--costco-blue);
+      margin-bottom: 8px;
+    }
+
+    .product-name {
+      font-family: var(--font-heading);
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      line-height: 1.35;
+      margin-bottom: 10px;
+    }
+
+    .product-benefit {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+
+    .product-meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed var(--border-light);
+    }
+
+    .product-stock {
+      color: #16a34a;
+    }
+
+    .product-pricing {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .price-current {
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
+      font-weight: 900;
+      color: var(--costco-red);
+    }
+
+    .price-original {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      text-decoration: line-through;
+    }
+
+    .price-discount {
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      font-weight: 800;
+      background: #fee2e2;
+      color: var(--costco-red);
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .product-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      text-align: center;
+    }
+
+    .btn-detail-link {
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      transition: var(--transition-fast);
+    }
+
+    .btn-detail-link:hover {
+      color: var(--costco-blue);
+    }
+
+    /* Catalog Banner */
+    .catalog-cta-banner {
+      background: linear-gradient(135deg, #1e3a8a 0%, #0f2b48 100%);
+      border-radius: 20px;
+      padding: 30px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      color: #ffffff;
+      box-shadow: var(--shadow-md);
+    }
+
+    .catalog-cta-text h4 {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .catalog-cta-text p {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+    }
+
+    /* -------------------- 8. BENEFITS SECTION (6 VALUE PILLARS) -------------------- */
+    .section-benefits {
+      background: #ffffff;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+
+    .benefit-card {
+      background: #f8fafc;
+      border: 1px solid var(--border-light);
+      border-radius: 20px;
+      padding: 32px 26px;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition-normal);
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-4px);
+      background: #ffffff;
+      box-shadow: var(--shadow-lg);
+      border-color: #cbd5e1;
+    }
+
+    .benefit-number {
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #e2e8f0;
+      line-height: 1;
+    }
+
+    .benefit-icon-wrapper {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: #eff6ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+    }
+
+    .benefit-title {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 12px;
+    }
+
+    .benefit-desc {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* -------------------- 9. TESTIMONIALS SECTION -------------------- */
+    .section-testimonials {
+      background: #f1f5f9;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testi-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 30px;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .testi-stars {
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+    }
+
+    .testi-text {
+      font-size: 0.95rem;
+      color: #334155;
+      line-height: 1.65;
+      font-style: italic;
+      margin-bottom: 24px;
+    }
+
+    .testi-user {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .user-avatar-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1e3a8a 0%, #dc2626 100%);
+      color: #ffffff;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    .user-meta {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .user-name {
+      font-family: var(--font-heading);
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+    }
+
+    .user-loc {
+      font-size: 0.78rem;
+      color: var(--text-light);
+    }
+
+    /* -------------------- 10. CONSULTATION FORM SECTION -------------------- */
+    .section-consultation {
+      background: linear-gradient(135deg, #091a2c 0%, #0f2b48 50%, #1e3a8a 100%);
+      color: #ffffff;
+      padding: 85px 0 95px 0;
+      position: relative;
+    }
+
+    .consultation-container {
+      max-width: 820px;
+    }
+
+    .consultation-header {
+      margin-bottom: 30px;
+    }
+
+    .consult-title {
+      font-family: var(--font-heading);
+      font-size: 2.3rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .consult-subtitle {
+      font-size: 1.05rem;
+      color: #e2e8f0;
+    }
+
+    .time-badge {
+      background: var(--costco-red);
+      color: #ffffff;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-weight: 800;
+      font-family: var(--font-heading);
+    }
+
+    .form-guarantees-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      margin-bottom: 34px;
+      flex-wrap: wrap;
+    }
+
+    .form-guarantee-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #cbd5e1;
+    }
+
+    .form-guarantee-item .g-icon {
+      color: #38bdf8;
+      font-weight: 900;
+    }
+
+    .consultation-form-card {
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .form-group .required {
+      color: #f87171;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: #1e293b;
+      outline: none;
+      transition: var(--transition-fast);
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.3);
+    }
+
+    .form-submit-row {
+      margin-top: 26px;
+    }
+
+    .security-privacy-note {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 16px;
+      font-size: 0.78rem;
+      color: #94a3b8;
+      text-align: center;
+    }
+
+    /* -------------------- 10.1 SURVEY FORM ENHANCEMENTS -------------------- */
+    .survey-card-header {
+      background: linear-gradient(135deg, rgba(220, 38, 38, 0.16) 0%, rgba(245, 158, 11, 0.18) 100%);
+      border: 1.5px solid rgba(245, 158, 11, 0.4);
+      border-radius: 16px;
+      padding: 18px 24px;
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    .survey-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--costco-red);
+      color: #ffffff;
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      padding: 4px 14px;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .survey-voucher-incentive {
+      font-size: 1.05rem;
+      color: #fbbf24;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .survey-voucher-incentive span {
+      color: #e2e8f0;
+      font-weight: 400;
+      display: block;
+      font-size: 0.88rem;
+      margin-top: 4px;
+    }
+
+    .survey-mode-switcher {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .survey-mode-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #cbd5e1;
+      padding: 9px 18px;
+      border-radius: 9999px;
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .survey-mode-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+    }
+
+    .survey-mode-btn.active {
+      background: #0284c7;
+      border-color: #38bdf8;
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+    }
+
+    .survey-question-block {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 22px;
+      margin-bottom: 20px;
+      transition: all 0.25s ease;
+    }
+
+    .survey-question-block:hover {
+      border-color: rgba(56, 189, 248, 0.35);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .survey-q-title {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-family: var(--font-heading);
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .survey-q-num {
+      background: #0284c7;
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .survey-q-hint {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-bottom: 14px;
+      margin-left: 36px;
+      font-style: italic;
+    }
+
+    .survey-input-box {
+      margin-left: 36px;
+    }
+
+    .survey-options-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-left: 36px;
+    }
+
+    .survey-option-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(15, 23, 42, 0.45);
+      border: 1.5px solid rgba(255, 255, 255, 0.12);
+      padding: 12px 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .survey-option-label:hover {
+      background: rgba(15, 23, 42, 0.75);
+      border-color: rgba(56, 189, 248, 0.4);
+      transform: translateX(3px);
+    }
+
+    .survey-option-label input[type="checkbox"],
+    .survey-option-label input[type="radio"] {
+      width: 18px;
+      height: 18px;
+      accent-color: #0284c7;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .survey-option-label:has(input:checked),
+    .survey-option-label.checked {
+      background: rgba(2, 132, 199, 0.2);
+      border-color: #38bdf8;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
+    }
+
+    .survey-option-label:has(input:checked) .survey-option-text,
+    .survey-option-label.checked .survey-option-text {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .survey-option-text {
+      font-size: 0.93rem;
+      color: #cbd5e1;
+      line-height: 1.4;
+    }
+
+    .google-form-embed-wrapper {
+      background: #ffffff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+      padding: 8px;
+    }
+
+    .google-form-embed-wrapper iframe {
+      width: 100%;
+      height: 800px;
+      border: none;
+      display: block;
+    }
+
+    @media (max-width: 640px) {
+
+      .survey-q-hint,
+      .survey-input-box,
+      .survey-options-grid {
+        margin-left: 0;
+      }
+
+      .survey-card-header {
+        padding: 14px 16px;
+      }
+    }
+
+    /* -------------------- 11. FOOTER -------------------- */
+    .site-footer {
+      background: #091422;
+      color: #ffffff;
+      padding: 70px 0 0 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1.3fr;
+      gap: 48px;
+      padding-bottom: 60px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .f-brand-name {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: #ffffff;
+    }
+
+    .f-brand-highlight {
+      color: var(--costco-red);
+    }
+
+    .footer-desc {
+      font-size: 0.92rem;
+      color: #94a3b8;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .footer-badge-trust {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #38bdf8;
+    }
+
+    .footer-heading {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 22px;
+      position: relative;
+      padding-bottom: 8px;
+    }
+
+    .footer-heading::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 32px;
+      height: 2px;
+      background: var(--costco-red);
+    }
+
+    .footer-links-list li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links-list a {
+      font-size: 0.92rem;
+      color: #94a3b8;
+    }
+
+    .footer-links-list a:hover {
+      color: #ffffff;
+      padding-left: 4px;
+    }
+
+    .contact-entry {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-size: 0.92rem;
+    }
+
+    .contact-entry .c-icon {
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-entry .c-text {
+      display: flex;
+      flex-direction: column;
+      color: #cbd5e1;
+    }
+
+    .contact-entry strong {
+      color: #f59e0b;
+      font-size: 1.1rem;
+    }
+
+    .footer-bottom-bar {
+      background: #050b13;
+      padding: 22px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-bottom-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.82rem;
+      color: #64748b;
+    }
+
+    .fda-disclaimer {
+      font-style: italic;
+      font-size: 0.78rem;
+      color: #94a3b8;
+    }
+
+    /* -------------------- 12. FLOATING ACTION WIDGETS -------------------- */
+    .floating-contact-box {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 999;
+    }
+
+    .float-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #ffffff;
+      padding: 10px 18px;
+      border-radius: 9999px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      transition: var(--transition-normal);
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+
+    .float-call {
+      background: #dc2626;
+      color: #ffffff;
+    }
+
+    .float-call:hover {
+      background: #b91c1c;
+      transform: scale(1.05);
+    }
+
+    .float-zalo {
+      background: #0068ff;
+      color: #ffffff;
+    }
+
+    .float-zalo:hover {
+      background: #0052cc;
+      transform: scale(1.05);
+    }
+
+    .float-btn .f-icon {
+      font-size: 1.1rem;
+    }
+
+    /* -------------------- 13. RESPONSIVE BREAKPOINTS -------------------- */
+    @media (max-width: 1024px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+
+      .hero-cert-badges,
+      .hero-action-group,
+      .hero-commitment-pill {
+        justify-content: center;
+      }
+
+      .hero-subtitle,
+      .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-metrics-grid {
+        margin: 0 auto 24px auto;
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pain-points-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .main-nav {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: flex;
+      }
+
+      .hero-title {
+        font-size: 2.2rem;
+      }
+
+      .hero-metrics-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pain-points-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison-banner {
+        grid-template-columns: 1fr;
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .floating-badge {
+        position: static;
+        margin-top: 12px;
+        animation: none;
+      }
+
+      .catalog-cta-banner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    /* -------------------- 11. STEP 1 SPECIFIC STYLES & COMPONENTS -------------------- */
+    .top-announcement-bar {
+      background: linear-gradient(90deg, #0f2b48 0%, #1e3a8a 50%, #b91c1c 100%);
+      color: #ffffff;
+      padding: 9px 16px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      position: relative;
+      z-index: 1001;
+    }
+
+    .announcement-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .hero-preheadline {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--costco-red);
+      background: rgba(220, 38, 38, 0.08);
+      border: 1px solid rgba(220, 38, 38, 0.22);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      margin-bottom: 16px;
+    }
+
+    .hero-cta-subtext {
+      margin-top: 12px;
+      font-size: 0.88rem;
+      color: #64748b;
+    }
+
+    .cta-zalo-link {
+      color: #0284c7;
+      font-weight: 700;
+      text-decoration: underline;
+      transition: var(--transition-fast);
+    }
+
+    .cta-zalo-link:hover {
+      color: var(--costco-red);
+    }
+
+    /* Proof Gallery Grid (Khối 5 Bước 1) */
+    .section-proof {
+      background: #f8fafc;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 36px;
+    }
+
+    .proof-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 24px 20px;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: var(--transition-normal);
+    }
+
+    .proof-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: #93c5fd;
+    }
+
+    .proof-icon-header {
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+
+    .proof-title {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      line-height: 1.3;
+    }
+
+    .proof-desc {
+      font-size: 0.9rem;
+      color: #475569;
+      line-height: 1.55;
+    }
+
+    /* FAQ Accordion Section (Khối 6 Bước 1) */
+    .section-faq {
+      background: #ffffff;
+      padding: 80px 0;
+    }
+
+    .faq-container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 36px;
+    }
+
+    .faq-item {
+      background: #f8fafc;
+      border: 1px solid var(--border-light);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: var(--transition-fast);
+    }
+
+    .faq-item:hover {
+      border-color: #cbd5e1;
+      background: #ffffff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary-navy);
+      cursor: pointer;
+      user-select: none;
+      gap: 16px;
+    }
+
+    .faq-toggle-icon {
+      font-size: 1.2rem;
+      color: var(--costco-blue);
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .faq-answer {
+      padding: 0 24px 20px 24px;
+      font-size: 0.95rem;
+      color: #475569;
+      line-height: 1.65;
+      border-top: 1px dashed rgba(203, 213, 225, 0.6);
+      margin-top: -6px;
+      padding-top: 14px;
+    }
+
+    /* Form Incentives Box (Khối 7 Bước 1) */
+    .form-incentives-box {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      max-width: 720px;
+      margin: 0 auto 28px auto;
+    }
+
+    .incentive-pill {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(254, 242, 242, 0.9);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      padding: 12px 18px;
+      border-radius: 12px;
+      text-align: left;
+    }
+
+    .incentive-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .incentive-text strong {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 0.94rem;
+      color: #991b1b;
+      font-weight: 800;
+    }
+
+    .incentive-text span {
+      font-size: 0.82rem;
+      color: #7f1d1d;
+    }
+
+    @media (max-width: 768px) {
+      .proof-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-incentives-box {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- ==================== TOP ANNOUNCEMENT BAR (BƯỚC 1) ==================== -->
+  <div class="top-announcement-bar">
+    <div class="container announcement-content text-center">
+      <span>✈️ Hàng bay Air trực tiếp mỗi tuần • Cam kết 100% mua tại siêu thị Costco Mỹ • Đền gấp 10 lần nếu phát hiện
+        hàng giả!</span>
+    </div>
+  </div>
+
+  <!-- ==================== 1. HEADER / NAVBAR (CHUẨN THEO ẢNH MẪU) ==================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-container">
+
+      <!-- Brand Logo -->
+      <a href="#" class="brand-logo" aria-label="CostcoHealth USA Trang Chủ">
+        <div class="brand-icon-box">
+          <span class="flag-icon">🇺🇸</span>
+          <svg class="shield-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+        </div>
+        <div class="brand-text-group">
+          <span class="brand-name">CostcoHealth<span class="brand-country">USA</span></span>
+          <span class="brand-tagline">TPCN CHÍNH HÃNG COSTCO MỸ</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links (Đã bỏ Nỗi lo & Quy trình theo yêu cầu) -->
+      <nav class="main-nav" id="mainNav">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#hero" class="nav-link active">Trang Chủ</a></li>
+          <li class="nav-item"><a href="#vi-sao-chon" class="nav-link">Vì Sao Chọn Costco</a></li>
+          <li class="nav-item"><a href="#san-pham" class="nav-link">Sản Phẩm Hot</a></li>
+          <li class="nav-item"><a href="#loi-ich" class="nav-link">Lợi Ích</a></li>
+          <li class="nav-item"><a href="#minh-chung" class="nav-link">Minh Chứng</a></li>
+          <li class="nav-item"><a href="#faq" class="nav-link">FAQ</a></li>
+          <li class="nav-item"><a href="#lien-he" class="nav-link">Khảo Sát & Ưu Đãi</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header CTA Button -->
+      <div class="header-actions">
+        <a href="#lien-he" class="btn btn-pill btn-primary-gradient header-cta-btn">
+          <span>Đặt Hàng Ngay</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+
+        <!-- Mobile Menu Hamburger -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Mở Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==================== 2. HERO SECTION (BỐ CỤC & CẢM GIÁC THIẾT KẾ CHUẨN THEO ẢNH MẪU) ==================== -->
+  <section class="hero-section" id="hero">
+    <div class="hero-bg-overlay"></div>
+    <div class="container hero-container">
+
+      <!-- HERO LEFT COLUMN: Nội dung & Kêu gọi hành động -->
+      <div class="hero-content">
+
+        <!-- Top Certification Badges (Chuẩn ảnh mẫu với cờ và chấm màu) -->
+        <div class="hero-cert-badges">
+          <div class="cert-badge cert-badge-usa">
+            <span class="badge-dot dot-red"></span>
+            <span class="badge-flag">🇺🇸</span>
+            <span class="badge-text">USA - USP Verified & FDA Approved</span>
+          </div>
+          <div class="cert-badge cert-badge-costco">
+            <span class="badge-dot dot-navy"></span>
+            <span class="badge-star">⭐</span>
+            <span class="badge-text">Costco Wholesale Member 100%</span>
+          </div>
+        </div>
+
+        <!-- Pre-headline (Bước 1) -->
+        <div class="hero-preheadline">GIẢI PHÁP CHĂM SÓC SỨC KHỎE AN TOÀN CHO CẢ GIA ĐÌNH</div>
+
+        <!-- Main Headline (Tiêu đề chính theo Bước 1) -->
+        <h1 class="hero-title">
+          ? Flash Sale Cu?i Tu?n: Gi?m 30% To�n B? TPCN Bay Air
+        </h1>
+
+        <!-- Subheading (Bước 1) -->
+        <p class="hero-subtitle">
+          Uu d�i d?c bi?t ch? trong 48h. T?ng h?p s?n ph?m chu?n Costco M? k�m h�a don mua h�ng.
+        </p>
+
+        <!-- 3 Metric Cards (Đúng bố cục 3 ô vuông nhỏ, thay bằng Trust Badges từ Bước 1) -->
+        <div class="hero-metrics-grid">
+          <div class="metric-card">
+            <div class="metric-icon-box icon-lightbulb">🧾</div>
+            <div class="metric-info">
+              <span class="metric-number">Bill Costco Theo Ngày</span>
+              <span class="metric-label">Kèm hóa đơn mua hàng gốc</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-icon-box icon-check">✈️</div>
+            <div class="metric-info">
+              <span class="metric-number">100% Bay Air Cargo</span>
+              <span class="metric-label">Hạn dùng luôn mới nhất</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-icon-box icon-delivery">🛡️</div>
+            <div class="metric-info">
+              <span class="metric-number">Đồng Kiểm Tra</span>
+              <span class="metric-label">Đền gấp 10 lần nếu phát hiện giả</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trust Description Paragraph -->
+        <p class="hero-description">
+          Mua hàng trực tiếp từ siêu thị <strong>Costco Wholesale</strong> uy tín tại Hoa Kỳ. Kèm bill mua hàng gốc tại
+          quầy, tem niêm phong nguyên bản – bạn hoàn toàn yên tâm trao gửi sức khỏe cho bản thân và gia đình.
+        </p>
+
+        <!-- CTA Action Buttons (Nút kêu gọi hành động chuẩn Bước 1) -->
+        <div class="hero-action-group">
+          <a href="#lien-he" class="btn btn-pill btn-cta-primary">
+            <span>TƯ VẤN MIỄN PHÍ & NHẬN BÁO GIÁ</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+          </a>
+
+          <a href="#san-pham" class="hero-link-secondary">
+            <span>Khám phá sản phẩm</span>
+            <span class="arrow-icon">→</span>
+          </a>
+        </div>
+
+        <!-- Chú thích Zalo dưới nút theo Bước 1 -->
+        <p class="hero-cta-subtext">
+          Hoặc bấm để nhắn tin Zalo: <a href="https://zalo.me/0336822318" target="_blank"
+            class="cta-zalo-link">0336.822.318</a> (Phản hồi trong 2 phút)
+        </p>
+
+      </div>
+
+      <!-- HERO RIGHT COLUMN: Hình ảnh minh họa & Floating Badges -->
+      <div class="hero-visual">
+        <div class="hero-card-frame">
+
+          <!-- Product Showcase Image (Ảnh thật chụp bộ sản phẩm Costco kèm bill & thùng hàng) -->
+          <div class="hero-image-wrapper">
+            <img src="hero.jpg" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='images/hero.jpg';}"
+              alt="Thực phẩm chức năng Costco Mỹ chính hãng kèm hóa đơn và thùng vận chuyển hàng không"
+              class="hero-showcase-img" loading="eager" />
+          </div>
+
+          <!-- Floating Badge Top Right (Chuẩn như ảnh mẫu) -->
+          <div class="floating-badge badge-top-right">
+            <div class="badge-flag-box">🇺🇸</div>
+            <div class="badge-text-box">
+              <span class="badge-title">Hàng Costco Mỹ chính hãng</span>
+              <span class="badge-sub">Kèm Bill siêu thị, date xa gốc</span>
+            </div>
+          </div>
+
+          <!-- Floating Badge Bottom Left (Chuẩn như ảnh mẫu) -->
+          <div class="floating-badge badge-bottom-left">
+            <div class="badge-flag-box badge-gold-bg">⭐</div>
+            <div class="badge-text-box">
+              <span class="badge-title">Hàng Chuẩn USP Certified</span>
+              <span class="badge-sub">Đạt chuẩn dược điển Hoa Kỳ</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 3. TRUST RIBBON / COMMITMENT TICKER (THANH DƯỚI HERO NHƯ ẢNH MẪU) ==================== -->
+  <div class="trust-ribbon-bar" id="cam-ket">
+    <div class="container ribbon-container">
+
+      <div class="ribbon-item">
+        <span class="ribbon-icon">🛡️</span>
+        <span class="ribbon-text">Cam kết 100% mua tại siêu thị Costco Mỹ</span>
+      </div>
+
+      <div class="ribbon-item">
+        <span class="ribbon-icon">🧾</span>
+        <span class="ribbon-text">Hóa đơn mua hàng (Costco Receipt) theo ngày</span>
+      </div>
+
+      <div class="ribbon-item">
+        <span class="ribbon-icon">✈️</span>
+        <span class="ribbon-text">100% Vận chuyển đường bay Air Cargo</span>
+      </div>
+
+      <div class="ribbon-item">
+        <span class="ribbon-icon">🔄</span>
+        <span class="ribbon-text">Đồng kiểm tra trước khi nhận – Đổi trả 7 ngày</span>
+      </div>
+
+      <div class="ribbon-item">
+        <span class="ribbon-icon">💰</span>
+        <span class="ribbon-text">Đền gấp 10 lần nếu phát hiện hàng giả</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== 4. VẤN ĐỀ KHÁCH HÀNG & GIẢI PHÁP TỪ COSTCO MỸ (KHỐI 2 & KHỐI 3 BƯỚC 1) ==================== -->
+  <section class="section section-pain-points" id="vi-sao-chon">
+    <div class="container">
+
+      <div class="section-header text-center">
+        <span class="section-tag-pill">⚠️ NỖI LO & VẤN ĐỀ CỦA KHÁCH HÀNG</span>
+        <h2 class="section-title">
+          Có Phải Bạn Cũng Đang Lo Lắng Những Điều Này Khi Mua <span class="highlight-red">Thực Phẩm Chức Năng Cho Gia
+            Đình?</span>
+        </h2>
+        <p class="section-subtitle">
+          Khách hàng mua TPCN không tiếc tiền, chỉ sợ mua phải hàng giả làm hại sức khỏe bản thân và người thân yêu. Hãy
+          cảnh giác trước 3 vấn đề nhức nhối:
+        </p>
+      </div>
+
+      <!-- 3 Cards Vấn đề cốt lõi đúng từ Bước 1 -->
+      <div class="pain-points-grid" style="grid-template-columns: repeat(3, 1fr);">
+
+        <div class="pain-card">
+          <div class="pain-card-icon">❌</div>
+          <h3 class="pain-card-title">1. Bát Nháo Thị Trường Hàng Giả, Gia Công Tinh Vi</h3>
+          <p class="pain-card-desc">
+            Lướt mạng thấy vô vàn mức giá chênh lệch khó hiểu. Nhiều nơi rao bán rẻ hơn cả giá niêm yết tại siêu thị Mỹ.
+            Bỏ tiền triệu ra tẩm bổ nhưng nơm nớp lo sợ uống phải bột đá, hóa chất độc hại.
+          </p>
+        </div>
+
+        <div class="pain-card">
+          <div class="pain-card-icon">⏳</div>
+          <h3 class="pain-card-title">2. Hàng Cận Hạn Sử Dụng (Cận Date), Tồn Kho Lâu Ngày</h3>
+          <p class="pain-card-desc">
+            Nhiều bên gom hàng thanh lý giảm giá bên Mỹ về bán. Khi đến tay bạn thì chỉ còn vài tháng sử dụng, viên uống
+            bị ẩm mốc, chảy dầu hoặc biến đổi dưỡng chất.
+          </p>
+        </div>
+
+        <div class="pain-card">
+          <div class="pain-card-icon">🚢</div>
+          <h3 class="pain-card-title">3. Vận Chuyển Đường Biển Nóng Bức Phân Hủy Dược Tính</h3>
+          <p class="pain-card-desc">
+            Hàng đi container lênh đênh trên biển 2–3 tháng trong nhiệt độ hầm tàu trên 40°C khiến vitamin, dầu cá và
+            men vi sinh bị phân hủy, uống vào không còn tác dụng.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Bảng đối lập Giải Pháp (Khối 3 Bước 1) -->
+      <div class="solution-comparison-wrapper">
+        <div class="section-header text-center" style="margin-bottom: 24px;">
+          <span class="section-tag-pill">✅ GIẢI PHÁP & SỰ KHÁC BIỆT CỦA CHÚNG TÔI</span>
+          <h3 class="section-title" style="font-size: 1.85rem;">
+            Chúng Tôi Mang Đến Cho Bạn Sự An Tâm Tuyệt Đối Từ <span class="highlight-navy">Siêu Thị Costco Lớn Nhất Nước
+              Mỹ</span>
+          </h3>
+        </div>
+
+        <div class="comparison-banner">
+          <div class="comp-col comp-col-bad">
+            <div class="comp-header">
+              <span class="comp-icon">❌</span>
+              <h4>HÀNG TRÔI NỔI NGOÀI THỊ TRƯỜNG</h4>
+            </div>
+            <ul class="comp-list">
+              <li>Không rõ nguồn gốc, nhập qua nhiều đầu nậu trung gian trôi nổi</li>
+              <li>Không có hóa đơn mua hàng (Receipt) tại siêu thị gốc</li>
+              <li>Đi container đường biển nhiệt độ 40-50°C làm hỏng hoạt chất dược tính</li>
+              <li>Nguy cơ dập lại hạn sử dụng, trà trộn hàng giả vỏ thật</li>
+              <li>Người bán trốn tránh trách nhiệm khi sản phẩm xảy ra vấn đề</li>
+            </ul>
+          </div>
+
+          <div class="comp-col comp-col-good">
+            <div class="comp-badge-top">LỰA CHỌN AN TÂM 100%</div>
+            <div class="comp-header">
+              <span class="comp-icon">⭐</span>
+              <h4>CAM KẾT CHUẨN TỪ COSTCOHEALTH USA</h4>
+            </div>
+            <ul class="comp-list">
+              <li><strong>Mua trực tiếp tại quầy Costco Wholesale Mỹ:</strong> Đại diện cầm thẻ hội viên mua tại
+                California/Texas, kèm video tại quầy và hóa đơn giấy (receipt) in rõ ngày giờ.</li>
+              <li><strong>100% Vận chuyển đường bay Air Cargo tiêu chuẩn:</strong> Bay về trong 7–10 ngày, khoang mát mẻ
+                giữ nguyên 100% hàm lượng dưỡng chất.</li>
+              <li><strong>Date xa tít tắp – Lô sản xuất mới nhất:</strong> Hàng luân chuyển liên tục, hạn dùng luôn từ
+                2–3 năm trở lên.</li>
+              <li><strong>Đền bù gấp 10 lần giá trị nếu phát hiện hàng giả:</strong> Lời cam kết bằng uy tín và danh dự.
+                Đồng kiểm tra hóa đơn và tem mác trước khi thanh toán.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 5. 6 SẢN PHẨM CHỦ LỰC COSTCO MỸ (ẢNH THẬT 100% HIỂN THỊ RÕ RÀNG) ==================== -->
+  <section class="section section-products" id="san-pham">
+    <div class="container">
+
+      <div class="section-header text-center">
+        <span class="section-tag-pill">💊 KHỐI SẢN PHẨM BEST-SELLERS</span>
+        <h2 class="section-title">
+          Những Sản Phẩm Chăm Sóc Sức Khỏe Costco <span class="highlight-navy">Được Người Việt Tin Dùng Nhất</span>
+        </h2>
+        <p class="section-subtitle">
+          Tuyển chọn 4 nhóm sản phẩm thiết yếu nhất cho cha mẹ và gia đình bạn – 100% kèm hóa đơn mua hàng gốc tại Mỹ:
+        </p>
+      </div>
+
+      <!-- Lưới 6 sản phẩm chủ lực với ảnh thật chất lượng cao -->
+      <div class="products-grid">
+
+        <!-- SẢN PHẨM 1: GLUCOSAMINE KIRKLAND -->
+        <div class="product-card" data-product="Kirkland Glucosamine 375 viên">
+          <div class="product-badge-flag">🇺🇸 Costco USA</div>
+          <div class="product-image-box">
+            <img src="product1.jpg"
+              onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='images/product1.jpg';}"
+              alt="Kirkland Signature Glucosamine HCL with MSM 1500mg 375 viên chính hãng Costco Mỹ"
+              class="product-thumb-img" loading="lazy" />
+          </div>
+          <div class="product-details">
+            <div class="product-category-tag">BỔ XƯƠNG KHỚP & SỤN</div>
+            <h3 class="product-name">Kirkland Glucosamine HCL 1500mg with MSM (375 Viên)</h3>
+            <p class="product-benefit">Tái tạo mô sụn, bôi trơn ổ khớp, dứt điểm đau nhức khi đi lại cho người lớn tuổi.
+            </p>
+            <div class="product-meta-row">
+              <span class="product-rating">⭐⭐⭐⭐⭐ (4.9/5)</span>
+              <span class="product-stock">✅ Có sẵn - Kèm Bill</span>
+            </div>
+            <div class="product-pricing">
+              <span class="price-current">595.000đ</span>
+              <span class="price-original">680.000đ</span>
+              <span class="price-discount">-13%</span>
+            </div>
+            <div class="product-actions">
+              <a href="#lien-he" class="btn btn-pill btn-buy-now"
+                onclick="selectProduct('Kirkland Glucosamine HCL 1500mg')">
+                <span>Đặt Mua Ngay</span>
+              </a>
+              <a href="#lien-he" class="btn-detail-link" onclick="selectProduct('Kirkland Glucosamine HCL 1500mg')">Xem
+                Bill Gốc →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SẢN PHẨM 2: DẦU CÁ KIRKLAND FISH OIL -->
+        <div class="product-card" data-product="Dầu cá Kirkland Wild Alaskan Fish Oil">
+          <div class="product-badge-flag">🇺🇸 Bán Chạy #1</div>
+          <div class="product-image-box">
+            <img src="product2.jpg"
+              onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='images/product2.jpg';}"
+              alt="Kirkland Signature Wild Alaskan Fish Oil Omega 3 chính hãng Costco Mỹ" class="product-thumb-img"
+              loading="lazy" />
+          </div>
+          <div class="product-details">
+            <div class="product-category-tag">TIM MẠCH & MẮT</div>
+            <h3 class="product-name">Kirkland Wild Alaskan Fish Oil 1400mg (230 Viên)</h3>
+            <p class="product-benefit">Chiết xuất cá hồi hoang dã Alaska, Omega-3 tinh khiết hỗ trợ tim khỏe, sáng mắt
+              và giảm mỡ máu.</p>
+            <div class="product-meta-row">
+              <span class="product-rating">⭐⭐⭐⭐⭐ (4.9/5)</span>
+              <span class="product-stock">✅ Có sẵn - Kèm Bill</span>
+            </div>
+            <div class="product-pricing">
+              <span class="price-current">620.000đ</span>
+              <span class="price-original">710.000đ</span>
+              <span class="price-discount">-13%</span>
+            </div>
+            <div class="product-actions">
+              <a href="#lien-he" class="btn btn-pill btn-buy-now"
+                onclick="selectProduct('Kirkland Wild Alaskan Fish Oil')">
+                <span>Đặt Mua Ngay</span>
+              </a>
+              <a href="#lien-he" class="btn-detail-link" onclick="selectProduct('Kirkland Wild Alaskan Fish Oil')">Xem
+                Bill Gốc →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SẢN PHẨM 3: COLLAGEN YOUTHEORY -->
+        <div class="product-card" data-product="Collagen Youtheory 390 viên">
+          <div class="product-badge-flag">🇺🇸 Chuẩn Costco</div>
+          <div class="product-image-box">
+            <img src="product3.jpg"
+              onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='images/product3.jpg';}"
+              alt="Youtheory Collagen Advanced Formula Type 1 2 3 390 viên Costco" class="product-thumb-img"
+              loading="lazy" />
+          </div>
+          <div class="product-details">
+            <div class="product-category-tag">TRẺ HÓA DA & CHỐNG LÃO HÓA</div>
+            <h3 class="product-name">Youtheory Collagen Advanced Formula (390 Viên)</h3>
+            <p class="product-benefit">Bổ sung Collagen Type 1, 2, 3 kết hợp Vitamin C & Biotin giúp da căng mịn, mờ sạm
+              nám và tóc móng bóng khỏe.</p>
+            <div class="product-meta-row">
+              <span class="product-rating">⭐⭐⭐⭐⭐ (5.0/5)</span>
+              <span class="product-stock">✅ Có sẵn - Kèm Bill</span>
+            </div>
+            <div class="product-pricing">
+              <span class="price-current">680.000đ</span>
+              <span class="price-original">790.000đ</span>
+              <span class="price-discount">-14%</span>
+            </div>
+            <div class="product-actions">
+              <a href="#lien-he" class="btn btn-pill btn-buy-now"
+                onclick="selectProduct('Youtheory Collagen 390 viên')">
+                <span>Đặt Mua Ngay</span>
+              </a>
+              <a href="#lien-he" class="btn-detail-link" onclick="selectProduct('Youtheory Collagen 390 viên')">Xem Bill
+                Gốc →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SẢN PHẨM 4: MOVE FREE ULTRA -->
+        <div class="product-card" data-product="Schiff Move Free Ultra">
+          <div class="product-badge-flag">🇺🇸 Cao Cấp Mỹ</div>
+          <div class="product-image-box">
+            <img src="product4.jpg"
+              onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='images/product4.jpg';}"
+              alt="Schiff Move Free Ultra Triple Action 75 viên hỗ trợ khớp" class="product-thumb-img" loading="lazy" />
+          </div>
+          <div class="product-details">
+            <div class="product-category-tag">ĐẶC TRỊ KHỚP CHUYÊN SÂU</div>
+            <h3 class="product-name">Schiff Move Free Ultra Triple Action (75 Viên)</h3>
+            <p class="product-benefit">Chứa Collagen Type II không biến tính + Boron & Hyaluronic Acid. Viên nhỏ chỉ 1
+              viên/ngày, tác dụng nhanh gấp 2 lần.</p>
+            <div class="product-meta-row">
+              <span class="product-rating">⭐⭐⭐⭐⭐ (4.9/5)</span>
+              <span class="product-stock">✅ Có sẵn - Kèm Bill</span>
+            </div>
+            <div class="product-pricing">
+              <span class="price-current">720.000đ</span>
+              <span class="price-original">850.000đ</span>
+              <span class="price-discount">-15%</span>
+            </div>
+            <div class="product-actions">
+              <a href="#lien-he" class="btn btn-pill btn-buy-now" onclick="selectProduct('Schiff Move Free Ultra')">
+                <span>Đặt Mua Ngay</span>
+              </a>
+              <a href="#lien-he" class="btn-detail-link" onclick="selectProduct('Schiff Move Free Ultra')">Xem Bill Gốc
+                →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SẢN PHẨM 5: NATROL BIOTIN -->
+        <div class="product-card" data-product="Natrol Biotin 10,000 mcg">
+          <div class="product-badge-flag">🇺🇸 Dược Mỹ Phẩm</div>
+          <div class="product-image-box">
+            <img src="product5.jpg"
+              onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='images/product5.jpg';}"
+              alt="Natrol Biotin 10,000 mcg 60 viên ngậm nhanh mọc tóc" class="product-thumb-img" loading="lazy" />
+          </div>
+          <div class="product-details">
+            <div class="product-category-tag">MỌC TÓC & MÓNG KHỎE</div>
+            <h3 class="product-name">Natrol Biotin 10,000 mcg Maximum Strength (60 Viên)</h3>
+            <p class="product-benefit">Công nghệ ngậm tan nhanh trong miệng (Faster Dissolve), kích thích mọc tóc con,
+              trị rụng tóc hói đầu hiệu quả.</p>
+            <div class="product-meta-row">
+              <span class="product-rating">⭐⭐⭐⭐⭐ (4.8/5)</span>
+              <span class="product-stock">✅ Có sẵn - Kèm Bill</span>
+            </div>
+            <div class="product-pricing">
+              <span class="price-current">380.000đ</span>
+              <span class="price-original">450.000đ</span>
+              <span class="price-discount">-16%</span>
+            </div>
+            <div class="product-actions">
+              <a href="#lien-he" class="btn btn-pill btn-buy-now" onclick="selectProduct('Natrol Biotin 10,000 mcg')">
+                <span>Đặt Mua Ngay</span>
+              </a>
+              <a href="#lien-he" class="btn-detail-link" onclick="selectProduct('Natrol Biotin 10,000 mcg')">Xem Bill
+                Gốc →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SẢN PHẨM 6: TRUNATURE GINKGO BILOBA -->
+        <div class="product-card" data-product="Trunature Ginkgo Biloba 120mg">
+          <div class="product-badge-flag">🇺🇸 Tuần Hoàn Não</div>
+          <div class="product-image-box">
+            <img src="product6.jpg"
+              onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='images/product6.jpg';}"
+              alt="Trunature Ginkgo Biloba 120mg 300 viên bổ não Costco" class="product-thumb-img" loading="lazy" />
+          </div>
+          <div class="product-details">
+            <div class="product-category-tag">BỔ NÃO & TRÍ NHỚ</div>
+            <h3 class="product-name">Trunature Ginkgo Biloba 120mg (300 Viên)</h3>
+            <p class="product-benefit">Chiết xuất lá bạch quả tiêu chuẩn hóa, tăng cường lưu thông máu lên não, giảm đau
+              đầu chóng mặt, ngủ ngon sâu giấc.</p>
+            <div class="product-meta-row">
+              <span class="product-rating">⭐⭐⭐⭐⭐ (4.9/5)</span>
+              <span class="product-stock">✅ Có sẵn - Kèm Bill</span>
+            </div>
+            <div class="product-pricing">
+              <span class="price-current">540.000đ</span>
+              <span class="price-original">630.000đ</span>
+              <span class="price-discount">-14%</span>
+            </div>
+            <div class="product-actions">
+              <a href="#lien-he" class="btn btn-pill btn-buy-now"
+                onclick="selectProduct('Trunature Ginkgo Biloba 120mg')">
+                <span>Đặt Mua Ngay</span>
+              </a>
+              <a href="#lien-he" class="btn-detail-link" onclick="selectProduct('Trunature Ginkgo Biloba 120mg')">Xem
+                Bill Gốc →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Banner phụ kêu gọi chốt đơn danh mục -->
+      <div class="catalog-cta-banner">
+        <div class="catalog-cta-text">
+          <h4>Bạn cần tìm sản phẩm nào khác của Costco Mỹ (Vitamin, Dầu gội, Sữa hạt...)?</h4>
+          <p>Chúng tôi nhận order trực tiếp theo yêu cầu tại quầy Costco – Trả bill gốc đúng tên bạn!</p>
+        </div>
+        <a href="#lien-he" class="btn btn-pill btn-white-pill">Yêu Cầu Báo Giá Sản Phẩm Khác</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 6. LỢI ÍCH VƯỢT TRỘI KHI MUA HÀNG (BƯỚC 1) ==================== -->
+  <section class="section section-benefits" id="loi-ich">
+    <div class="container">
+
+      <div class="section-header text-center">
+        <span class="section-tag-pill">💎 GIÁ TRỊ DÀNH CHO BẠN</span>
+        <h2 class="section-title">
+          Lợi Ích Khi Mua Hàng Tại <span class="highlight-red">CostcoHealth USA</span>
+        </h2>
+        <p class="section-subtitle">
+          Chúng tôi không chỉ bán một hộp viên uống, chúng tôi trao gửi sự an tâm tuyệt đối cho sức khỏe của bạn và
+          người thân:
+        </p>
+      </div>
+
+      <div class="benefits-grid">
+
+        <div class="benefit-card">
+          <div class="benefit-number">01</div>
+          <div class="benefit-icon-wrapper">🛡️</div>
+          <h3 class="benefit-title">An Tâm Tuyệt Đối 100%</h3>
+          <p class="benefit-desc">
+            Nói không với hàng giả. Mỗi lô hàng đều được mua trực tiếp bằng thẻ thành viên Costco của chúng tôi tại bang
+            California, kèm hóa đơn mua hàng gốc.
+          </p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-number">02</div>
+          <div class="benefit-icon-wrapper">✈️</div>
+          <h3 class="benefit-title">Hiệu Quả Thật Nhờ Bay Air</h3>
+          <p class="benefit-desc">
+            Vận chuyển 100% bằng đường hàng không có kiểm soát nhiệt độ khoang lạnh, giữ nguyên vẹn 100% hoạt tính sinh
+            học của vitamin và collagen.
+          </p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-number">03</div>
+          <div class="benefit-icon-wrapper">💰</div>
+          <h3 class="benefit-title">Tiết Kiệm 20% - 30% Chi Phí</h3>
+          <p class="benefit-desc">
+            Nhờ mua giá sỉ trực tiếp tại tổng kho Costco và không qua các tầng đại lý trung gian, giá đến tay bạn luôn
+            là mức giá tốt nhất thị trường.
+          </p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-number">04</div>
+          <div class="benefit-icon-wrapper">📅</div>
+          <h3 class="benefit-title">Hạn Sử Dụng Luôn Xa Nhất</h3>
+          <p class="benefit-desc">
+            Hàng được nhập liên tục hàng tuần, tuyệt đối không có hàng tồn kho lâu ngày. Date sử dụng luôn từ 2 - 3 năm,
+            nguyên tem niêm phong gốc của hãng.
+          </p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-number">05</div>
+          <div class="benefit-icon-wrapper">👩‍⚕️</div>
+          <h3 class="benefit-title">Tư Vấn Tận Tâm Theo Thể Trạng</h3>
+          <p class="benefit-desc">
+            Không bán hàng bằng mọi giá. Chúng tôi lắng nghe tình trạng sức khỏe, bệnh nền của bạn để tư vấn đúng sản
+            phẩm, đúng liều lượng an toàn.
+          </p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-number">06</div>
+          <div class="benefit-icon-wrapper">📦</div>
+          <h3 class="benefit-title">Đồng Kiểm & Bảo Hành Đổi Trả</h3>
+          <p class="benefit-desc">
+            Nhận hàng, bạn được quyền mở hộp kiểm tra kỹ tem mác, check mã vạch và xem bill siêu thị trước khi thanh
+            toán. Đổi trả miễn phí trong 7 ngày.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 7. ĐÁNH GIÁ KHÁCH HÀNG & MINH BẠCH BILL (FEEDBACK) ==================== -->
+  <section class="section section-testimonials" id="feedback">
+    <div class="container">
+
+      <div class="section-header text-center">
+        <span class="section-tag-pill">⭐ PHẢN HỒI THỰC TẾ</span>
+        <h2 class="section-title">
+          Khách Hàng Nói Gì Về <span class="highlight-navy">CostcoHealth USA</span>
+        </h2>
+        <p class="section-subtitle">
+          Hơn 1.200 khách hàng trên toàn quốc đã tin tưởng lựa chọn sản phẩm của chúng tôi trong suốt 5 năm qua:
+        </p>
+      </div>
+
+      <div class="testimonials-grid">
+
+        <div class="testi-card">
+          <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+          <p class="testi-text">
+            “Mẹ mình bị thoái hóa khớp gối nặng, uống Glucosamine mua ở hiệu thuốc gần nhà mãi không đỡ. Đổi sang hộp
+            Glucosamine Kirkland của shop có bill Costco kèm theo, mẹ uống 1 tháng thấy đầu gối đỡ lạo xạo hẳn, đi lại
+            lên cầu thang nhẹ nhõm. Rất biết ơn shop!”
+          </p>
+          <div class="testi-user">
+            <div class="user-avatar-circle">HN</div>
+            <div class="user-meta">
+              <span class="user-name">Chị Hoàng Nga (42 tuổi)</span>
+              <span class="user-loc">Quận Cầu Giấy, Hà Nội</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+          <p class="testi-text">
+            “Mình rất kỹ tính vụ TPCN vì sợ hàng giả. Khi nhận hàng bên shop được bóc ra kiểm tra, có hóa đơn tính tiền
+            bằng tiếng Anh của Costco in rõ ngày giờ mua và mã thành viên. Hộp dầu cá Alaska uống không hề bị tanh ợ
+            ngược, mắt đỡ khô mỏi khi làm máy tính.”
+          </p>
+          <div class="testi-user">
+            <div class="user-avatar-circle">TH</div>
+            <div class="user-meta">
+              <span class="user-name">Anh Trần Hùng (36 tuổi)</span>
+              <span class="user-loc">Quận 1, TP. Hồ Chí Minh</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+          <p class="testi-text">
+            “Mình uống Collagen Youtheory hộp 390 viên của shop sang lọ thứ hai rồi. Da dẻ sáng mịn, đỡ sạm nám hẳn, đặc
+            biệt là tóc con mọc nhiều không bị rụng tơi bời sau sinh nữa. Hàng bay Air nên date xa tít tắp, date tận
+            2028 lận. Vote 5 sao!”
+          </p>
+          <div class="testi-user">
+            <div class="user-avatar-circle">ML</div>
+            <div class="user-meta">
+              <span class="user-name">Chị Mai Lan (31 tuổi)</span>
+              <span class="user-loc">Hải Châu, Đà Nẵng</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 8. MINH CHỨNG UY TÍN (KHỐI 5 BƯỚC 1) ==================== -->
+  <section class="section section-proof" id="minh-chung">
+    <div class="container">
+
+      <div class="section-header text-center">
+        <span class="section-tag-pill">📸 MINH CHỨNG UY TÍN THỰC TẾ</span>
+        <h2 class="section-title">
+          Minh Bạch Tuyệt Đối – <span class="highlight-navy">Nói Thật, Làm Thật</span>
+        </h2>
+        <p class="section-subtitle">
+          Xóa tan 100% nghi ngờ với các bằng chứng thực tế từ siêu thị Costco Mỹ và quy trình bay Air về Việt Nam:
+        </p>
+      </div>
+
+      <div class="proof-grid">
+
+        <div class="proof-card">
+          <div class="proof-icon-header">💳</div>
+          <h3 class="proof-title">Thẻ Hội Viên Costco Chính Chủ</h3>
+          <p class="proof-desc">
+            Hình ảnh thẻ thành viên Costco Membership chính chủ cùng hóa đơn mua hàng có dấu mộc và thời gian mua thực
+            tế.
+          </p>
+        </div>
+
+        <div class="proof-card">
+          <div class="proof-icon-header">🛒</div>
+          <h3 class="proof-title">Video Mua Hàng Tại Quầy Mỹ</h3>
+          <p class="proof-desc">
+            Hình ảnh và clip xe đẩy hàng đầy ắp thực phẩm chức năng bên trong siêu thị Costco tại bang California và
+            Washington.
+          </p>
+        </div>
+
+        <div class="proof-card">
+          <div class="proof-icon-header">📦</div>
+          <h3 class="proof-title">Thùng Hàng Bay Air Nguyên Seal</h3>
+          <p class="proof-desc">
+            Thùng carton nguyên seal băng keo hàng không (Air Cargo) vừa cập bến sân bay Việt Nam, kiểm soát nhiệt độ
+            nghiêm ngặt.
+          </p>
+        </div>
+
+        <div class="proof-card">
+          <div class="proof-icon-header">💬</div>
+          <h3 class="proof-title">Phản Hồi Thật Từ Khách Hàng</h3>
+          <p class="proof-desc">
+            Hơn 1.200 đánh giá và tin nhắn Zalo/Facebook thực tế từ khách hàng đã tin dùng sản phẩm qua nhiều năm.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 9. CÂU HỎI THƯỜNG GẶP (KHỐI 6 BƯỚC 1) ==================== -->
+  <section class="section section-faq" id="faq">
+    <div class="container faq-container">
+
+      <div class="section-header text-center">
+        <span class="section-tag-pill">❓ GIẢI ĐÁP THẮC MẮC</span>
+        <h2 class="section-title">
+          Câu Hỏi Thường Gặp <span class="highlight-red">(FAQ)</span>
+        </h2>
+        <p class="section-subtitle">
+          Những điều khách hàng thường quan tâm nhất trước khi đặt mua sản phẩm:
+        </p>
+      </div>
+
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>1. Làm sao tôi biết đây là hàng chuẩn Costco Mỹ chứ không phải hàng chợ đầu mối?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Mỗi đợt hàng về, chúng tôi đều lưu trữ đầy đủ hóa đơn giấy (receipt) từ siêu thị Costco Mỹ và mã tracking
+            vận chuyển hàng không. Khi nhận hàng, bạn được quyền mở hộp đồng kiểm tra đối chiếu hóa đơn và tem niêm
+            phong trước khi thanh toán.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>2. Tôi ở tỉnh thì bao lâu nhận được hàng?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Chúng tôi giao hàng toàn quốc. Nội thành Hà Nội/TP.HCM nhận trong ngày hoặc 24h. Các tỉnh thành khác nhận
+            hàng sau 2–3 ngày qua bưu điện/GHTK, hàng được bọc xốp chống sốc cẩn thận nhiều lớp.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>3. Giá bên bạn có đắt hơn các sàn thương mại điện tử không?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Chúng tôi nhập theo số lượng lớn tại kho bán sỉ Costco và chuyển trực tiếp không qua trung gian, nên giá cực
+            kỳ tốt so với chất lượng bay Air chuẩn chỉnh. Chúng tôi không cạnh tranh giá với hàng đi đường biển hay hàng
+            không rõ nguồn gốc.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 10. BẢNG KHẢO SÁT NHU CẦU & NHẬN VOUCHER (KHỐI 7) ==================== -->
+  <section class="section section-consultation" id="lien-he">
+    <div class="container consultation-container">
+
+      <div class="consultation-header text-center">
+        <span class="section-tag-pill">📋 KHẢO SÁT Ý KIẾN KHÁCH HÀNG</span>
+        <h2 class="consult-title">
+          BẢNG KHẢO SÁT NHU CẦU HÀNG MỸ CHÍNH HÃNG
+        </h2>
+        <p class="consult-subtitle">
+          Thời gian điền: dưới 1 phút • Giúp shop tư vấn đúng nhu cầu & gửi tặng ưu đãi tốt nhất cho Anh/Chị
+        </p>
+      </div>
+
+      <!-- Tab Chuyển Đổi: Form Trực Tiếp Website (Khuyên dùng) hoặc Google Form Nhúng -->
+      <div class="survey-mode-switcher">
+        <button type="button" class="survey-mode-btn active" id="btnModeNative" onclick="switchSurveyMode('native')">
+          ⚡ Form Khảo Sát Nhanh (Giao Diện Đẹp)
+        </button>
+        <button type="button" class="survey-mode-btn" id="btnModeGoogle" onclick="switchSurveyMode('google')">
+          📑 Nhúng Google Form (Nếu Có Link)
+        </button>
+      </div>
+
+      <!-- Form Card Container (Native) -->
+      <div class="consultation-form-card" id="nativeFormWrapper">
+        <!-- Lời nhắn đầu form -->
+        <div class="survey-card-header">
+          <div class="survey-badge">🎁 QUÀ TẶNG TRI ÂN ĐẶC BIỆT</div>
+          <div class="survey-voucher-incentive">
+            Khách hàng hoàn thành khảo sát sẽ nhận ngay Voucher 50.000đ - 100.000đ cho đơn hàng đầu tiên!
+            <span>Shop cam kết bảo mật 100% thông tin • Chỉ liên hệ hỗ trợ đúng nhu cầu của Anh/Chị</span>
+          </div>
+        </div>
+
+        <form id="orderForm" name="orderForm" method="POST" action="https://formsubmit.co/masiehoang17@gmail.com"
+          data-netlify="true" netlify class="consult-form" onsubmit="handleFormSubmit(event)">
+          <input type="hidden" name="form-name" value="orderForm" />
+          <input type="hidden" name="_next" value="https://hangmyxachtay.info.vn/#lien-he" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_subject" value="[KHẢO SÁT KHÁCH HÀNG HÀNG MỸ] Khách mới gửi thông tin" />
+
+          <!-- CÂU 1. HỌ VÀ TÊN -->
+          <div class="survey-question-block">
+            <div class="survey-q-title">
+              <span class="survey-q-num">Câu 1</span>
+              <span>Họ và tên của Anh/Chị: <span class="required">*</span></span>
+            </div>
+            <div class="survey-q-hint">(Để shop tiện xưng hô và gửi quà tặng)</div>
+            <div class="survey-input-box">
+              <input type="text" id="fullName" name="fullName" required placeholder="Ví dụ: Nguyễn Văn An / Chị Mai Lan"
+                class="form-input">
+            </div>
+          </div>
+
+          <!-- CÂU 2. SỐ ĐIỆN THOẠI / ZALO -->
+          <div class="survey-question-block">
+            <div class="survey-q-title">
+              <span class="survey-q-num">Câu 2</span>
+              <span>Số điện thoại / Zalo của Anh/Chị: <span class="required">*</span></span>
+            </div>
+            <div class="survey-q-hint">(Nhận mã giảm giá / tư vấn riêng qua Zalo)</div>
+            <div class="survey-input-box">
+              <input type="tel" id="phoneNumber" name="phoneNumber" required placeholder="Ví dụ: 0912 345 678"
+                class="form-input">
+            </div>
+          </div>
+
+          <!-- CÂU 3. NHÓM HÀNG QUAN TÂM -->
+          <div class="survey-question-block">
+            <div class="survey-q-title">
+              <span class="survey-q-num">Câu 3</span>
+              <span>Anh/Chị đang quan tâm nhất đến nhóm hàng xách tay Mỹ nào?</span>
+            </div>
+            <div class="survey-q-hint">(Có thể chọn nhiều mục)</div>
+            <div class="survey-options-grid">
+              <label class="survey-option-label">
+                <input type="checkbox" name="productCategories"
+                  value="Thực phẩm chức năng, Vitamin (sụn khớp, tim mạch, bổ não, nội tiết...)" checked>
+                <span class="survey-option-text">💊 <strong>Thực phẩm chức năng, Vitamin</strong> (sụn khớp, tim mạch,
+                  bổ não, nội tiết...)</span>
+              </label>
+              <label class="survey-option-label">
+                <input type="checkbox" name="productCategories" value="Mỹ phẩm, chăm sóc da chống lão hóa, nước hoa">
+                <span class="survey-option-text">✨ <strong>Mỹ phẩm, chăm sóc da chống lão hóa, nước hoa</strong></span>
+              </label>
+              <label class="survey-option-label">
+                <input type="checkbox" name="productCategories"
+                  value="Đồ dùng gia đình, bánh kẹo, thực phẩm dinh dưỡng">
+                <span class="survey-option-text">🏡 <strong>Đồ dùng gia đình, bánh kẹo, thực phẩm dinh
+                    dưỡng</strong></span>
+              </label>
+              <label class="survey-option-label">
+                <input type="checkbox" name="productCategories"
+                  value="Quần áo, giày dép, túi xách (Coach, Michael Kors, Nike...)">
+                <span class="survey-option-text">👜 <strong>Quần áo, giày dép, túi xách</strong> (Coach, Michael Kors,
+                  Nike...)</span>
+              </label>
+              <label class="survey-option-label">
+                <input type="checkbox" name="productCategories" value="Sản phẩm chăm sóc con cái / mẹ & bé">
+                <span class="survey-option-text">👶 <strong>Sản phẩm chăm sóc con cái / mẹ & bé</strong></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- CÂU 4. ƯU TIÊN HÀNG ĐẦU -->
+          <div class="survey-question-block">
+            <div class="survey-q-title">
+              <span class="survey-q-num">Câu 4</span>
+              <span>Điều Anh/Chị ưu tiên hàng đầu khi mua đồ xách tay Mỹ là gì?</span>
+            </div>
+            <div class="survey-q-hint">(Chọn 1 điều Anh/Chị quan tâm nhất)</div>
+            <div class="survey-options-grid">
+              <label class="survey-option-label">
+                <input type="radio" name="mainPriority"
+                  value="Chuẩn 100% Auth (Có bill mua hàng tại Mỹ, gửi hàng qua đường air)" checked>
+                <span class="survey-option-text">🛡️ <strong>Chuẩn 100% Auth</strong> (Có bill mua hàng tại Mỹ, gửi hàng
+                  qua đường air)</span>
+              </label>
+              <label class="survey-option-label">
+                <input type="radio" name="mainPriority" value="Giá tốt, săn sale hời so với thị trường">
+                <span class="survey-option-text">🏷️ <strong>Giá tốt, săn sale hời</strong> so với thị trường</span>
+              </label>
+              <label class="survey-option-label">
+                <input type="radio" name="mainPriority" value="Hàng có sẵn, giao nhanh không phải chờ đợi lâu">
+                <span class="survey-option-text">⚡ <strong>Hàng có sẵn</strong>, giao nhanh không phải chờ đợi
+                  lâu</span>
+              </label>
+              <label class="survey-option-label">
+                <input type="radio" name="mainPriority"
+                  value="Nhận order theo yêu cầu (món gì ở Mỹ cũng mua giúp được)">
+                <span class="survey-option-text">✈️ <strong>Nhận order theo yêu cầu</strong> (món gì ở Mỹ cũng mua giúp
+                  được)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- CÂU 5. NHẬN THÔNG BÁO SĂN SALE QUA ZALO -->
+          <div class="survey-question-block">
+            <div class="survey-q-title">
+              <span class="survey-q-num">Câu 5</span>
+              <span>Anh/Chị có muốn nhận thông báo khi có đợt Săn Sale giá tốt từ Mỹ qua Zalo không ạ?</span>
+            </div>
+            <div class="survey-q-hint">(Lựa chọn cách thức liên hệ Anh/Chị mong muốn)</div>
+            <div class="survey-options-grid">
+              <label class="survey-option-label">
+                <input type="radio" name="zaloNotice" value="Có, gửi giúp mình nhé!" checked>
+                <span class="survey-option-text">💬 <strong>Có, gửi giúp mình nhé!</strong></span>
+              </label>
+              <label class="survey-option-label">
+                <input type="radio" name="zaloNotice" value="Chỉ gửi khi có chương trình giảm giá thật sâu">
+                <span class="survey-option-text">🔥 <strong>Chỉ gửi khi có chương trình giảm giá thật
+                    sâu</strong></span>
+              </label>
+              <label class="survey-option-label">
+                <input type="radio" name="zaloNotice" value="Hiện tại mình chưa có nhu cầu">
+                <span class="survey-option-text">⏸️ <strong>Hiện tại mình chưa có nhu cầu</strong></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- GHI CHÚ BỔ SUNG (NẾU CÓ) -->
+          <div class="survey-question-block" style="background: transparent; border-style: dashed;">
+            <div class="survey-q-title">
+              <span class="survey-q-num" style="background: #64748b;">Ghi chú</span>
+              <span>Yêu cầu hoặc thắc mắc thêm của Anh/Chị (nếu có):</span>
+            </div>
+            <div class="survey-input-box">
+              <textarea id="customerNote" name="customerNote" rows="2"
+                placeholder="Ví dụ: Shop tư vấn giúp mình liều dùng glucosamine, hoặc kiểm tra giúp mình món này ở Costco..."
+                class="form-textarea"></textarea>
+            </div>
+          </div>
+
+          <!-- NÚT GỬI KHẢO SÁT -->
+          <div class="form-submit-row">
+            <button type="submit" class="btn btn-pill btn-submit-gold" id="submitBtn">
+              <span>🎁 GỬI KHẢO SÁT & NHẬN NGAY VOUCHER 100K</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </div>
+
+          <div class="security-privacy-note">
+            <span class="lock-icon">🔒</span>
+            <span>Dữ liệu được tự động gửi về Google Sheets & Email hệ thống. Bảo mật thông tin tuyệt đối.</span>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Google Form Embed Wrapper (Tùy chọn nếu người dùng muốn nhúng link Google Form) -->
+      <div id="googleFormEmbedContainer" style="display: none; margin-top: 10px;">
+        <div class="google-form-embed-wrapper">
+          <!-- Thay link dưới đây bằng link Google Form của bạn: https://docs.google.com/forms/d/e/1FAIpQLSfc57lxao4C07CqdOY5m1grtFob6iWEu8PU5HeUJ_UzNd4jVw/viewform -->
+          <iframe id="googleFormIframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfc57lxao4C07CqdOY5m1grtFob6iWEu8PU5HeUJ_UzNd4jVw/viewform
+            " title="Google Form Khảo Sát Hàng Mỹ">
+            Đang tải biểu mẫu Google Form...
+          </iframe>
+        </div>
+        <p style="text-align: center; color: #94a3b8; font-size: 0.85rem; margin-top: 12px;">
+          💡 <em>Lưu ý: Để hiển thị Google Form của bạn, chỉ cần dán link embed vào thuộc tính <code>src</code> của
+            iframe trên.</em>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 9. FOOTER CHUYÊN NGHIỆP ==================== -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+
+      <div class="footer-col col-brand">
+        <div class="footer-logo">
+          <span class="flag-icon">🇺🇸</span>
+          <span class="f-brand-name">CostcoHealth<span class="f-brand-highlight">USA</span></span>
+        </div>
+        <p class="footer-desc">
+          Chuyên cung cấp thực phẩm chức năng chính hãng nhập trực tiếp từ hệ thống siêu thị <strong>Costco
+            Wholesale</strong> tại Hoa Kỳ. Vận chuyển 100% bằng đường hàng không (Bay Air) giữ trọn chất lượng và date
+          xa nhất.
+        </p>
+        <div class="footer-badge-trust">
+          <span>🛡️ 100% Authentic US Products</span>
+        </div>
+      </div>
+
+      <div class="footer-col col-links">
+        <h4 class="footer-heading">Liên Kết Nhanh</h4>
+        <ul class="footer-links-list">
+          <li><a href="#hero">Trang Chủ</a></li>
+          <li><a href="#vi-sao-chon">Vì Sao Chọn Costco Mỹ</a></li>
+          <li><a href="#san-pham">Sản Phẩm Chủ Lực</a></li>
+          <li><a href="#loi-ich">Lợi Ích Khách Hàng</a></li>
+          <li><a href="#feedback">Đánh Giá & Bill Mua Hàng</a></li>
+          <li><a href="#lien-he">Khảo Sát & Ưu Đãi</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col col-contact">
+        <h4 class="footer-heading">Thông Tin Kho & Hỗ Trợ</h4>
+        <div class="contact-entry">
+          <span class="c-icon">📞</span>
+          <div class="c-text">
+            <span>Hotline / Zalo:</span>
+            <strong>0336822318</strong>
+          </div>
+        </div>
+
+        <div class="contact-entry">
+          <span class="c-icon">🏬</span>
+          <div class="c-text">
+            <span>Nguồn hàng:</span>
+            <span>Costco Wholesale #471, Seattle, WA & San Jose, CA (USA)</span>
+          </div>
+        </div>
+
+        <div class="contact-entry">
+          <span class="c-icon">📍</span>
+          <div class="c-text">
+            <span>Kho giao hàng Việt Nam:</span>
+            <span>Hà Nội & TP. Hồ Chí Minh (Giao nhanh 1-2 ngày)</span>
+          </div>
+        </div>
+
+        <div class="contact-entry">
+          <span class="c-icon">⏰</span>
+          <div class="c-text">
+            <span>Thời gian phục vụ:</span>
+            <span>08:00 - 22:00 (Tất cả các ngày trong tuần)</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div class="container footer-bottom-flex">
+        <p>© 2026 CostcoHealth USA. Bản quyền thuộc về Đồ Mỹ Xách Tay Chính Hãng Costco. Kèm Bill Gốc Siêu Thị.</p>
+        <p class="fda-disclaimer">* Sản phẩm không phải là thuốc và không có tác dụng thay thế thuốc chữa bệnh.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== 10. FLOATING ACTION WIDGETS ==================== -->
+  <div class="floating-contact-box">
+    <a href="tel:0336822318" class="float-btn float-call" title="Gọi Hotline tư vấn ngay">
+      <span class="f-icon">📞</span>
+      <span class="f-hover-text">Hotline: 0336.822.318</span>
+    </a>
+    <a href="https://zalo.me/0336822318" target="_blank" class="float-btn float-zalo" title="Chat Zalo cùng dược sĩ">
+      <span class="f-icon">💬</span>
+      <span class="f-hover-text">Chat Zalo Dược Sĩ</span>
+    </a>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+
+</html>

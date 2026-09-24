@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Hoàng Nga",
+    "phone": "0912345678",
+    "zalo": "0912345678",
+    "product": "Kirkland Glucosamine 1500mg with MSM (375v)",
+    "registered_at": "2026-09-15 08:30:00"
+  },
+  {
+    "name": "Trần Hùng",
+    "phone": "0987654321",
+    "zalo": "0987654321",
+    "product": "Kirkland Wild Alaskan Fish Oil (230v)",
+    "registered_at": "2026-09-15 11:45:00"
+  },
+  {
+    "name": "Mai Lan",
+    "phone": "0905123456",
+    "zalo": "0905123456",
+    "product": "Youtheory Collagen Advanced (390v)",
+    "registered_at": "2026-09-16 14:20:00"
+  },
+  {
+    "name": "Quốc Tuấn",
+    "phone": "0934567890",
+    "zalo": "0934567890",
+    "product": "Schiff Move Free Ultra (75v)",
+    "registered_at": "2026-09-16 19:10:00"
+  },
+  {
+    "name": "Nguyễn Văn An",
+    "phone": "0945678901",
+    "zalo": "0945678901",
+    "product": "Trunature Ginkgo Biloba 120mg (300v)",
+    "registered_at": "2026-09-17 09:15:00"
+  }
+]

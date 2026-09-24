@@ -1,0 +1,32 @@
+================================================================================
+BÀI ĐĂNG NGÀY 12 - HÀNH TRÌNH 12 NGÀY "LỘT XÁC": TỪ CON SỐ 0 ĐẾN HỆ THỐNG TỰ ĐỘNG
+Brand Voice: Gần gũi, thẳng thắn, câu ngắn, không tô hồng, "thật ra", "đơn giản thôi", "nhée".
+Link website: https://hangmyxachtay.info.vn
+Lưu vào file: day12.txt
+================================================================================
+
+Chào mn,
+
+Thật ra, nếu quay lại đúng 12 ngày trước, bảo mình tự dựng một hệ thống bán hàng tự động từ đầu đến đuôi thì chắc mình lắc đầu chịu thua.
+
+Ngày 1, mình loay hoay chẳng biết bắt đầu từ đâu, chưa biết bán sản phẩm gì, làm sao để web chạy thật. Cứ nghĩ phải hiểu hết mọi thứ nên ngồi đọc từng chữ rồi cop thủ công từng bước vào AI, vừa mất thời gian vừa tốn quota. Nhất là ngày 3, dính lỗi Netlify khóa credits tưởng như sập web tới nơi, Antigravity thì hết lượt chat liên tục, phải đổi tài khoản chật vật mới vượt qua được.
+
+Nhưng sau 12 ngày kiên trì làm theo từng bước, nhìn lại những gì đã có hôm nay thì mình thấy đáng thật sự:
+
+1. Một website bán đồ Mỹ chuẩn chỉnh: https://hangmyxachtay.info.vn
+2. Bạn nhân viên AI trực chat 24/7 tư vấn chuẩn dược sĩ ở góc màn hình.
+3. Cổng VietQR tự động: khách quét mã 3 giây là tiền ting ting về tài khoản MB Bank.
+4. Chuỗi email chăm sóc tự động gửi từ tên miền riêng hi@hangmyxachtay.info.vn, không sợ rơi vào hòm rác.
+5. Trang quản trị /admin tự động cập nhật đơn và tự trừ kho.
+
+Và đây là những con số thật của mình sau 12 ngày (sản phẩm test thôi nhưng toàn số liệu thật):
+- 5 khách hàng trong danh sách chờ.
+- 4 đơn hàng (trong đó 2 đơn thành công, doanh thu thật 520.000đ).
+- 7 bài viết chia sẻ liên tục trong suốt 7 ngày qua.
+
+Bài học lớn nhất mình rút ra sau 12 ngày: Đừng cố kiểm soát hay làm thủ công mọi thứ. Hãy học cách giao việc cụ thể cho AI, sai ở đâu yêu cầu sửa ở đó. Vượt qua được rồi mới thấy: à, thì ra mọi thứ đơn giản thôi.
+
+Mn ghé qua website ngắm thành quả 12 ngày của mình và bấm chat thử với bạn AI xem mượt không nhée:
+👉 https://hangmyxachtay.info.vn
+
+Cảm ơn mn rất nhiều vì đã luôn động viên và đồng hành cùng mình trong suốt 12 ngày qua!
