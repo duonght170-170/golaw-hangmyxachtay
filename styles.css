@@ -280,10 +280,7 @@ ul {
 }
 
 .brand-icon-box .flag-icon {
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  font-size: 14px;
+  display: none !important;
 }
 
 .brand-text-group {
@@ -298,6 +295,7 @@ ul {
   color: var(--primary-navy);
   letter-spacing: -0.5px;
   line-height: 1.1;
+  white-space: nowrap;
 }
 
 .brand-country {
@@ -309,22 +307,32 @@ ul {
   font-weight: 700;
   letter-spacing: 0.8px;
   color: var(--text-muted);
+  white-space: nowrap;
 }
 
 /* Navigation Menu */
 .nav-list {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: clamp(10px, 1.4vw, 22px);
+  flex-wrap: nowrap;
+}
+
+.nav-item {
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .nav-link {
   font-family: var(--font-heading);
-  font-size: 0.95rem;
+  font-size: clamp(0.84rem, 0.9vw, 0.95rem);
   font-weight: 600;
   color: var(--text-main);
   padding: 8px 0;
   position: relative;
+  white-space: nowrap;
+  word-break: keep-all;
+  display: inline-block;
 }
 
 .nav-link:hover, .nav-link.active {
