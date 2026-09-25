@@ -1655,14 +1655,16 @@ ul {
   color: #94a3b8;
 }
 
-/* -------------------- 12. FLOATING ACTION WIDGETS (BÊN TRÁI: 3 DÒNG) -------------------- */
+/* -------------------- 12. FLOATING ACTION WIDGETS (BÊN PHẢI: 3 DÒNG) -------------------- */
+.floating-right-stack,
 .floating-left-stack {
   position: fixed;
   bottom: 25px;
-  left: 24px;
+  right: 24px;
+  left: auto;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-end;
   gap: 10px;
   z-index: 9999;
   pointer-events: none;
@@ -1670,6 +1672,7 @@ ul {
   max-width: calc(100vw - 48px);
 }
 
+.floating-right-stack > *,
 .floating-left-stack > * {
   pointer-events: auto;
 }
@@ -2632,7 +2635,8 @@ ul {
 .chatbot-window {
   position: fixed;
   bottom: 25px;
-  left: 24px;
+  right: 24px;
+  left: auto;
   width: 380px;
   max-width: calc(100vw - 32px);
   height: 560px;
@@ -2982,9 +2986,12 @@ ul {
 }
 
 @media (max-width: 640px) {
+  .floating-right-stack,
   .floating-left-stack {
     bottom: 16px;
-    left: 14px;
+    right: 14px;
+    left: auto;
+    align-items: flex-end;
     gap: 7px;
   }
   .float-action-btn {

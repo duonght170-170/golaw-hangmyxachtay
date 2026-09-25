@@ -1691,14 +1691,16 @@
       color: #94a3b8;
     }
 
-    /* -------------------- 12. FLOATING ACTION WIDGETS (BÊN TRÁI: 3 DÒNG) -------------------- */
+    /* -------------------- 12. FLOATING ACTION WIDGETS (BÊN PHẢI: 3 DÒNG) -------------------- */
+    .floating-right-stack,
     .floating-left-stack {
       position: fixed;
       bottom: 25px;
-      left: 24px;
+      right: 24px;
+      left: auto;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: flex-end;
       gap: 10px;
       z-index: 9999;
       pointer-events: none;
@@ -1706,6 +1708,7 @@
       max-width: calc(100vw - 48px);
     }
 
+    .floating-right-stack > *,
     .floating-left-stack > * {
       pointer-events: auto;
     }
@@ -1805,9 +1808,12 @@
     }
 
     @media (max-width: 640px) {
+      .floating-right-stack,
       .floating-left-stack {
         bottom: 16px;
-        left: 14px;
+        right: 14px;
+        left: auto;
+        align-items: flex-end;
         gap: 7px;
       }
       .float-action-btn {
@@ -3328,8 +3334,8 @@
     <span id="cartToastMsg">Đã thêm vào giỏ hàng!</span>
   </div>
 
-  <!-- ==================== FLOATING ACTION STACK (BÊN TRÁI: DÒNG 1 HOTLINE, DÒNG 2 ZALO, DÒNG 3 BOT DƯỢC SĨ) ==================== -->
-  <div class="floating-left-stack" id="floatingLeftStack">
+  <!-- ==================== FLOATING ACTION STACK (BÊN PHẢI: DÒNG 1 HOTLINE, DÒNG 2 ZALO, DÒNG 3 BOT DƯỢC SĨ) ==================== -->
+  <div class="floating-right-stack" id="floatingRightStack">
     <!-- Dòng 1: Hotline -->
     <a href="tel:0336822318" class="float-action-btn float-hotline" title="Gọi Hotline tư vấn ngay">
       <span class="f-icon">📞</span>
