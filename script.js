@@ -126,10 +126,43 @@ try {
 }
 
 let appliedVoucher = null;
+try {
+  const savedV = localStorage.getItem('costco_applied_voucher');
+  if (savedV) appliedVoucher = JSON.parse(savedV);
+} catch (e) {}
 
 function saveCart() {
   try {
     localStorage.setItem('costco_cart', JSON.stringify(cart));
+    if (appliedVoucher) {
+      localStorage.setItem('costco_applied_voucher', JSON.stringify(appliedVoucher));
+    } else {
+      localStorage.removeItem('costco_applied_voucher');
+    }
+
+    if (cart.length > 0) {
+      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      const discount = appliedVoucher ? appliedVoucher.discount : 0;
+      const finalTotal = Math.max(0, subtotal - discount);
+      const productNames = cart.map(i => `${i.name} (x${i.qty})`).join(', ');
+
+      const name = document.getElementById('cartCustomerName') ? document.getElementById('cartCustomerName').value.trim() : '';
+      const phone = document.getElementById('cartCustomerPhone') ? document.getElementById('cartCustomerPhone').value.trim() : '';
+      const address = document.getElementById('cartCustomerAddress') ? document.getElementById('cartCustomerAddress').value.trim() : '';
+      const note = document.getElementById('cartCustomerNote') ? document.getElementById('cartCustomerNote').value.trim() : '';
+
+      localStorage.setItem('costco_checkout_data', JSON.stringify({
+        name: name,
+        phone: phone,
+        address: address,
+        note: note,
+        amount: finalTotal,
+        product: productNames,
+        cartItems: cart,
+        discount: discount,
+        voucher: appliedVoucher ? appliedVoucher.code : ''
+      }));
+    }
   } catch (e) {}
 }
 
@@ -193,6 +226,22 @@ function addToCart(id, name, price, originalPrice, image) {
 function buyNow(id, name, price, originalPrice, image) {
   addToCart(id, name, price, originalPrice, image);
   openCart();
+}
+
+function filterProducts(category, btnElement) {
+  const tabs = document.querySelectorAll('.filter-tab-btn');
+  tabs.forEach(tab => tab.classList.remove('active'));
+  if (btnElement) btnElement.classList.add('active');
+
+  const cards = document.querySelectorAll('.products-grid .product-card');
+  cards.forEach(card => {
+    const cardCat = card.getAttribute('data-category');
+    if (!category || category === 'all' || cardCat === category) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
 }
 
 function updateCartQty(id, delta) {
@@ -314,12 +363,14 @@ function applyCartVoucher() {
   const code = input.value.trim().toUpperCase();
   if (code === 'COSTCO100K' || code === 'VOUCHER100K') {
     appliedVoucher = { code: code, discount: 100000 };
+    saveCart();
     statusMsg.style.display = 'block';
     statusMsg.style.color = '#16a34a';
     statusMsg.innerHTML = '✅ Đã áp dụng mã <strong>' + code + '</strong>: Giảm ngay 100.000đ!';
     renderCart();
   } else if (code === 'COSTCO50K' || code === 'VOUCHER50K') {
     appliedVoucher = { code: code, discount: 50000 };
+    saveCart();
     statusMsg.style.display = 'block';
     statusMsg.style.color = '#16a34a';
     statusMsg.innerHTML = '✅ Đã áp dụng mã <strong>' + code + '</strong>: Giảm ngay 50.000đ!';
@@ -513,6 +564,7 @@ function checkoutWithVietQR(e) {
   params.set('amount', finalTotal);
   if (name) params.set('name', name);
   if (phone) params.set('phone', phone);
+  if (address) params.set('address', address);
   params.set('product', productNames);
 
   // Chuyển hướng người dùng sang cổng thanh toán VietQR

@@ -481,17 +481,22 @@
         <form id="paymentOrderForm" onsubmit="handleCreatePaymentOrder(event)">
           <div class="form-group">
             <label class="form-label" for="custName">Họ và tên người nhận <span class="req">*</span></label>
-            <input type="text" id="custName" class="form-control" required placeholder="Ví dụ: Hoàng Thùy Dương">
+            <input type="text" id="custName" class="form-control" required placeholder="Ví dụ: Nguyễn Văn A">
           </div>
 
           <div class="form-group">
             <label class="form-label" for="custPhone">Số điện thoại / Zalo <span class="req">*</span></label>
-            <input type="tel" id="custPhone" class="form-control" required placeholder="Ví dụ: 0946680292" pattern="[0-9]{10,11}">
+            <input type="tel" id="custPhone" class="form-control" required placeholder="Ví dụ: 0912 345 678" pattern="[0-9\s]{10,12}">
           </div>
 
           <div class="form-group">
             <label class="form-label" for="custEmail">Email nhận xác nhận đơn hàng <span class="req">*</span></label>
-            <input type="email" id="custEmail" class="form-control" required placeholder="Ví dụ: masiehoang17@gmail.com">
+            <input type="email" id="custEmail" class="form-control" required placeholder="Ví dụ: nguyenvana@gmail.com">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="custAddress">Địa chỉ nhận hàng (Số nhà, đường, tỉnh/thành) <span class="req">*</span></label>
+            <input type="text" id="custAddress" class="form-control" required placeholder="Ví dụ: 123 Đường Nguyễn Trãi, Quận 1, TP.HCM">
           </div>
 
           <div class="form-group">
@@ -679,12 +684,13 @@
       const name = document.getElementById('custName').value.trim();
       const phone = document.getElementById('custPhone').value.trim();
       const email = document.getElementById('custEmail').value.trim();
+      const address = document.getElementById('custAddress') ? document.getElementById('custAddress').value.trim() : '';
       const productSelect = document.getElementById('selectedProduct');
       const productVal = productSelect.value;
       const productName = productSelect.options[productSelect.selectedIndex].text;
 
-      if (!name || !phone || !email) {
-        alert('Vui lòng điền đủ Họ tên, Số điện thoại và Email để hệ thống gửi xác nhận đơn hàng tự động!');
+      if (!name || !phone || !email || !address) {
+        alert('Vui lòng điền đủ Họ tên, Số điện thoại, Email và Địa chỉ để chúng tôi giao hàng và gửi xác nhận đơn nhé!');
         return;
       }
 
@@ -725,6 +731,7 @@
         customer_name: name,
         customer_phone: phone,
         customer_email: email,
+        customer_address: address,
         product_name: productName,
         product_type: productType,
         amount: currentOrderAmount,
@@ -753,11 +760,11 @@
 
       // 6. Gửi email xác nhận tiếp nhận đơn hàng tự động qua Resend
       if (email) {
-        sendCheckoutEmailNotification(currentOrderCode, name, email, phone, productName, productType, currentOrderAmount);
+        sendCheckoutEmailNotification(currentOrderCode, name, email, phone, address, productName, productType, currentOrderAmount);
       }
     }
 
-    function sendCheckoutEmailNotification(orderId, name, email, phone, prodName, prodType, amount) {
+    function sendCheckoutEmailNotification(orderId, name, email, phone, address, prodName, prodType, amount) {
       const emailHtml = `
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #1e293b; line-height: 1.6; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; background: #ffffff;">
           <div style="background: #0f2b48; padding: 24px 30px; text-align: center;">
@@ -779,6 +786,10 @@
                 <tr>
                   <td style="padding: 6px 0; color: #64748b;">Mã đơn:</td>
                   <td style="padding: 6px 0; font-weight: 700; text-align: right; color: #dc2626;">#${orderId}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 6px 0; color: #64748b;">Địa chỉ giao hàng:</td>
+                  <td style="padding: 6px 0; font-weight: 700; text-align: right; color: #0f172a;">${address || 'Theo thỏa thuận'}</td>
                 </tr>
                 <tr>
                   <td style="padding: 6px 0; color: #64748b;">Sản phẩm:</td>
@@ -1076,7 +1087,7 @@
 
     // Khởi tạo trang thanh toán và nạp dữ liệu từ giỏ hàng hoặc CRM
     document.addEventListener('DOMContentLoaded', () => {
-      // 1. Kiểm tra dữ liệu truyền sang từ Giỏ Hàng (URL Parameters hoặc localStorage)
+      // 1. Kiểm tra dữ liệu truyền sang từ Giỏ Hàng (URL Parameters, giỏ hàng active costco_cart, hoặc localStorage)
       const urlParams = new URLSearchParams(window.location.search);
       let checkoutData = null;
       try {
@@ -1084,18 +1095,47 @@
         if (saved) checkoutData = JSON.parse(saved);
       } catch (e) {}
 
+      let currentCart = [];
+      try {
+        const savedCart = localStorage.getItem('costco_cart');
+        if (savedCart) currentCart = JSON.parse(savedCart);
+      } catch (e) {}
+
+      let currentVoucher = null;
+      try {
+        const savedVoucher = localStorage.getItem('costco_applied_voucher');
+        if (savedVoucher) currentVoucher = JSON.parse(savedVoucher);
+      } catch (e) {}
+
+      // Tính tổng giỏ hàng thực tế đang có trong trình duyệt
+      let activeCartTotal = null;
+      let activeCartProducts = '';
+      if (currentCart && currentCart.length > 0) {
+        const subtotal = currentCart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+        const discount = (currentVoucher && currentVoucher.discount) ? currentVoucher.discount : (checkoutData && checkoutData.discount ? checkoutData.discount : 0);
+        activeCartTotal = Math.max(0, subtotal - discount);
+        activeCartProducts = currentCart.map(i => `${i.name} (x${i.qty})`).join(', ');
+      }
+
       const paramAmount = urlParams.get('amount');
       const paramName = urlParams.get('name');
       const paramPhone = urlParams.get('phone');
+      const paramEmail = urlParams.get('email');
+      const paramAddress = urlParams.get('address');
       const paramProduct = urlParams.get('product');
 
-      const amount = paramAmount ? parseInt(paramAmount) : (checkoutData ? checkoutData.amount : null);
+      // Thứ tự ưu tiên: URL params > Active Cart trong localStorage > CheckoutData cũ
+      const amount = paramAmount ? parseInt(paramAmount) : (activeCartTotal !== null ? activeCartTotal : (checkoutData ? checkoutData.amount : null));
       const name = paramName || (checkoutData ? checkoutData.name : '');
       const phone = paramPhone || (checkoutData ? checkoutData.phone : '');
-      const product = paramProduct || (checkoutData ? checkoutData.product : '');
+      const email = paramEmail || (checkoutData ? checkoutData.email : '');
+      const address = paramAddress || (checkoutData ? checkoutData.address : '');
+      const product = paramProduct || (activeCartProducts || (checkoutData ? checkoutData.product : ''));
 
       if (name) document.getElementById('custName').value = decodeURIComponent(name);
       if (phone) document.getElementById('custPhone').value = decodeURIComponent(phone);
+      if (email && document.getElementById('custEmail')) document.getElementById('custEmail').value = decodeURIComponent(email);
+      if (address && document.getElementById('custAddress')) document.getElementById('custAddress').value = decodeURIComponent(address);
 
       const selectEl = document.getElementById('selectedProduct');
 
