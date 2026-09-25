@@ -1693,12 +1693,17 @@
     /* -------------------- 12. FLOATING ACTION WIDGETS -------------------- */
     .floating-contact-box {
       position: fixed;
-      bottom: 28px;
-      right: 28px;
+      bottom: 25px;
+      left: 28px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      z-index: 999;
+      gap: 10px;
+      z-index: 9999;
+      pointer-events: none;
+    }
+
+    .floating-contact-box > * {
+      pointer-events: auto;
     }
 
     .float-btn {
@@ -1737,6 +1742,18 @@
 
     .float-btn .f-icon {
       font-size: 1.1rem;
+    }
+
+    @media (max-width: 640px) {
+      .floating-contact-box {
+        bottom: 18px;
+        left: 14px;
+        gap: 8px;
+      }
+      .float-btn {
+        padding: 8px 14px;
+        font-size: 0.78rem;
+      }
     }
 
     /* -------------------- 13. RESPONSIVE BREAKPOINTS -------------------- */
@@ -2054,8 +2071,7 @@
   <!-- ==================== TOP ANNOUNCEMENT BAR (BƯỚC 1) ==================== -->
   <div class="top-announcement-bar">
     <div class="container announcement-content text-center">
-      <span>✈️ Hàng bay Air trực tiếp mỗi tuần • Cam kết 100% mua tại siêu thị Costco Mỹ • Đền gấp 10 lần nếu phát hiện
-        hàng giả!</span>
+      <span>✈️ 100% VẬN CHUYỂN BAY AIR GIỮ LẠNH • GIÁ NIÊM YẾT MINH BẠCH TIẾT KIỆM 20% • KÈM HÓA ĐƠN GỐC COSTCO TỪNG HỘP • ĐỀN 200% NẾU PHÁT HIỆN GIẢ</span>
     </div>
   </div>
 
@@ -2081,25 +2097,22 @@
       <nav class="main-nav" id="mainNav">
         <ul class="nav-list">
           <li class="nav-item"><a href="#hero" class="nav-link active">Trang Chủ</a></li>
-          <li class="nav-item"><a href="#vi-sao-chon" class="nav-link">Vì Sao Chọn Costco</a></li>
+          <li class="nav-item"><a href="#vi-sao-chon" class="nav-link">Vì Sao Chọn Chúng Tôi</a></li>
           <li class="nav-item"><a href="#san-pham" class="nav-link">Sản Phẩm Hot</a></li>
           <li class="nav-item"><a href="#loi-ich" class="nav-link">Lợi Ích</a></li>
-          <li class="nav-item"><a href="#minh-chung" class="nav-link">Minh Chứng</a></li>
+          <li class="nav-item"><a href="#feedback" class="nav-link">Đánh Giá</a></li>
           <li class="nav-item"><a href="#faq" class="nav-link">FAQ</a></li>
-          <li class="nav-item"><a href="#lien-he" class="nav-link">Khảo Sát & Ưu Đãi</a></li>
+          <li class="nav-item"><a href="#lien-he" class="nav-link">Khảo Sát & Voucher</a></li>
         </ul>
       </nav>
 
-      <!-- Header CTA Button -->
+      <!-- Header CTA & Cart Button -->
       <div class="header-actions">
-        <a href="#lien-he" class="btn btn-pill btn-primary-gradient header-cta-btn">
-          <span>Đặt Hàng Ngay</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-            stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
+        <button class="btn btn-pill btn-cart-header" onclick="openCart()" id="headerCartBtn" aria-label="Xem giỏ hàng">
+          <span>🛒</span>
+          <span>Giỏ Hàng</span>
+          <span class="cart-badge" id="cartCountBadge">0</span>
+        </button>
 
         <!-- Mobile Menu Hamburger -->
         <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Mở Menu">
@@ -2135,41 +2148,42 @@
         </div>
 
         <!-- Pre-headline (Bước 1) -->
-        <div class="hero-preheadline">GIẢI PHÁP CHĂM SÓC SỨC KHỎE AN TOÀN CHO CẢ GIA ĐÌNH</div>
+        <div class="hero-preheadline">✈️ ĐỊNH VỊ KHÁC BIỆT: 100% BAY AIR GIỮ LẠNH • KÈM HÓA ĐƠN GỐC COSTCO • RẺ HƠN SHOWROOM 20%</div>
 
-        <!-- Main Headline (Tiêu đề chính theo Bước 1) -->
+        <!-- Main Headline (Tiêu đề chính theo định vị khác biệt) -->
         <h1 class="hero-title">
-          Ưu Đãi Đặc Biệt: Giảm 20% Dầu Cá & Collagen Chuẩn Costco
+          Chăm Sóc Sức Khỏe Gia Đình Chuẩn Mỹ 100% Bay Air<br>
+          <span class="hero-title-highlight">Nguyên Vẹn Hoạt Tính Dược Liệu – Minh Bạch Hóa Đơn Từng Hộp – Rẻ Hơn Showroom 20%</span>
         </h1>
 
-        <!-- Subheading (Bước 1) -->
+        <!-- Subheading (Đoạn mở đầu bóc tách khác biệt 5 giây) -->
         <p class="hero-subtitle">
-          Tạm biệt nỗi lo hàng giả, hàng nhái trôi nổi trên mạng. Từng hộp sản phẩm được chúng tôi mua trực tiếp tại kho Costco (Hoa Kỳ), có kèm hóa đơn (receipt) và vận chuyển đường hàng không để giữ nguyên vẹn chất lượng dược tính.
+          Khác biệt hoàn toàn với hàng trôi nổi đi tàu biển hầm nóng 50–60°C làm hỏng dược tính hay showroom đắt đỏ gánh phí mặt bằng, chúng tôi chỉ vận chuyển hỏa tốc bằng đường bay Air giữ mát: bảo toàn 100% hoạt tính vitamin, từng hộp kèm hóa đơn giấy mua trực tiếp tại quầy Costco Mỹ, giá niêm yết công khai và tư vấn đúng theo thể trạng gia đình.
         </p>
 
-        <!-- 3 Metric Cards (Đúng bố cục 3 ô vuông nhỏ, thay bằng Trust Badges từ Bước 1) -->
+        <!-- 3 Metric Cards (Đúng bố cục 3 ô vuông nhỏ, thay bằng 3 chứng minh định vị từ dinh-vi.md) -->
         <div class="hero-metrics-grid">
           <div class="metric-card">
-            <div class="metric-icon-box icon-lightbulb">🧾</div>
+            <div class="metric-icon-box icon-check">✈️</div>
             <div class="metric-info">
-              <span class="metric-number">Bill Costco Theo Ngày</span>
-              <span class="metric-label">Kèm hóa đơn mua hàng gốc</span>
+              <span class="metric-number">100% Bay Air Giữ Lạnh</span>
+              <span class="metric-label">Bảo toàn 100% hoạt tính vitamin</span>
             </div>
           </div>
 
           <div class="metric-card">
-            <div class="metric-icon-box icon-check">✈️</div>
+            <div class="metric-icon-box icon-lightbulb">🧾</div>
             <div class="metric-info">
-              <span class="metric-number">100% Bay Air Cargo</span>
-              <span class="metric-label">Hạn dùng luôn mới nhất</span>
+              <span class="metric-number">Hóa Đơn Costco Từng Hộp</span>
+              <span class="metric-label">In rõ ngày giờ mua tại quầy Mỹ</span>
             </div>
           </div>
 
           <div class="metric-card">
             <div class="metric-icon-box icon-delivery">🛡️</div>
             <div class="metric-info">
-              <span class="metric-number">Đồng Kiểm Tra</span>
-              <span class="metric-label">Đền gấp 10 lần nếu phát hiện giả</span>
+              <span class="metric-number">Rẻ Hơn Showroom 20%</span>
+              <span class="metric-label">Giá niêm yết, đồng kiểm tại nhà</span>
             </div>
           </div>
         </div>
@@ -2372,22 +2386,31 @@
   <section class="section section-products" id="san-pham">
     <div class="container">
 
-      <div class="section-header text-center">
-        <span class="section-tag-pill">💊 KHỐI SẢN PHẨM BEST-SELLERS</span>
+      <div class="section-header text-center" style="margin-bottom: 30px;">
+        <span class="section-tag-pill">💊 GIAN HÀNG BEST-SELLERS CHUẨN COSTCO</span>
         <h2 class="section-title">
-          Những Sản Phẩm Chăm Sóc Sức Khỏe Costco <span class="highlight-navy">Được Người Việt Tin Dùng Nhất</span>
+          Top Thực Phẩm Chức Năng <span class="highlight-navy">Được Tin Dùng Nhất</span>
         </h2>
         <p class="section-subtitle">
-          Tuyển chọn 4 nhóm sản phẩm thiết yếu nhất cho cha mẹ và gia đình bạn – 100% kèm hóa đơn mua hàng gốc tại Mỹ:
+          100% kèm hóa đơn mua hàng tại Mỹ • Date mới nhất 2027 - 2028 • Giao hàng tận nơi toàn quốc
         </p>
       </div>
 
-      <!-- Lưới 6 sản phẩm chủ lực với ảnh thật chất lượng cao -->
+      <!-- Bộ lọc danh mục sản phẩm -->
+      <div class="product-filter-tabs">
+        <button type="button" class="filter-tab-btn active" onclick="filterProducts('all', this)">Tất Cả Sản Phẩm (6)</button>
+        <button type="button" class="filter-tab-btn" onclick="filterProducts('khop', this)">🦴 Bổ Xương Khớp</button>
+        <button type="button" class="filter-tab-btn" onclick="filterProducts('tim-mach', this)">🐟 Tim Mạch & Mắt</button>
+        <button type="button" class="filter-tab-btn" onclick="filterProducts('lam-dep', this)">🌸 Đẹp Da & Mọc Tóc</button>
+        <button type="button" class="filter-tab-btn" onclick="filterProducts('bo-nao', this)">🧠 Bổ Não & Trí Nhớ</button>
+      </div>
+
+      <!-- Lưới 6 sản phẩm chủ lực với ảnh chụp thật 100% -->
       <div class="products-grid">
 
         <!-- SẢN PHẨM 1: GLUCOSAMINE KIRKLAND -->
-        <div class="product-card" data-product="Kirkland Glucosamine 375 viên">
-          <div class="product-badge-flag">🇺🇸 Costco USA</div>
+        <div class="product-card" data-category="khop">
+          <div class="product-badge-flag">🇺🇸 Bán Chạy #1</div>
           <div class="product-image-box">
             <img src="product1.jpg"
               onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='images/product1.jpg';}"
@@ -2397,8 +2420,7 @@
           <div class="product-details">
             <div class="product-category-tag">BỔ XƯƠNG KHỚP & SỤN</div>
             <h3 class="product-name">Kirkland Glucosamine HCL 1500mg with MSM (375 Viên)</h3>
-            <p class="product-benefit">Tái tạo mô sụn, bôi trơn ổ khớp, dứt điểm đau nhức khi đi lại cho người lớn tuổi.
-            </p>
+            <p class="product-benefit">Tái tạo mô sụn, bôi trơn ổ khớp, dứt điểm đau nhức khi đi lại cho người lớn tuổi.</p>
             <div class="product-meta-row">
               <span class="product-rating">⭐⭐⭐⭐⭐ (4.9/5)</span>
               <span class="product-stock">✅ Có sẵn - Kèm Bill</span>
@@ -2408,19 +2430,19 @@
               <span class="price-original">680.000đ</span>
               <span class="price-discount">-13%</span>
             </div>
-            <div class="product-actions">
-              <a href="#lien-he" class="btn btn-pill btn-buy-now"
-                onclick="selectProduct('Kirkland Glucosamine HCL 1500mg')">
-                <span>Đặt Mua Ngay</span>
-              </a>
-              <a href="#lien-he" class="btn-detail-link" onclick="selectProduct('Kirkland Glucosamine HCL 1500mg')">Xem
-                Bill Gốc →</a>
+            <div class="product-actions-grid">
+              <button type="button" class="btn-card-cart" onclick="addToCart('p1', 'Kirkland Glucosamine 1500mg (375v)', 595000, 680000, 'product1.jpg')">
+                🛒 Thêm Giỏ
+              </button>
+              <button type="button" class="btn-card-buy" onclick="buyNow('p1', 'Kirkland Glucosamine 1500mg (375v)', 595000, 680000, 'product1.jpg')">
+                ⚡ Mua Ngay
+              </button>
             </div>
           </div>
         </div>
 
         <!-- SẢN PHẨM 2: DẦU CÁ KIRKLAND FISH OIL -->
-        <div class="product-card" data-product="Dầu cá Kirkland Wild Alaskan Fish Oil">
+        <div class="product-card" data-category="tim-mach">
           <div class="product-badge-flag">🇺🇸 Bán Chạy #1</div>
           <div class="product-image-box">
             <img src="product2.jpg"
@@ -2431,8 +2453,7 @@
           <div class="product-details">
             <div class="product-category-tag">TIM MẠCH & MẮT</div>
             <h3 class="product-name">Kirkland Wild Alaskan Fish Oil 1400mg (230 Viên)</h3>
-            <p class="product-benefit">Chiết xuất cá hồi hoang dã Alaska, Omega-3 tinh khiết hỗ trợ tim khỏe, sáng mắt
-              và giảm mỡ máu.</p>
+            <p class="product-benefit">Chiết xuất cá hồi hoang dã Alaska, Omega-3 tinh khiết hỗ trợ tim khỏe, sáng mắt và giảm mỡ máu.</p>
             <div class="product-meta-row">
               <span class="product-rating">⭐⭐⭐⭐⭐ (4.9/5)</span>
               <span class="product-stock">✅ Có sẵn - Kèm Bill</span>
@@ -2442,20 +2463,20 @@
               <span class="price-original">710.000đ</span>
               <span class="price-discount">-13%</span>
             </div>
-            <div class="product-actions">
-              <a href="#lien-he" class="btn btn-pill btn-buy-now"
-                onclick="selectProduct('Kirkland Wild Alaskan Fish Oil')">
-                <span>Đặt Mua Ngay</span>
-              </a>
-              <a href="#lien-he" class="btn-detail-link" onclick="selectProduct('Kirkland Wild Alaskan Fish Oil')">Xem
-                Bill Gốc →</a>
+            <div class="product-actions-grid">
+              <button type="button" class="btn-card-cart" onclick="addToCart('p2', 'Kirkland Wild Alaskan Fish Oil (230v)', 620000, 710000, 'product2.jpg')">
+                🛒 Thêm Giỏ
+              </button>
+              <button type="button" class="btn-card-buy" onclick="buyNow('p2', 'Kirkland Wild Alaskan Fish Oil (230v)', 620000, 710000, 'product2.jpg')">
+                ⚡ Mua Ngay
+              </button>
             </div>
           </div>
         </div>
 
         <!-- SẢN PHẨM 3: COLLAGEN YOUTHEORY -->
-        <div class="product-card" data-product="Collagen Youtheory 390 viên">
-          <div class="product-badge-flag">🇺🇸 Chuẩn Costco</div>
+        <div class="product-card" data-category="lam-dep">
+          <div class="product-badge-flag">🇺🇸 Đẹp Da #1</div>
           <div class="product-image-box">
             <img src="product3.jpg"
               onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='images/product3.jpg';}"
@@ -2465,41 +2486,39 @@
           <div class="product-details">
             <div class="product-category-tag">TRẺ HÓA DA & CHỐNG LÃO HÓA</div>
             <h3 class="product-name">Youtheory Collagen Advanced Formula (390 Viên)</h3>
-            <p class="product-benefit">Bổ sung Collagen Type 1, 2, 3 kết hợp Vitamin C & Biotin giúp da căng mịn, mờ sạm
-              nám và tóc móng bóng khỏe.</p>
+            <p class="product-benefit">Bổ sung Collagen Type 1, 2, 3 kết hợp Vitamin C & Biotin giúp da căng mịn, mờ nám và tóc bóng khỏe.</p>
             <div class="product-meta-row">
-              <span class="product-rating">⭐⭐⭐⭐⭐ (5.0/5)</span>
+              <span class="product-rating">⭐⭐⭐⭐⭐ (4.8/5)</span>
               <span class="product-stock">✅ Có sẵn - Kèm Bill</span>
             </div>
             <div class="product-pricing">
-              <span class="price-current">680.000đ</span>
+              <span class="price-current">620.000đ</span>
               <span class="price-original">790.000đ</span>
-              <span class="price-discount">-14%</span>
+              <span class="price-discount">-22%</span>
             </div>
-            <div class="product-actions">
-              <a href="#lien-he" class="btn btn-pill btn-buy-now"
-                onclick="selectProduct('Youtheory Collagen 390 viên')">
-                <span>Đặt Mua Ngay</span>
-              </a>
-              <a href="#lien-he" class="btn-detail-link" onclick="selectProduct('Youtheory Collagen 390 viên')">Xem Bill
-                Gốc →</a>
+            <div class="product-actions-grid">
+              <button type="button" class="btn-card-cart" onclick="addToCart('p3', 'Youtheory Collagen Advanced (390v)', 620000, 790000, 'product3.jpg')">
+                🛒 Thêm Giỏ
+              </button>
+              <button type="button" class="btn-card-buy" onclick="buyNow('p3', 'Youtheory Collagen Advanced (390v)', 620000, 790000, 'product3.jpg')">
+                ⚡ Mua Ngay
+              </button>
             </div>
           </div>
         </div>
 
-        <!-- SẢN PHẨM 4: MOVE FREE ULTRA -->
-        <div class="product-card" data-product="Schiff Move Free Ultra">
+        <!-- SẢN PHẨM 4: SCHIFF MOVE FREE ULTRA -->
+        <div class="product-card" data-category="khop">
           <div class="product-badge-flag">🇺🇸 Cao Cấp Mỹ</div>
           <div class="product-image-box">
             <img src="product4.jpg"
               onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='images/product4.jpg';}"
-              alt="Schiff Move Free Ultra Triple Action 75 viên hỗ trợ khớp" class="product-thumb-img" loading="lazy" />
+              alt="Schiff Move Free Ultra Triple Action 75 viên Costco" class="product-thumb-img" loading="lazy" />
           </div>
           <div class="product-details">
-            <div class="product-category-tag">ĐẶC TRỊ KHỚP CHUYÊN SÂU</div>
+            <div class="product-category-tag">BỔ KHỚP TRIPLE ACTION</div>
             <h3 class="product-name">Schiff Move Free Ultra Triple Action (75 Viên)</h3>
-            <p class="product-benefit">Chứa Collagen Type II không biến tính + Boron & Hyaluronic Acid. Viên nhỏ chỉ 1
-              viên/ngày, tác dụng nhanh gấp 2 lần.</p>
+            <p class="product-benefit">Chứa Collagen Type II nguyên sinh và Hyaluronic Acid, viên uống nhỏ dễ nuốt, hiệu quả nhanh vượt trội.</p>
             <div class="product-meta-row">
               <span class="product-rating">⭐⭐⭐⭐⭐ (4.9/5)</span>
               <span class="product-stock">✅ Có sẵn - Kèm Bill</span>
@@ -2509,19 +2528,20 @@
               <span class="price-original">850.000đ</span>
               <span class="price-discount">-15%</span>
             </div>
-            <div class="product-actions">
-              <a href="#lien-he" class="btn btn-pill btn-buy-now" onclick="selectProduct('Schiff Move Free Ultra')">
-                <span>Đặt Mua Ngay</span>
-              </a>
-              <a href="#lien-he" class="btn-detail-link" onclick="selectProduct('Schiff Move Free Ultra')">Xem Bill Gốc
-                →</a>
+            <div class="product-actions-grid">
+              <button type="button" class="btn-card-cart" onclick="addToCart('p4', 'Schiff Move Free Ultra (75v)', 720000, 850000, 'product4.jpg')">
+                🛒 Thêm Giỏ
+              </button>
+              <button type="button" class="btn-card-buy" onclick="buyNow('p4', 'Schiff Move Free Ultra (75v)', 720000, 850000, 'product4.jpg')">
+                ⚡ Mua Ngay
+              </button>
             </div>
           </div>
         </div>
 
         <!-- SẢN PHẨM 5: NATROL BIOTIN -->
-        <div class="product-card" data-product="Natrol Biotin 10,000 mcg">
-          <div class="product-badge-flag">🇺🇸 Dược Mỹ Phẩm</div>
+        <div class="product-card" data-category="lam-dep">
+          <div class="product-badge-flag">🇺🇸 Mọc Tóc Nhanh</div>
           <div class="product-image-box">
             <img src="product5.jpg"
               onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='images/product5.jpg';}"
@@ -2530,8 +2550,7 @@
           <div class="product-details">
             <div class="product-category-tag">MỌC TÓC & MÓNG KHỎE</div>
             <h3 class="product-name">Natrol Biotin 10,000 mcg Maximum Strength (60 Viên)</h3>
-            <p class="product-benefit">Công nghệ ngậm tan nhanh trong miệng (Faster Dissolve), kích thích mọc tóc con,
-              trị rụng tóc hói đầu hiệu quả.</p>
+            <p class="product-benefit">Công nghệ ngậm tan nhanh trong miệng, kích thích mọc tóc con, trị rụng tóc hói đầu hiệu quả.</p>
             <div class="product-meta-row">
               <span class="product-rating">⭐⭐⭐⭐⭐ (4.8/5)</span>
               <span class="product-stock">✅ Có sẵn - Kèm Bill</span>
@@ -2541,19 +2560,20 @@
               <span class="price-original">450.000đ</span>
               <span class="price-discount">-16%</span>
             </div>
-            <div class="product-actions">
-              <a href="#lien-he" class="btn btn-pill btn-buy-now" onclick="selectProduct('Natrol Biotin 10,000 mcg')">
-                <span>Đặt Mua Ngay</span>
-              </a>
-              <a href="#lien-he" class="btn-detail-link" onclick="selectProduct('Natrol Biotin 10,000 mcg')">Xem Bill
-                Gốc →</a>
+            <div class="product-actions-grid">
+              <button type="button" class="btn-card-cart" onclick="addToCart('p5', 'Natrol Biotin 10,000 mcg (60v)', 380000, 450000, 'product5.jpg')">
+                🛒 Thêm Giỏ
+              </button>
+              <button type="button" class="btn-card-buy" onclick="buyNow('p5', 'Natrol Biotin 10,000 mcg (60v)', 380000, 450000, 'product5.jpg')">
+                ⚡ Mua Ngay
+              </button>
             </div>
           </div>
         </div>
 
         <!-- SẢN PHẨM 6: TRUNATURE GINKGO BILOBA -->
-        <div class="product-card" data-product="Trunature Ginkgo Biloba 120mg">
-          <div class="product-badge-flag">🇺🇸 Tuần Hoàn Não</div>
+        <div class="product-card" data-category="bo-nao">
+          <div class="product-badge-flag">🇺🇸 Bổ Não Số 1</div>
           <div class="product-image-box">
             <img src="product6.jpg"
               onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='images/product6.jpg';}"
@@ -2562,8 +2582,7 @@
           <div class="product-details">
             <div class="product-category-tag">BỔ NÃO & TRÍ NHỚ</div>
             <h3 class="product-name">Trunature Ginkgo Biloba 120mg (300 Viên)</h3>
-            <p class="product-benefit">Chiết xuất lá bạch quả tiêu chuẩn hóa, tăng cường lưu thông máu lên não, giảm đau
-              đầu chóng mặt, ngủ ngon sâu giấc.</p>
+            <p class="product-benefit">Chiết xuất bạch quả tiêu chuẩn hóa, tăng tuần hoàn máu não, giảm đau đầu chóng mặt, ngủ sâu giấc.</p>
             <div class="product-meta-row">
               <span class="product-rating">⭐⭐⭐⭐⭐ (4.9/5)</span>
               <span class="product-stock">✅ Có sẵn - Kèm Bill</span>
@@ -2573,26 +2592,26 @@
               <span class="price-original">630.000đ</span>
               <span class="price-discount">-14%</span>
             </div>
-            <div class="product-actions">
-              <a href="#lien-he" class="btn btn-pill btn-buy-now"
-                onclick="selectProduct('Trunature Ginkgo Biloba 120mg')">
-                <span>Đặt Mua Ngay</span>
-              </a>
-              <a href="#lien-he" class="btn-detail-link" onclick="selectProduct('Trunature Ginkgo Biloba 120mg')">Xem
-                Bill Gốc →</a>
+            <div class="product-actions-grid">
+              <button type="button" class="btn-card-cart" onclick="addToCart('p6', 'Trunature Ginkgo Biloba 120mg (300v)', 540000, 630000, 'product6.jpg')">
+                🛒 Thêm Giỏ
+              </button>
+              <button type="button" class="btn-card-buy" onclick="buyNow('p6', 'Trunature Ginkgo Biloba 120mg (300v)', 540000, 630000, 'product6.jpg')">
+                ⚡ Mua Ngay
+              </button>
             </div>
           </div>
         </div>
 
       </div>
 
-      <!-- Banner phụ kêu gọi chốt đơn danh mục -->
+      <!-- Banner phụ nhận order sản phẩm khác -->
       <div class="catalog-cta-banner">
         <div class="catalog-cta-text">
-          <h4>Bạn cần tìm sản phẩm nào khác của Costco Mỹ (Vitamin, Dầu gội, Sữa hạt...)?</h4>
-          <p>Chúng tôi nhận order trực tiếp theo yêu cầu tại quầy Costco – Trả bill gốc đúng tên bạn!</p>
+          <h4>Bạn cần tìm sản phẩm nào khác của Costco Mỹ (Sữa hạt, Dầu gội, Đồ gia dụng...)?</h4>
+          <p>Chúng tôi nhận mua hộ trực tiếp tại quầy Costco – Trả bill gốc đúng ngày bạn đặt!</p>
         </div>
-        <a href="#lien-he" class="btn btn-pill btn-white-pill">Yêu Cầu Báo Giá Sản Phẩm Khác</a>
+        <a href="https://zalo.me/0336822318" target="_blank" class="btn btn-pill btn-white-pill">💬 Nhắn Zalo Yêu Cầu Sản Phẩm Khác</a>
       </div>
 
     </div>
@@ -3158,6 +3177,173 @@
       <span class="f-icon">💬</span>
       <span class="f-hover-text">Chat Zalo Dược Sĩ</span>
     </a>
+  </div>
+
+  <!-- ==================== 11. SLIDE-OUT CART DRAWER ==================== -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="closeCartOnOverlay(event)">
+    <div class="cart-drawer" id="cartDrawer">
+      
+      <div class="cart-drawer-header">
+        <h3>
+          <span>🛒</span>
+          <span>Giỏ Hàng Của Bạn</span>
+          <span class="cart-badge" id="drawerCartBadge">0</span>
+        </h3>
+        <button type="button" onclick="clearCart()" class="cart-clear-all-btn" title="Xóa tất cả sản phẩm" style="background: none; border: none; color: #dc2626; font-size: 0.82rem; font-weight: 700; cursor: pointer; text-decoration: underline; margin-left: auto; margin-right: 12px;">Xóa hết</button>
+        <button class="cart-close-btn" onclick="closeCart()" aria-label="Đóng giỏ hàng">✕</button>
+      </div>
+
+      <div class="cart-drawer-body">
+        
+        <!-- Empty State -->
+        <div class="cart-empty-state" id="cartEmptyState">
+          <div class="cart-empty-icon">🛍️</div>
+          <h4>Giỏ hàng đang trống</h4>
+          <p>Hãy chọn sản phẩm bạn quan tâm để thêm vào giỏ hàng nhé!</p>
+          <button class="btn btn-pill btn-buy-now" onclick="closeCart(); window.location.href='#san-pham'">Khám Phá Sản Phẩm Hot</button>
+        </div>
+
+        <!-- Items Container -->
+        <div id="cartItemsContainer" style="display: none;">
+          <div class="cart-items-list" id="cartItemsList">
+            <!-- Items rendered via JavaScript -->
+          </div>
+
+          <!-- Voucher Box -->
+          <div class="cart-voucher-box">
+            <div style="font-size: 0.85rem; font-weight: 800; color: #166534; display: flex; align-items: center; gap: 6px;">
+              <span>🎟️</span>
+              <span>Mã Giảm Giá Voucher (Nhận từ khảo sát):</span>
+            </div>
+            <div class="cart-voucher-input-group">
+              <input type="text" id="voucherInput" class="cart-voucher-input" placeholder="Nhập COSTCO100K...">
+              <button type="button" class="btn-apply-voucher" onclick="applyCartVoucher()">Áp Dụng</button>
+            </div>
+            <div id="voucherStatusMsg" style="font-size: 0.8rem; margin-top: 6px; display: none;"></div>
+          </div>
+
+          <!-- Summary Box -->
+          <div class="cart-summary-box">
+            <div class="cart-summary-row">
+              <span>Tạm tính (<span id="summaryItemCount">0</span> món):</span>
+              <strong id="summarySubtotal">0đ</strong>
+            </div>
+            <div class="cart-summary-row" id="voucherDiscountRow" style="display: none; color: #16a34a;">
+              <span>Giảm giá voucher:</span>
+              <strong id="summaryDiscount">-0đ</strong>
+            </div>
+            <div class="cart-summary-row">
+              <span>Vận chuyển (Toàn quốc):</span>
+              <strong style="color: #16a34a;">Miễn Phí ✈️</strong>
+            </div>
+            <div class="cart-summary-row total-row">
+              <span>Tổng thanh toán:</span>
+              <span class="total-amount" id="summaryTotal">0đ</span>
+            </div>
+          </div>
+
+          <!-- Fast Checkout Form -->
+          <div class="cart-checkout-section">
+            <h4>📦 Thông Tin Nhận Hàng Nhanh</h4>
+            <form id="cartCheckoutForm" onsubmit="handleCartOrderSubmit(event)">
+              <input type="text" id="cartCustomerName" class="cart-form-input" required placeholder="Họ và tên người nhận (*)">
+              <input type="tel" id="cartCustomerPhone" class="cart-form-input" required placeholder="Số điện thoại / Zalo (*)">
+              <input type="text" id="cartCustomerAddress" class="cart-form-input" required placeholder="Địa chỉ giao hàng (Số nhà, đường, tỉnh/thành) (*)">
+              <input type="text" id="cartCustomerNote" class="cart-form-input" placeholder="Ghi chú giao hàng (ví dụ: giao giờ hành chính)">
+              
+              <button type="submit" class="btn-cart-submit" id="btnCartSubmit">
+                <span>🛍️ ĐẶT HÀNG NGAY (SHIP COD TẬN NƠI)</span>
+              </button>
+              <button type="button" class="btn-cart-sepay" onclick="checkoutWithVietQR(event)" style="width: 100%; background: #0f2b48; color: #ffffff; border: 1.5px solid #38bdf8; padding: 11px; border-radius: 10px; font-family: var(--font-heading); font-size: 0.88rem; font-weight: 700; cursor: pointer; margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none;">
+                <span>⚡ Thanh Toán VietQR Tự Động (Sepay MBBank)</span>
+              </button>
+              <button type="button" class="btn-cart-zalo" onclick="orderViaZalo()">
+                <span>💬 Hoặc Đặt Nhanh Qua Zalo Shop</span>
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="cart-toast" id="cartToast">
+    <span>✅</span>
+    <span id="cartToastMsg">Đã thêm vào giỏ hàng!</span>
+  </div>
+
+  <!-- ==================== 12. AI SALES CHATBOT & FLOATING CART WIDGET ==================== -->
+  <div class="chatbot-floating-wrapper" id="chatbotWrapper">
+    <!-- Floating Cart Button (Hiển thị phía trên khi giỏ có hàng, không bị che khuất) -->
+    <button class="floating-cart-btn" onclick="openCart()" id="floatingCartBtn" aria-label="Xem giỏ hàng">
+      <span>🛒</span>
+      <span>Giỏ Hàng</span>
+      <span class="f-badge" id="floatingCartBadge">0</span>
+    </button>
+
+    <div class="chatbot-hint-bubble" id="chatbotHintBubble" onclick="toggleChatbot()">
+      <span class="hint-pulse"></span>
+      <span>👋 Dược sĩ tư vấn 24/7 (Có Voucher 100k)</span>
+      <button type="button" class="hint-close" onclick="event.stopPropagation(); closeChatbotHint()" aria-label="Đóng gợi ý">×</button>
+    </div>
+    <button type="button" class="chatbot-toggle-btn" id="chatbotToggleBtn" onclick="toggleChatbot()" aria-label="Mở chat tư vấn">
+      <span class="chat-icon-open">💬</span>
+      <span class="chat-icon-close">✕</span>
+      <span class="chat-online-badge"></span>
+    </button>
+  </div>
+
+  <!-- CHATBOT WINDOW -->
+  <div class="chatbot-window" id="chatbotWindow">
+    <!-- Header -->
+    <div class="chatbot-header">
+      <div class="chatbot-header-info">
+        <div class="chatbot-avatar">
+          <span>👩‍⚕️</span>
+          <span class="status-dot"></span>
+        </div>
+        <div class="chatbot-header-text">
+          <h4>Trợ Lý Dược Sĩ CostcoHealth</h4>
+          <p><span class="online-indicator"></span> Trực tuyến 24/7 • Hàng bay Air</p>
+        </div>
+      </div>
+      <div class="chatbot-header-actions">
+        <button type="button" class="chat-header-btn" onclick="toggleChatbot()" title="Thu nhỏ">✕</button>
+      </div>
+    </div>
+
+    <!-- Messages Area -->
+    <div class="chatbot-messages" id="chatbotMessages">
+      <!-- Tin nhắn sẽ được render tự động từ script.js -->
+    </div>
+
+    <!-- Quick Action Chips -->
+    <div class="chatbot-chips-bar" id="chatbotChipsBar">
+      <button type="button" class="chat-chip" onclick="handleChipClick('Bố mẹ tôi 60-70 tuổi bị đau khớp gối đi lại lục cục thì uống gì?')">🦴 Đau khớp bố mẹ</button>
+      <button type="button" class="chat-chip" onclick="handleChipClick('Dầu cá Alaska uống có bị tanh ợ ngược không?')">🐟 Dầu cá có tanh?</button>
+      <button type="button" class="chat-chip" onclick="handleChipClick('Uống Collagen có bị nóng hay nổi mụn không?')">🌸 Collagen có nóng?</button>
+      <button type="button" class="chat-chip" onclick="handleChipClick('Tôi bị rụng tóc sau sinh và móng yếu thì uống gì?')">✨ Rụng tóc sau sinh</button>
+      <button type="button" class="chat-chip" onclick="handleChipClick('Bổ não, mất ngủ và chóng mặt tiền đình uống gì?')">🧠 Bổ não & Mất ngủ</button>
+      <button type="button" class="chat-chip" onclick="handleChipClick('Sao giá bên bạn cao hơn trên Shopee?')">💵 Sao đắt hơn Shopee?</button>
+      <button type="button" class="chat-chip" onclick="handleChipClick('Làm sao biết hóa đơn Costco của bạn là thật?')">📜 Check bill thật?</button>
+      <button type="button" class="chat-chip" onclick="handleChipClick('Tôi muốn đặt mua hàng đợt này')">🛍️ Tôi muốn đặt mua</button>
+      <button type="button" class="chat-chip" onclick="handleChipClick('Tôi muốn nhận voucher giảm giá 100k')">🎁 Nhận Voucher 100k</button>
+    </div>
+
+    <!-- Input Bar -->
+    <div class="chatbot-input-bar">
+      <input type="text" id="chatInput" placeholder="Nhập câu hỏi (ví dụ: khớp, giá, bill...)..." onkeydown="if(event.key==='Enter') sendChatMessage()">
+      <button type="button" id="chatSendBtn" onclick="sendChatMessage()" aria-label="Gửi tin nhắn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
+    </div>
   </div>
 
   <!-- JavaScript -->
