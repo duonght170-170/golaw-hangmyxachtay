@@ -392,6 +392,7 @@ function handleCartOrderSubmit(event) {
 
   const name = document.getElementById('cartCustomerName').value.trim();
   const phone = document.getElementById('cartCustomerPhone').value.trim();
+  const email = document.getElementById('cartCustomerEmail') ? document.getElementById('cartCustomerEmail').value.trim() : '';
   const address = document.getElementById('cartCustomerAddress').value.trim();
   const note = document.getElementById('cartCustomerNote') ? document.getElementById('cartCustomerNote').value.trim() : '';
 
@@ -420,6 +421,7 @@ function handleCartOrderSubmit(event) {
     "Thời gian": timestamp,
     "Họ và tên": name,
     "Số điện thoại": phone,
+    "Email": email || "Không cung cấp",
     "Địa chỉ giao hàng": address,
     "Ghi chú đơn hàng": note || "Không có",
     "Danh sách sản phẩm": itemsDetail,

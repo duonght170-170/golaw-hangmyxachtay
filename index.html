@@ -1691,69 +1691,131 @@
       color: #94a3b8;
     }
 
-    /* -------------------- 12. FLOATING ACTION WIDGETS -------------------- */
-    .floating-contact-box {
+    /* -------------------- 12. FLOATING ACTION WIDGETS (BÊN TRÁI: 3 DÒNG) -------------------- */
+    .floating-left-stack {
       position: fixed;
       bottom: 25px;
-      left: 28px;
+      left: 24px;
       display: flex;
       flex-direction: column;
+      align-items: flex-start;
       gap: 10px;
       z-index: 9999;
       pointer-events: none;
+      width: max-content;
+      max-width: calc(100vw - 48px);
     }
 
-    .floating-contact-box > * {
+    .floating-left-stack > * {
       pointer-events: auto;
     }
 
-    .float-btn {
-      display: flex;
+    .float-action-btn {
+      display: inline-flex;
       align-items: center;
-      gap: 10px;
-      background: #ffffff;
+      gap: 9px;
       padding: 10px 18px;
       border-radius: 9999px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-      transition: var(--transition-normal);
       font-family: var(--font-heading);
-      font-size: 0.85rem;
+      font-size: 0.86rem;
       font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.2);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      width: fit-content;
+      max-width: 100%;
+      white-space: nowrap;
+      border: none;
+      cursor: pointer;
     }
 
-    .float-call {
-      background: #dc2626;
+    /* Dòng 1: Hotline */
+    .float-action-btn.float-hotline {
+      background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
       color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+    }
+    .float-action-btn.float-hotline:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 10px 25px rgba(220, 38, 38, 0.55);
     }
 
-    .float-call:hover {
-      background: #b91c1c;
-      transform: scale(1.05);
-    }
-
-    .float-zalo {
-      background: #0068ff;
+    /* Dòng 2: Chat Zalo Dược Sĩ */
+    .float-action-btn.float-zalo {
+      background: linear-gradient(135deg, #0068ff 0%, #0052cc 100%);
       color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 6px 20px rgba(0, 104, 255, 0.35);
+    }
+    .float-action-btn.float-zalo:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 10px 25px rgba(0, 104, 255, 0.5);
     }
 
-    .float-zalo:hover {
-      background: #0052cc;
-      transform: scale(1.05);
+    /* Dòng 3: Bot Dược Sĩ Tư Vấn 24/7 */
+    .float-action-btn.float-bot {
+      background: linear-gradient(135deg, #0f2b48 0%, #1e3a8a 100%);
+      color: #ffffff;
+      border: 1.5px solid #38bdf8;
+      box-shadow: 0 6px 20px rgba(15, 43, 72, 0.4);
+      position: relative;
+    }
+    .float-action-btn.float-bot:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.45);
+      border-color: #7dd3fc;
     }
 
-    .float-btn .f-icon {
+    .float-action-btn .f-bot-badge {
+      background: #22c55e;
+      color: #ffffff;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 9999px;
+      letter-spacing: 0.2px;
+    }
+
+    .float-action-btn .f-icon {
       font-size: 1.1rem;
     }
 
-    @media (max-width: 640px) {
-      .floating-contact-box {
-        bottom: 18px;
-        left: 14px;
-        gap: 8px;
+    .float-action-btn .status-dot-pulse {
+      width: 9px;
+      height: 9px;
+      background: #22c55e;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+      animation: pulseGreen 1.8s infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulseGreen {
+      0% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
       }
-      .float-btn {
+      70% {
+        box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .floating-left-stack {
+        bottom: 16px;
+        left: 14px;
+        gap: 7px;
+      }
+      .float-action-btn {
         padding: 8px 14px;
         font-size: 0.78rem;
+      }
+      .float-action-btn .f-bot-badge {
+        display: none;
       }
     }
 
@@ -3166,17 +3228,7 @@
     </div>
   </footer>
 
-  <!-- ==================== 10. FLOATING ACTION WIDGETS ==================== -->
-  <div class="floating-contact-box">
-    <a href="tel:0336822318" class="float-btn float-call" title="Gọi Hotline tư vấn ngay">
-      <span class="f-icon">📞</span>
-      <span class="f-hover-text">Hotline: 0336.822.318</span>
-    </a>
-    <a href="https://zalo.me/0336822318" target="_blank" class="float-btn float-zalo" title="Chat Zalo cùng dược sĩ">
-      <span class="f-icon">💬</span>
-      <span class="f-hover-text">Chat Zalo Dược Sĩ</span>
-    </a>
-  </div>
+
 
   <!-- ==================== 11. SLIDE-OUT CART DRAWER ==================== -->
   <div class="cart-drawer-overlay" id="cartOverlay" onclick="closeCartOnOverlay(event)">
@@ -3247,6 +3299,7 @@
             <form id="cartCheckoutForm" onsubmit="handleCartOrderSubmit(event)">
               <input type="text" id="cartCustomerName" class="cart-form-input" required placeholder="Họ và tên người nhận (Ví dụ: Nguyễn Văn A) (*)">
               <input type="tel" id="cartCustomerPhone" class="cart-form-input" required placeholder="Số điện thoại / Zalo (Ví dụ: 0912 345 678) (*)">
+              <input type="email" id="cartCustomerEmail" class="cart-form-input" placeholder="Email nhận thông tin đơn hàng (Ví dụ: nguyenvana@gmail.com)">
               <input type="text" id="cartCustomerAddress" class="cart-form-input" required placeholder="Địa chỉ nhận hàng (Ví dụ: 123 Đường Nguyễn Trãi, Quận 1, TP.HCM) (*)">
               <input type="text" id="cartCustomerNote" class="cart-form-input" placeholder="Ghi chú giao hàng (ví dụ: giao giờ hành chính)">
               
@@ -3275,24 +3328,26 @@
     <span id="cartToastMsg">Đã thêm vào giỏ hàng!</span>
   </div>
 
-  <!-- ==================== 12. AI SALES CHATBOT & FLOATING CART WIDGET ==================== -->
-  <div class="chatbot-floating-wrapper" id="chatbotWrapper">
-    <!-- Floating Cart Button (Hiển thị phía trên khi giỏ có hàng, không bị che khuất) -->
-    <button class="floating-cart-btn" onclick="openCart()" id="floatingCartBtn" aria-label="Xem giỏ hàng">
-      <span>🛒</span>
-      <span>Giỏ Hàng</span>
-      <span class="f-badge" id="floatingCartBadge">0</span>
-    </button>
+  <!-- ==================== FLOATING ACTION STACK (BÊN TRÁI: DÒNG 1 HOTLINE, DÒNG 2 ZALO, DÒNG 3 BOT DƯỢC SĨ) ==================== -->
+  <div class="floating-left-stack" id="floatingLeftStack">
+    <!-- Dòng 1: Hotline -->
+    <a href="tel:0336822318" class="float-action-btn float-hotline" title="Gọi Hotline tư vấn ngay">
+      <span class="f-icon">📞</span>
+      <span class="f-text">Hotline: 0336.822.318</span>
+    </a>
 
-    <div class="chatbot-hint-bubble" id="chatbotHintBubble" onclick="toggleChatbot()">
-      <span class="hint-pulse"></span>
-      <span>👋 Dược sĩ tư vấn 24/7 (Có Voucher 100k)</span>
-      <button type="button" class="hint-close" onclick="event.stopPropagation(); closeChatbotHint()" aria-label="Đóng gợi ý">×</button>
-    </div>
-    <button type="button" class="chatbot-toggle-btn" id="chatbotToggleBtn" onclick="toggleChatbot()" aria-label="Mở chat tư vấn">
-      <span class="chat-icon-open">💬</span>
-      <span class="chat-icon-close">✕</span>
-      <span class="chat-online-badge"></span>
+    <!-- Dòng 2: Chat Zalo Dược Sĩ -->
+    <a href="https://zalo.me/0336822318" target="_blank" class="float-action-btn float-zalo" title="Chat Zalo cùng dược sĩ">
+      <span class="f-icon">💬</span>
+      <span class="f-text">Chat Zalo Dược Sĩ</span>
+    </a>
+
+    <!-- Dòng 3: Bot Dược Sĩ Tư Vấn 24/7 -->
+    <button type="button" class="float-action-btn float-bot" id="chatbotToggleBtn" onclick="toggleChatbot()" title="Chat trực tiếp với Trợ lý Dược sĩ AI 24/7">
+      <span class="f-icon">👩‍⚕️</span>
+      <span class="f-text">Bot Dược Sĩ Tư Vấn 24/7</span>
+      <span class="f-bot-badge">Voucher 100k</span>
+      <span class="status-dot-pulse"></span>
     </button>
   </div>
 
